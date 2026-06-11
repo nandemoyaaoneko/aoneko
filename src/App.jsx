@@ -14,8 +14,8 @@ const cleanupItems = [
     category: "家電・空調",
     status: "取り外し・穴埋め対応",
     imageSrc: "/assets/reuse_aircon.png",
-    description: "取り外しからお引き取り・リサイクルまで一括対応。古いモデルや動かないエアコンも、壁の穴埋めや配線処理を含めて安全に撤去いたします。",
-    actionText: "お引き取り・リサイクル対象",
+    description: "取り外しから引き取り・リサイクルまで一括対応。古いモデルや動かないエアコンも、壁の穴埋めや配線処理を含めて安全に撤去いたします。",
+    actionText: "引取・リサイクル対象",
     badgeText: "即日引取可能",
     keywords: ["エアコン処分", "エアコン取り外し", "蟹江 不用品引取", "家電リサイクル"]
   },
@@ -27,7 +27,7 @@ const cleanupItems = [
     description: "個人情報や社外秘データの漏洩を防ぐため、物理的または専用ソフトによる完全データ消去を行います。古い機器や液晶ディスプレイもまとめてお引き取りいたします。",
     actionText: "データ消去・引取対象",
     badgeText: "機密保護遵守",
-    keywords: ["中古PC処分", "パソコンデータ消去", "液晶モニター処分", "蟹江町 IT処分"]
+    keywords: ["中古PC処分", "パソコンデータ消去", "液晶モニター処分", "蟹江町 IT整理"]
   },
   {
     name: "伝統的・モダン仏壇",
@@ -64,7 +64,7 @@ const cleanupItems = [
     category: "生活家電",
     status: "リサイクル法対応引取",
     imageSrc: "/assets/reuse_fridge.png",
-    description: "家電リサイクル法対象の冷蔵庫お引き取り。一人暮らし用の小型サイズから、ファミリー用の大型冷蔵庫まで、面倒な手続き不要で即日引き取りに伺います。",
+    description: "家電リサイクル法対象の冷蔵庫引き取り。一人暮らし用の小型サイズから、ファミリー用の大型冷蔵庫まで、面倒な手続き不要で即日引き取りに伺います。",
     actionText: "リサイクル対象",
     badgeText: "即日引取可能",
     keywords: ["冷蔵庫処分", "一人暮らし家電", "冷蔵庫引取 蟹江", "家電リサイクル法"]
@@ -74,10 +74,10 @@ const cleanupItems = [
     category: "生活家電",
     status: "水抜き・取り外し対応",
     imageSrc: "/assets/reuse_washer.png",
-    description: "ドラム式や縦型の洗濯機・衣類乾燥機の取り外しとお引き取り。給排水ホースの取り外しや水漏れ対策もしっかり行い、安全かつ迅速に搬出します。",
+    description: "ドラム式や縦型の洗濯機・衣類乾燥機の取り外しと引き取り。給排水ホースの取り外しや水漏れ対策もしっかり行い、安全かつ迅速に搬出します。",
     actionText: "取り外し・引取対象",
     badgeText: "水漏れ対策万全",
-    keywords: ["洗濯機処分", "ドラム式洗濯機処分", "愛知 家電リサイクル", "洗濯機水抜き"]
+    keywords: ["洗濯機処分", "ドラム式洗濯機引取", "愛知 家電リサイクル", "洗濯機水抜き"]
   },
   {
     name: "ターンテーブル電子レンジ",
@@ -85,9 +85,9 @@ const cleanupItems = [
     status: "小型家電まとめて引取",
     imageSrc: "/assets/reuse_microwave.png",
     description: "電子レンジ、炊飯器、トースターなどの小型キッチン家電。壊れているものや汚れが目立つものでも、お片付けの際にまとめてお引き取り可能です。",
-    actionText: "一括引取・分別対象",
+    actionText: "一括処分・分別対象",
     badgeText: "壊れていてもOK",
-    keywords: ["電子レンジ処分", "キッチン家電処分", "小型家電リサイクル", "不用品処分"]
+    keywords: ["電子レンジ処分", "キッチン家電処分", "小型家電リサイクル", "不用品引取"]
   },
   {
     name: "ファブリック2人掛けコンパクトソファ",
@@ -97,7 +97,7 @@ const cleanupItems = [
     description: "粗大ゴミに出しにくい2人掛け・3人掛けの大型ソファや座椅子。室内のドアから通らない場合は、その場で適切に解体して安全に搬出いたします。",
     actionText: "解体・搬出サポート",
     badgeText: "室内解体対応",
-    keywords: ["ソファ処分 蟹江", "大型ソファ処分", "リビング家具引取", "粗大ゴミ処分"]
+    keywords: ["ソファ処分 蟹江", "大型ソファ引取", "リビング家具引取", "粗大ゴミ処分"]
   },
   {
     name: "Hi-Fi高音質ステレオアンプ & スピーカー",
@@ -107,7 +107,7 @@ const cleanupItems = [
     description: "ステレオアンプ、大型スピーカー、レコードプレーヤーなどの音響機器やAV機器。古いレトロオーディオや動かないジャンク品も喜んでお引き取りします。",
     actionText: "引取・リユース対象",
     badgeText: "レトロ音響歓迎",
-    keywords: ["オーディオ買取", "アンプ処分", "スピーカー処分", "遺品整理カメラ"]
+    keywords: ["オーディオ買取", "アンプ処分", "スピーカー引取", "遺品整理カメラ"]
   },
   {
     name: "天然木ローテーブル",
@@ -117,7 +117,7 @@ const cleanupItems = [
     description: "ダイニングテーブル、ガラステーブル、学習机などの引き取り。処分に手間がかかる大きな天板や金属脚の家具も、すべて一括で片付け対応いたします。",
     actionText: "一括搬出・解体対象",
     badgeText: "分別お任せOK",
-    keywords: ["テーブル処分", "ローテーブル処分", "学習机引き取り", "家具片付け"]
+    keywords: ["テーブル処分", "ローテーブル引取", "学習机引き取り", "家具片付け"]
   },
   {
     name: "高速SSD搭載ノートPC",
@@ -127,7 +127,7 @@ const cleanupItems = [
     description: "使わなくなったノートパソコン、タブレット、スマートフォン。ハードディスクや内部メモリのデータ消去からリサイクルまで安心のワンストップ対応。",
     actionText: "データ消去・リサイクル",
     badgeText: "個人情報保護",
-    keywords: ["ノートPC処分", "スマホ処分", "データ消去証明", "小型家電処分"]
+    keywords: ["ノートPC処分", "スマホ引取", "データ消去証明", "小型家電引取"]
   },
   {
     name: "LEDマルチアングルデスクライト",
@@ -140,6 +140,7 @@ const cleanupItems = [
     keywords: ["照明処分", "蛍光灯処分", "天井ライト取り外し", "電気器具片付け"]
   }
 ];
+
 
 export default function App() {
   const WEB3FORMS_ACCESS_KEY = "1eac69c5-f18d-4203-912a-6f4ae0752065";
@@ -476,7 +477,7 @@ export default function App() {
     },
     {
       q: "愛知県周辺で深夜や早朝に対応できる片付け・便利屋はありますか？",
-      a: "はい、「何でも屋 青ねこ」は愛知県（名古屋市、蟹江町など）、岐阜県、三重県エリアで深夜・早朝を問わず引っ越し 片付けや不用品回収の出張作業に24時間対応できる便利屋です。お客様のライフスタイルやご都合に合わせて柔軟に作業スケジュールを調整いたします。"
+      a: "はい、「何でも屋 青ねこ」は愛知県（名古屋市、蟹江町など）、岐阜県、三重県エリアで深夜・早朝を問わず引っ越し 片付けや不用品整理の出張作業に24時間対応できる便利屋です。お客様のライフスタイルやご都合に合わせて柔軟に作業スケジュールを調整いたします。"
     },
     {
       q: "事前の分別や片付けが不要（丸投げできる）お部屋の片付けサポートサービスはありますか？",
@@ -547,7 +548,7 @@ export default function App() {
     },
     {
       title: "安全なデバイス管理",
-      description: "回収後の確実なデータ消去と端末の安全な取り扱い。",
+      description: "引取後の確実なデータ消去と端末の安全な取り扱い。",
       icon: (
         <svg className="w-5 h-5 text-sky-600 shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
@@ -943,7 +944,7 @@ export default function App() {
               </h2>
               <div className="h-1.5 w-16 bg-[#0C74B3] mx-auto mt-4 rounded-full" />
               <p className="text-sm sm:text-base text-slate-500 mt-4 font-bold max-w-xl mx-auto leading-relaxed">
-                お部屋のお片付けや不用品買取で引き取りを行っている主な回収品目です。家電リサイクル法対象品から、処分の難しい大型家具、個人情報の入った機器まで、すべてお任せください。
+                お部屋のお片付けや不用品買取で引き取りを行っている主な対象品目です。家電リサイクル法対象品から、処分の難しい大型家具、個人情報の入った機器まで、すべてお任せください。
               </p>
             </div>
 
@@ -986,7 +987,7 @@ export default function App() {
                       <div className="relative aspect-square w-full bg-white overflow-hidden border-b border-[#F0F7FA] p-8 flex items-center justify-center">
                         <img 
                           src={item.imageSrc} 
-                          alt={`何でも屋 青ねこ お引き取り品 - ${item.name}`} 
+                          alt={`何でも屋 青ねこ 主要品目 - ${item.name}`} 
                           className="max-w-full max-h-full object-contain"
                         />
                         {/* Category Badge */}
