@@ -7,116 +7,137 @@ import StickyCTA from './components/StickyCTA';
 import FloatingLineButton from './components/FloatingLineButton';
 import ScrollToTopButton from './components/ScrollToTopButton';
 
-// お片付けリユース品 (Okatatzuke Reuse Items)
-const reuseItems = [
+// お片付け主要品目 (Okatatzuke Shuyo Hinmoku)
+const cleanupItems = [
   {
-    name: "家庭用エアコン (分解洗浄済)",
+    name: "家庭用エアコン (分解・取り外し)",
     category: "家電・空調",
-    status: "高圧洗浄・点検済",
+    status: "取り外し・穴埋め対応",
     imageSrc: "/assets/reuse_aircon.png",
-    description: "回収後に専門スタッフが内部まで徹底的に高圧洗浄・動作テストを重ねた、すぐに使えるリユースエアコン。蟹江町や愛知近郊での取付工事もあわせてご相談ください。",
-    keywords: ["中古エアコン", "エアコン買取 愛知", "格安エアコン", "便利屋 設置対応"]
+    description: "取り外しから回収・リサイクルまで一括対応。古いモデルや動かないエアコンも、壁の穴埋めや配線処理を含めて安全に撤去いたします。",
+    actionText: "回収・リサイクル対象",
+    badgeText: "即日引取可能",
+    keywords: ["エアコン処分", "エアコン取り外し", "蟹江 不用品回収", "家電リサイクル"]
   },
   {
     name: "デスクトップPC & モニターセット",
     category: "パソコン・IT機器",
-    status: "データ完全消去済",
+    status: "データ完全消去対応",
     imageSrc: "/assets/reuse_pc.png",
-    description: "完全にデータ消去（データ消去証明書発行可能）を行い、最新OSへクリーンインストール済みのデスクトップパソコン。在宅ワークや学生の新生活に最適です。",
-    keywords: ["中古パソコン 蟹江", "デスクトップPC", "データ消去", "格安PCセット"]
+    description: "個人情報や社外秘データの漏洩を防ぐため、物理的または専用ソフトによる完全データ消去を行います。古い機器や液晶ディスプレイもまとめて回収いたします。",
+    actionText: "データ消去・回収対象",
+    badgeText: "機密保護遵守",
+    keywords: ["中古PC回収", "パソコンデータ消去", "液晶モニター処分", "蟹江町 IT回収"]
   },
   {
     name: "伝統的・モダン仏壇",
     category: "家具・仏具",
-    status: "魂抜き・供養対応済",
+    status: "供養・魂抜き手配可能",
     imageSrc: "/assets/reuse_butsudan.png",
-    description: "ご遺族様のご要望に合わせて丁重にお引き取りしたお仏壇。専門の作法に基づいて魂抜き・供養のお手続きを終えたのち、状態の良いものをリユースしております。",
-    keywords: ["仏壇処分 愛知", "仏壇供養", "遺品整理 仏壇", "リサイクル仏壇"]
+    description: "ご遺族様のご要望に合わせて丁重にお引き取り。専門の作法に基づいて魂抜き・供養のお手続きを終えたのち、丁重に搬出・処分いたします。",
+    actionText: "供養・搬出・処分対象",
+    badgeText: "遺品整理対応",
+    keywords: ["仏壇処分 愛知", "仏壇供養", "遺品整理 仏壇", "魂抜きお性根抜き"]
   },
   {
     name: "木製マルチブックシェルフ",
-    category: "家具・収納",
-    status: "クリーニング・傷補修済",
+    category: "大型家具・収納",
+    status: "解体・養生搬出対応",
     imageSrc: "/assets/reuse_bookshelf.png",
-    description: "どんなお部屋にも馴染むシンプルな木製本棚。棚板の高さ調整が可能で、文庫本から大型ファイルまでスマートに収納できます。頑丈な作りで傷も極めて少ない良品です。",
-    keywords: ["中古家具 蟹江", "本棚回収", "お片付け整理", "木製本棚"]
+    description: "大型本棚や棚板、スチールラックなどの家具解体・搬出。搬出経路が狭い場所でも、壁や床に傷をつけないよう丁寧に養生して運び出します。",
+    actionText: "解体・搬出サポート",
+    badgeText: "傷防止養生徹底",
+    keywords: ["大型本棚処分", "家具解体回収", "お片付け片付け", "蟹江町 家具回収"]
   },
   {
     name: "高反発プレミアムダブルマットレス",
     category: "寝具・ベッド",
-    status: "除菌・消臭スチーム済",
+    status: "ベッド解体・回収対応",
     imageSrc: "/assets/reuse_mattress.png",
-    description: "へたりの少ない高密度フォームを使用した極上の高反発マットレス。除菌・消臭スチームクリーニングを念入りに行っており、安心してお使いいただけます。",
-    keywords: ["中古マットレス", "ベッド処分", "不用品回収 寝具", "マットレス買取"]
+    description: "処分に困る大型マットレスやベッドフレームの回収。重くて搬出が困難なダブルサイズやシステムベッドも、スタッフが分解して迅速に運び出します。",
+    actionText: "搬出・処分サポート",
+    badgeText: "大型家具対応",
+    keywords: ["マットレス処分", "ベッド解体処分", "不用品回収 寝具", "粗大ゴミベッド"]
   },
   {
     name: "2ドアコンパクト冷蔵庫",
     category: "生活家電",
-    status: "動作確認・アルコール消毒済",
+    status: "リサイクル法対応回収",
     imageSrc: "/assets/reuse_fridge.png",
-    description: "一人暮らしや寝室用のサブとして大人気のサイズ。庫内の棚やパッキンまで除菌洗浄済みで、嫌なニオイも一切ありません。",
-    keywords: ["中古冷蔵庫", "一人暮らし家電", "冷蔵庫買取", "格安家電 愛知"]
+    description: "家電リサイクル法対象の冷蔵庫回収。一人暮らし用の小型サイズから、ファミリー用の大型冷蔵庫まで、面倒な手続き不要で即日引き取りに伺います。",
+    actionText: "リサイクル対象",
+    badgeText: "即日引取可能",
+    keywords: ["冷蔵庫処分", "一人暮らし家電", "冷蔵庫回収 蟹江", "家電リサイクル法"]
   },
   {
     name: "全自動縦型洗濯機 (5.0kg)",
     category: "生活家電",
-    status: "洗濯槽分解除菌洗浄済",
+    status: "水抜き・取り外し対応",
     imageSrc: "/assets/reuse_washer.png",
-    description: "徹底的にドラム裏のカビまで高圧洗浄・除菌を施した全自動洗濯機。動作確認済みで、新生活のスタートにすぐに役立ちます。",
-    keywords: ["中古洗濯機", "洗濯機回収", "愛知 家電リサイクル", "洗濯槽洗浄"]
+    description: "ドラム式や縦型の洗濯機・衣類乾燥機の取り外しと回収。給排水ホースの取り外しや水漏れ対策もしっかり行い、安全かつ迅速に搬出します。",
+    actionText: "取り外し・回収対象",
+    badgeText: "水漏れ対策万全",
+    keywords: ["洗濯機処分", "ドラム式洗濯機回収", "愛知 家電リサイクル", "洗濯機水抜き"]
   },
   {
     name: "ターンテーブル電子レンジ",
     category: "生活家電",
-    status: "動作点検・内外部消臭済",
+    status: "小型家電まとめて回収",
     imageSrc: "/assets/reuse_microwave.png",
-    description: "簡単操作で温め・解凍ができるシンプル設計。油汚れを落とし、隅々までアルコール消毒済みでお届けします。",
-    keywords: ["電子レンジ 中古", "キッチン家電", "蟹江 不用品回収", "時短家電"]
+    description: "電子レンジ、炊飯器、トースターなどの小型キッチン家電。壊れているものや汚れが目立つものでも、お片付けの際にまとめて回収可能です。",
+    actionText: "一括回収・分別対象",
+    badgeText: "壊れていてもOK",
+    keywords: ["電子レンジ回収", "キッチン家電処分", "小型家電リサイクル", "不用品回収"]
   },
   {
     name: "ファブリック2人掛けコンパクトソファ",
-    category: "家具・ソファ",
-    status: "スチームリンサー除菌済",
-    price: "4,000円〜",
+    category: "大型家具・ソファ",
+    status: "室内解体・搬出対応",
     imageSrc: "/assets/reuse_sofa.png",
-    description: "北欧風デザインが魅力的なコンパクトソファ。リンサークリーナーによるシミ抜き・高温スチーム除菌を施しています。",
-    keywords: ["中古ソファ", "ソファ処分", "リビング家具", "北欧ソファ"]
+    description: "粗大ゴミに出しにくい2人掛け・3人掛けの大型ソファや座椅子。室内のドアから通らない場合は、その場で適切に解体して安全に搬出いたします。",
+    actionText: "解体・搬出サポート",
+    badgeText: "室内解体対応",
+    keywords: ["ソファ処分 蟹江", "大型ソファ回収", "リビング家具引取", "粗大ゴミ回収"]
   },
   {
     name: "Hi-Fi高音質ステレオアンプ & スピーカー",
     category: "音響・映像機器",
-    status: "音出力テスト・動作確認済",
-    price: "10,000円〜",
+    status: "レトロ・ジャンク歓迎",
     imageSrc: "/assets/reuse_stereo.png",
-    description: "音楽愛好家から引き取った、動作確認済みの高音質ステレオアンプ。傷が少なくクリアな音質をお楽しみいただけます。",
-    keywords: ["オーディオ買取", "中古アンプ", "ステレオ回収", "音響機器リユース"]
+    description: "ステレオアンプ、大型スピーカー、レコードプレーヤーなどの音響機器やAV機器。古いレトロオーディオや動かないジャンク品も喜んで回収します。",
+    actionText: "回収・リユース対象",
+    badgeText: "レトロ音響歓迎",
+    keywords: ["オーディオ買取", "アンプ処分", "スピーカー回収", "遺品整理カメラ"]
   },
   {
     name: "天然木ローテーブル",
     category: "家具・テーブル",
-    status: "天板研磨・オイル仕上げ済",
-    price: "3,000円〜",
+    status: "大天板・金属脚対応",
     imageSrc: "/assets/reuse_table.png",
-    description: "木の温もりが感じられる折りたたみ式センターテーブル。表面の細かな擦れ跡は補修済みで、ヴィンテージの風合いがあります。",
-    keywords: ["中古テーブル", "ローテーブル", "家具引取", "天然木テーブル"]
+    description: "ダイニングテーブル、ガラステーブル、学習机などの引き取り。処分に手間がかかる大きな天板や金属脚の家具も、すべて一括で片付け対応いたします。",
+    actionText: "一括搬出・解体対象",
+    badgeText: "分別お任せOK",
+    keywords: ["テーブル処分", "ローテーブル回収", "学習机引き取り", "家具片付け"]
   },
   {
     name: "高速SSD搭載ノートPC",
     category: "パソコン・IT機器",
-    status: "OSクリーンインストール済",
-    price: "15,000円〜",
+    status: "小型デバイス消去対応",
     imageSrc: "/assets/reuse_laptop.png",
-    description: "薄型・軽量で持ち運びに便利なノートパソコン。最新オフィスソフト動作確認済みで、レポート作成やネットサーフィンに最適。",
-    keywords: ["中古ノートPC", "パソコン買取", "データ消去", "格安ノートPC"]
+    description: "使わなくなったノートパソコン、タブレット、スマートフォン。ハードディスクや内部メモリのデータ消去からリサイクルまで安心のワンストップ対応。",
+    actionText: "データ消去・リサイクル",
+    badgeText: "個人情報保護",
+    keywords: ["ノートPC処分", "スマホ回収", "データ消去証明", "小型家電回収"]
   },
   {
     name: "LEDマルチアングルデスクライト",
     category: "照明器具",
-    status: "点灯確認・クリーニング済",
-    price: "1,500円〜",
+    status: "取り外し・分別対応",
     imageSrc: "/assets/reuse_lamp.png",
-    description: "無段階調光・角度調整が可能な目に優しいLEDデスクランプ。デスクワークやベッドサイドでの読書に非常に便利です。",
-    keywords: ["中古照明", "LEDライト", "省エネ家電", "デスクランプ"]
+    description: "シーリングライト、デスクランプ、蛍光灯器具などの照明器具全般。電球の分別や天井からの取り外し作業も、安全のためにプロにお任せください。",
+    actionText: "取り外し・分別対象",
+    badgeText: "高所作業対応",
+    keywords: ["照明処分", "蛍光灯回収", "天井ライト取り外し", "電気器具片付け"]
   }
 ];
 
@@ -905,7 +926,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* お片付け 主なリユース対象品目 Section */}
+        {/* お片付け主要品目 Section */}
         <section className="py-24 bg-white relative overflow-hidden" id="reuse">
           {/* Background decoration */}
           <div className="absolute top-1/2 left-0 w-80 h-80 bg-sky-50 rounded-full blur-3xl opacity-60 pointer-events-none -translate-y-1/2" />
@@ -915,14 +936,14 @@ export default function App() {
             {/* Section Header */}
             <div className="text-center max-w-3xl mx-auto mb-16">
               <span className="inline-block bg-[#EAF5FC] text-[#0C74B3] text-xs font-black px-4 py-1.5 rounded-full mb-4 tracking-wider uppercase">
-                お片付け 主なリユース対象品目
+                お片付け主要品目
               </span>
               <h2 className="text-3xl sm:text-4xl font-black text-jeimas-blue-dark tracking-[-0.02em]">
-                お片付け 主なリユース対象品目
+                お片付け主要品目
               </h2>
               <div className="h-1.5 w-16 bg-[#0C74B3] mx-auto mt-4 rounded-full" />
               <p className="text-sm sm:text-base text-slate-500 mt-4 font-bold max-w-xl mx-auto leading-relaxed">
-                お部屋のお片付けや不用品回収で回収したお品物のうち、徹底的なメンテナンス、除菌清掃、動作チェックをクリアした高品質なリユース品をご紹介します。
+                お部屋のお片付けや不用品回収で引き取りを行っている主な回収品目です。家電リサイクル法対象品から、処分の難しい大型家具、個人情報の入った機器まで、すべてお任せください。
               </p>
             </div>
 
@@ -955,7 +976,7 @@ export default function App() {
                 ref={galleryRef}
                 className="flex gap-6 overflow-x-auto py-6 px-2 scroll-smooth snap-x snap-mandatory scrollbar-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
               >
-                {reuseItems.map((item, idx) => (
+                {cleanupItems.map((item, idx) => (
                   <div 
                     key={idx}
                     className="w-[280px] sm:w-[320px] shrink-0 snap-start bg-white rounded-[24px] border border-[#E0EEF6] shadow-premium hover:shadow-lg hover:border-[#0C74B3]/25 transition-all duration-300 flex flex-col justify-between overflow-hidden group/card"
@@ -965,7 +986,7 @@ export default function App() {
                       <div className="relative aspect-square w-full bg-white overflow-hidden border-b border-[#F0F7FA] p-3 flex items-center justify-center">
                         <img 
                           src={item.imageSrc} 
-                          alt={`何でも屋 青ねこ リユース品 - ${item.name}`} 
+                          alt={`何でも屋 青ねこ 回収品 - ${item.name}`} 
                           className="max-w-full max-h-full object-contain"
                         />
                         {/* Category Badge */}
@@ -997,10 +1018,10 @@ export default function App() {
                       <div className="flex items-center justify-between">
                         <div className="text-left">
                           <p className="text-[9px] text-slate-400 font-bold leading-none">お片付け時の対応</p>
-                          <p className="text-sm sm:text-base font-black text-[#0C74B3] mt-1">回収・リユース対象</p>
+                          <p className="text-sm sm:text-base font-black text-[#0C74B3] mt-1">{item.actionText}</p>
                         </div>
                         <span className="text-[9px] text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full font-bold border border-emerald-100">
-                          買取・引取対応
+                          {item.badgeText}
                         </span>
                       </div>
 
