@@ -7,6 +7,127 @@ import StickyCTA from './components/StickyCTA';
 import FloatingLineButton from './components/FloatingLineButton';
 import ScrollToTopButton from './components/ScrollToTopButton';
 
+// お片付けリユース品 (Okatatzuke Reuse Items)
+const reuseItems = [
+  {
+    name: "家庭用エアコン (分解洗浄済)",
+    category: "家電・空調",
+    status: "高圧洗浄・点検済",
+    price: "15,000円〜",
+    imageSrc: "/assets/reuse_aircon.png",
+    description: "回収後に専門スタッフが内部まで徹底的に高圧洗浄・動作テストを重ねた、すぐに使えるリユースエアコン。蟹江町や愛知近郊での取付工事もあわせてご相談ください。",
+    keywords: ["中古エアコン", "エアコン買取 愛知", "格安エアコン", "便利屋 設置対応"]
+  },
+  {
+    name: "デスクトップPC & モニターセット",
+    category: "パソコン・IT機器",
+    status: "データ完全消去済",
+    price: "12,000円〜",
+    imageSrc: "/assets/reuse_pc.png",
+    description: "完全にデータ消去（データ消去証明書発行可能）を行い、最新OSへクリーンインストール済みのデスクトップパソコン。在宅ワークや学生の新生活に最適です。",
+    keywords: ["中古パソコン 蟹江", "デスクトップPC", "データ消去", "格安PCセット"]
+  },
+  {
+    name: "伝統的・モダン仏壇",
+    category: "家具・仏具",
+    status: "魂抜き・供養対応済",
+    price: "ASK (要相談)",
+    imageSrc: "/assets/reuse_butsudan.png",
+    description: "ご遺族様のご要望に合わせて丁重にお引き取りしたお仏壇。専門の作法に基づいて魂抜き・供養のお手続きを終えたのち、状態の良いものをリユースしております。",
+    keywords: ["仏壇処分 愛知", "仏壇供養", "遺品整理 仏壇", "リサイクル仏壇"]
+  },
+  {
+    name: "木製マルチブックシェルフ",
+    category: "家具・収納",
+    status: "クリーニング・傷補修済",
+    price: "3,000円〜",
+    imageSrc: "/assets/reuse_bookshelf.png",
+    description: "どんなお部屋にも馴染むシンプルな木製本棚。棚板の高さ調整が可能で、文庫本から大型ファイルまでスマートに収納できます。頑丈な作りで傷も極めて少ない良品です。",
+    keywords: ["中古家具 蟹江", "本棚回収", "お片付け整理", "木製本棚"]
+  },
+  {
+    name: "高反発プレミアムダブルマットレス",
+    category: "寝具・ベッド",
+    status: "除菌・消臭スチーム済",
+    price: "5,000円〜",
+    imageSrc: "/assets/reuse_mattress.png",
+    description: "へたりの少ない高密度フォームを使用した極上の高反発マットレス。除菌・消臭スチームクリーニングを念入りに行っており、安心してお使いいただけます。",
+    keywords: ["中古マットレス", "ベッド処分", "不用品回収 寝具", "マットレス買取"]
+  },
+  {
+    name: "2ドアコンパクト冷蔵庫",
+    category: "生活家電",
+    status: "動作確認・アルコール消毒済",
+    price: "8,000円〜",
+    imageSrc: "/assets/reuse_fridge.png",
+    description: "一人暮らしや寝室用のサブとして大人気のサイズ。庫内の棚やパッキンまで除菌洗浄済みで、嫌なニオイも一切ありません。",
+    keywords: ["中古冷蔵庫", "一人暮らし家電", "冷蔵庫買取", "格安家電 愛知"]
+  },
+  {
+    name: "全自動縦型洗濯機 (5.0kg)",
+    category: "生活家電",
+    status: "洗濯槽分解除菌洗浄済",
+    price: "9,000円〜",
+    imageSrc: "/assets/reuse_washer.png",
+    description: "徹底的にドラム裏のカビまで高圧洗浄・除菌を施した全自動洗濯機。動作確認済みで、新生活のスタートにすぐに役立ちます。",
+    keywords: ["中古洗濯機", "洗濯機回収", "愛知 家電リサイクル", "洗濯槽洗浄"]
+  },
+  {
+    name: "ターンテーブル電子レンジ",
+    category: "生活家電",
+    status: "動作点検・内外部消臭済",
+    price: "3,000円〜",
+    imageSrc: "/assets/reuse_microwave.png",
+    description: "簡単操作で温め・解凍ができるシンプル設計。油汚れを落とし、隅々までアルコール消毒済みでお届けします。",
+    keywords: ["電子レンジ 中古", "キッチン家電", "蟹江 不用品回収", "時短家電"]
+  },
+  {
+    name: "ファブリック2人掛けコンパクトソファ",
+    category: "家具・ソファ",
+    status: "スチームリンサー除菌済",
+    price: "4,000円〜",
+    imageSrc: "/assets/reuse_sofa.png",
+    description: "北欧風デザインが魅力的なコンパクトソファ。リンサークリーナーによるシミ抜き・高温スチーム除菌を施しています。",
+    keywords: ["中古ソファ", "ソファ処分", "リビング家具", "北欧ソファ"]
+  },
+  {
+    name: "Hi-Fi高音質ステレオアンプ & スピーカー",
+    category: "音響・映像機器",
+    status: "音出力テスト・動作確認済",
+    price: "10,000円〜",
+    imageSrc: "/assets/reuse_stereo.png",
+    description: "音楽愛好家から引き取った、動作確認済みの高音質ステレオアンプ。傷が少なくクリアな音質をお楽しみいただけます。",
+    keywords: ["オーディオ買取", "中古アンプ", "ステレオ回収", "音響機器リユース"]
+  },
+  {
+    name: "天然木ローテーブル",
+    category: "家具・テーブル",
+    status: "天板研磨・オイル仕上げ済",
+    price: "3,000円〜",
+    imageSrc: "/assets/reuse_table.png",
+    description: "木の温もりが感じられる折りたたみ式センターテーブル。表面の細かな擦れ跡は補修済みで、ヴィンテージの風合いがあります。",
+    keywords: ["中古テーブル", "ローテーブル", "家具引取", "天然木テーブル"]
+  },
+  {
+    name: "高速SSD搭載ノートPC",
+    category: "パソコン・IT機器",
+    status: "OSクリーンインストール済",
+    price: "15,000円〜",
+    imageSrc: "/assets/reuse_laptop.png",
+    description: "薄型・軽量で持ち運びに便利なノートパソコン。最新オフィスソフト動作確認済みで、レポート作成やネットサーフィンに最適。",
+    keywords: ["中古ノートPC", "パソコン買取", "データ消去", "格安ノートPC"]
+  },
+  {
+    name: "LEDマルチアングルデスクライト",
+    category: "照明器具",
+    status: "点灯確認・クリーニング済",
+    price: "1,500円〜",
+    imageSrc: "/assets/reuse_lamp.png",
+    description: "無段階調光・角度調整が可能な目に優しいLEDデスクランプ。デスクワークやベッドサイドでの読書に非常に便利です。",
+    keywords: ["中古照明", "LEDライト", "省エネ家電", "デスクランプ"]
+  }
+];
+
 export default function App() {
   const WEB3FORMS_ACCESS_KEY = "1eac69c5-f18d-4203-912a-6f4ae0752065";
 
@@ -70,6 +191,19 @@ export default function App() {
   };
 
   const logoRef = useRef(null);
+  const galleryRef = useRef(null);
+
+  const scrollLeft = () => {
+    if (galleryRef.current) {
+      galleryRef.current.scrollBy({ left: -320, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+    if (galleryRef.current) {
+      galleryRef.current.scrollBy({ left: 320, behavior: 'smooth' });
+    }
+  };
 
   // Close mobile menu on desktop resize
   useEffect(() => {
@@ -775,6 +909,129 @@ export default function App() {
                   )}
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* お片付けリユース品 Section */}
+        <section className="py-24 bg-white relative overflow-hidden" id="reuse">
+          {/* Background decoration */}
+          <div className="absolute top-1/2 left-0 w-80 h-80 bg-sky-50 rounded-full blur-3xl opacity-60 pointer-events-none -translate-y-1/2" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#EAF5FC]/40 rounded-full blur-3xl opacity-75 pointer-events-none" />
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            {/* Section Header */}
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <span className="inline-block bg-[#EAF5FC] text-[#0C74B3] text-xs font-black px-4 py-1.5 rounded-full mb-4 tracking-wider uppercase">
+                お片付けリユース品
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-black text-jeimas-blue-dark tracking-[-0.02em]">
+                お片付けリユース品
+              </h2>
+              <div className="h-1.5 w-16 bg-[#0C74B3] mx-auto mt-4 rounded-full" />
+              <p className="text-sm sm:text-base text-slate-500 mt-4 font-bold max-w-xl mx-auto leading-relaxed">
+                お部屋のお片付けや不用品買取で回収したお品物のうち、徹底的なメンテナンス、除菌清掃、動作チェックをクリアした高品質なリユース品をご紹介します。
+              </p>
+            </div>
+
+            {/* Scroll Navigation Container */}
+            <div className="relative group">
+              {/* Left Arrow Button */}
+              <button 
+                onClick={scrollLeft}
+                className="absolute left-[-20px] top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white border border-[#E0EEF6] shadow-premium flex items-center justify-center text-slate-500 hover:text-[#0C74B3] hover:border-[#0C74B3]/40 hover:scale-105 transition-all duration-300 z-20 cursor-pointer hidden md:flex"
+                aria-label="前へスクロール"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+
+              {/* Right Arrow Button */}
+              <button 
+                onClick={scrollRight}
+                className="absolute right-[-20px] top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white border border-[#E0EEF6] shadow-premium flex items-center justify-center text-slate-500 hover:text-[#0C74B3] hover:border-[#0C74B3]/40 hover:scale-105 transition-all duration-300 z-20 cursor-pointer hidden md:flex"
+                aria-label="次へスクロール"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+
+              {/* Horizontal Scroll Area */}
+              <div 
+                ref={galleryRef}
+                className="flex gap-6 overflow-x-auto py-6 px-2 scroll-smooth snap-x snap-mandatory scrollbar-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              >
+                {reuseItems.map((item, idx) => (
+                  <div 
+                    key={idx}
+                    className="w-[280px] sm:w-[320px] shrink-0 snap-start bg-white rounded-[24px] border border-[#E0EEF6] shadow-premium hover:shadow-lg hover:border-[#0C74B3]/25 transition-all duration-300 flex flex-col justify-between overflow-hidden group/card"
+                  >
+                    <div>
+                      {/* Image Box */}
+                      <div className="relative aspect-[4/3] w-full bg-sky-50/30 overflow-hidden border-b border-[#F0F7FA]">
+                        <img 
+                          src={item.imageSrc} 
+                          alt={`何でも屋 青ねこ リユース品 - ${item.name}`} 
+                          className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-[3000ms] ease-out"
+                        />
+                        {/* Category Badge */}
+                        <span className="absolute top-3 left-3 z-10 bg-black/60 backdrop-blur-sm text-white text-[9px] font-black px-2.5 py-1 rounded-full border border-white/10 tracking-wider">
+                          {item.category}
+                        </span>
+                        {/* Status tag */}
+                        <span className="absolute bottom-3 right-3 z-10 bg-emerald-500 text-white text-[9px] font-black px-2.5 py-1 rounded-full shadow-sm">
+                          ✓ {item.status}
+                        </span>
+                      </div>
+
+                      {/* Content Box */}
+                      <div className="p-5 space-y-3 text-left">
+                        <h3 className="text-base sm:text-lg font-black text-jeimas-blue-dark leading-tight group-hover/card:text-[#0C74B3] transition-colors duration-300">
+                          {item.name}
+                        </h3>
+                        <p className="text-xs text-slate-500 font-semibold leading-relaxed line-clamp-3 min-h-[4.5rem]">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="p-5 pt-0 space-y-4">
+                      {/* Divider */}
+                      <div className="h-[1px] bg-slate-100 w-full" />
+
+                      {/* Bottom Box (Price & Tag) */}
+                      <div className="flex items-center justify-between">
+                        <div className="text-left">
+                          <p className="text-[9px] text-slate-400 font-bold leading-none">リユース参考価格</p>
+                          <p className="text-base sm:text-lg font-black text-[#0C74B3] mt-1">{item.price}</p>
+                        </div>
+                        <span className="text-[9px] text-[#D97706] bg-amber-50 px-2 py-0.5 rounded-full font-bold border border-amber-100">
+                          点検・清掃済
+                        </span>
+                      </div>
+
+                      {/* SEO Tags Container */}
+                      <div className="flex flex-wrap gap-1.5 pt-1">
+                        {item.keywords.slice(0, 3).map((kw, kIdx) => (
+                          <span key={kIdx} className="text-[8px] font-bold text-slate-400 bg-slate-50 border border-slate-100 rounded py-0.5 px-1.5">
+                            #{kw}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Section Footer Callout */}
+            <div className="mt-12 text-center">
+              <p className="text-xs sm:text-sm text-slate-500 font-semibold leading-relaxed">
+                ※リユース品は一点物のため、在庫状況は常に変動いたします。<br className="hidden sm:inline" />
+                詳細な在庫や買取のご相談は、お気軽にフリーダイヤルにてお問い合わせください。
+              </p>
             </div>
           </div>
         </section>
