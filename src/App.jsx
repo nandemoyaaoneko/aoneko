@@ -147,7 +147,7 @@ const strengthSlides = [
     num: "01",
     tag: "緊急性（Urgency）",
     title: "【24時間対応】そのお急ぎ、青ねこが即座に解決。",
-    desc: "引越し・整理のタイムリミットに、プロの物流網で緊急即応。深夜・早朝の依頼も、東海3県へ最短で駆けつけます。",
+    desc: "引越し（aoneko move）・整理のタイムリミットに、プロの物流網で緊急即応。深夜・早朝の依頼も、東海3県へ最短で駆けつけます。",
     badge: "24時間対応"
   },
   {
@@ -160,7 +160,7 @@ const strengthSlides = [
   {
     num: "03",
     tag: "財務的優位性（Smart Offset）",
-    title: "引越し費用が「0円」に近づく魔法。",
+    title: "引越し（aoneko move）費用が「0円」に近づく魔法。",
     desc: "スマホ・PC・タブレットをその場で高価買取。査定額を運送費用と相殺し、圧倒的低コストでスマートな新生活を実現します。",
     badge: "スマートオフセット"
   },
@@ -168,7 +168,7 @@ const strengthSlides = [
     num: "04",
     tag: "機動力（何でも屋 青ねこ）",
     title: "黒ナンバーの機動力。何でも屋 青ねこ。",
-    desc: "単身引越しから家具1点の移動まで、最適なルートで提案。プロの技術と機動力で、あなたの生活空間を最適化します。",
+    desc: "単身引越し（aoneko move）から家具1点の移動まで、最適なルートで提案。プロの技術と機動力で、あなたの生活空間を最適化します。",
     badge: "軽貨物機動力"
   },
   {
@@ -397,8 +397,8 @@ export default function App() {
       )
     },
     {
-      title: "単身・ミニ引越し",
-      detailTitle: "何でも屋 青ねこ | 黒ナンバー車両による安心・迅速な軽貨物運送・引越しサポート",
+      title: "単身・ミニ引越し（aoneko move）",
+      detailTitle: "何でも屋 青ねこ | 黒ナンバー車両による安心・迅速な軽貨物運送・引越し（aoneko move）サポート",
       price: "13,200",
       badge: "何でも屋 青ねこ",
       imageSrc: "/assets/service_move_mini.png",
@@ -411,12 +411,12 @@ export default function App() {
         "面倒な事前の梱包や分別作業は一切必要ありません"
       ],
       icon: (
-        <img src="/assets/aoneko_move_logo_standing.jpg" alt="単身・ミニ引越し アイコン" className="w-full h-full object-cover rounded-lg" />
+        <img src="/assets/aoneko_move_logo_standing.jpg" alt="単身・ミニ引越し（aoneko move） アイコン" className="w-full h-full object-cover rounded-lg" />
       )
     },
     {
       title: "スポット・単品配送",
-      detailTitle: "何でも屋 青ねこ | 黒ナンバー車両による安心・迅速な軽貨物運送・引越しサポート",
+      detailTitle: "何でも屋 青ねこ | 黒ナンバー車両による安心・迅速な軽貨物運送・引越し（aoneko move）サポート",
       price: "8,000",
       badge: "何でも屋 青ねこ",
       imageSrc: "/assets/service_move_spot.png",
@@ -434,7 +434,7 @@ export default function App() {
     },
     {
       title: "空港スーツケース配送",
-      detailTitle: "何でも屋 青ねこ | 黒ナンバー車両による安心・迅速な軽貨物運送・引越しサポート",
+      detailTitle: "何でも屋 青ねこ | 黒ナンバー車両による安心・迅速な軽貨物運送・引越し（aoneko move）サポート",
       price: "8,000",
       badge: "何でも屋 青ねこ",
       imageSrc: "/assets/service_move_airport.png",
@@ -549,7 +549,7 @@ export default function App() {
     },
     {
       q: "愛知県周辺で深夜や早朝に対応できる片付け・便利屋はありますか？",
-      a: "はい、「何でも屋 青ねこ」は愛知県（名古屋市、蟹江町など）、岐阜県、三重県エリアで深夜・早朝を問わず引っ越し 片付けや不用品整理の出張作業に24時間対応できる便利屋です。お客様のライフスタイルやご都合に合わせて柔軟に作業スケジュールを調整いたします。"
+      a: "はい、「何でも屋 青ねこ」は愛知県（名古屋市、蟹江町など）、岐阜県、三重県エリアで深夜・早朝を問わず引っ越し（aoneko move） 片付けや不用品整理の出張作業に24時間対応できる便利屋です。お客様のライフスタイルやご都合に合わせて柔軟に作業スケジュールを調整いたします。"
     },
     {
       q: "事前の分別や片付けが不要（丸投げできる）お部屋の片付けサポートサービスはありますか？",

@@ -18,7 +18,7 @@ export default function SEOHead({ faqs = [] }) {
       document.head.appendChild(metaDesc);
     }
     // High-conversion meta copy targeting Aichi, Gifu, Mie, Nagoya and Kanie
-    metaDesc.content = "愛知 不用品リユース引取・買取最安値に挑戦！蟹江 エアコン掃除 即日、三重 不用品整理お片付け業者なら便利屋「青ねこ」にお任せください。他社のお見積り提示で必ず10%OFFの相見積もり割引実施中！大きなお荷物の整理整頓、引っ越しに伴う整理整頓を丸投げで24時間365日対応。";
+    metaDesc.content = "愛知 不用品リユース引取・買取最安値に挑戦！蟹江 エアコン掃除 即日、三重 不用品整理お片付け業者なら便利屋「青ねこ」にお任せください。他社のお見積り提示で必ず10%OFFの相見積もり割引実施中！大きなお荷物の整理整頓、引っ越し（aoneko move）に伴う整理整頓を丸投げで24時間365日対応。";
 
     // 3. Structured Data JSON-LD graph (LocalBusiness + FAQPage with AIO exact queries)
     const schemaId = 'json-ld-localbusiness';
