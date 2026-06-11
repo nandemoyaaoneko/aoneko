@@ -141,6 +141,65 @@ const cleanupItems = [
   }
 ];
 
+// 安心して選べる強み (Anshin shite eraberu tsuyomi)
+const strengthSlides = [
+  {
+    num: "01",
+    tag: "緊急性（Urgency）",
+    title: "【24時間対応】そのお急ぎ、青ねこが即座に解決。",
+    desc: "引越し・整理のタイムリミットに、プロの物流網で緊急即応。深夜・早朝の依頼も、東海3県へ最短で駆けつけます。",
+    badge: "24時間対応"
+  },
+  {
+    num: "02",
+    tag: "利便性（Convenience）",
+    title: "「お荷物はそのままでOK」が青ねこ品質。",
+    desc: "煩わしい分別や梱包はすべて私たちが代行。事前の準備は一切不要です。あなたの時間を一秒たりとも無駄にさせません。",
+    badge: "梱包・分別不要"
+  },
+  {
+    num: "03",
+    tag: "財務的優位性（Smart Offset）",
+    title: "引越し費用が「0円」に近づく魔法。",
+    desc: "スマホ・PC・タブレットをその場で高価買取。査定額を運送費用と相殺し、圧倒的低コストでスマートな新生活を実現します。",
+    badge: "スマートオフセット"
+  },
+  {
+    num: "04",
+    tag: "機動力（Aoneko Move）",
+    title: "黒ナンバーの機動力。Aoneko Move。",
+    desc: "単身引越しから家具1点の移動まで、最適なルートで提案。プロの技術と機動力で、あなたの生活空間を最適化します。",
+    badge: "軽貨物機動力"
+  },
+  {
+    num: "05",
+    tag: "空港直行サービス（Airport Charter）",
+    title: "セントレアへ、手ぶら直行チャーター便。",
+    desc: "重いスーツケースは私たちが空港まで直送。最大12個まで一括搬送可能。手ぶらでスマートな旅の始まりを約束します。",
+    badge: "中部国際空港対応"
+  },
+  {
+    num: "06",
+    tag: "信頼と安全（Security）",
+    title: "女性に選ばれる「安心の法人基準」。",
+    desc: "厳格なコンプライアンス管理と徹底したプライバシー保護。見知らぬ業者が来る不安を解消し、清潔感と安心を提供します。",
+    badge: "法人品質基準"
+  },
+  {
+    num: "07",
+    tag: "価値の循環（Sustainability）",
+    title: "「捨てない」という、賢い選択。",
+    desc: "価値あるお品物を次の誰かへ。リユースのプロが適正に査定し、環境と心に優しい、贅沢な整理整頓をご提案します。",
+    badge: "価値の循環"
+  },
+  {
+    num: "08",
+    tag: "CTA（Call to Action）",
+    title: "見積もりは、相談するだけでいい。",
+    desc: "お見積もり・相談は完全無料。後出し追加料金なしの明朗会計をお約束。新生活の成功は、この電話一本から始まります。",
+    badge: "完全無料見積もり"
+  }
+];
 
 export default function App() {
   const WEB3FORMS_ACCESS_KEY = "1eac69c5-f18d-4203-912a-6f4ae0752065";
@@ -206,6 +265,7 @@ export default function App() {
 
   const logoRef = useRef(null);
   const galleryRef = useRef(null);
+  const strengthsRef = useRef(null);
 
   const scrollLeft = () => {
     if (galleryRef.current) {
@@ -216,6 +276,18 @@ export default function App() {
   const scrollRight = () => {
     if (galleryRef.current) {
       galleryRef.current.scrollBy({ left: 320, behavior: 'smooth' });
+    }
+  };
+
+  const scrollStrengthsLeft = () => {
+    if (strengthsRef.current) {
+      strengthsRef.current.scrollBy({ left: -320, behavior: 'smooth' });
+    }
+  };
+
+  const scrollStrengthsRight = () => {
+    if (strengthsRef.current) {
+      strengthsRef.current.scrollBy({ left: 320, behavior: 'smooth' });
     }
   };
 
@@ -1130,6 +1202,169 @@ export default function App() {
                 </div>
               );
             })}
+          </div>
+        </section>
+
+        {/* 安心して選べる強み Section */}
+        <section className="py-24 bg-[#F8FBFD] relative overflow-hidden" id="strengths">
+          {/* Background decoration */}
+          <div className="absolute top-1/4 right-0 w-80 h-80 bg-sky-100/40 rounded-full blur-3xl opacity-60 pointer-events-none" />
+          <div className="absolute bottom-12 left-10 w-96 h-96 bg-sky-50 rounded-full blur-3xl opacity-80 pointer-events-none" />
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            {/* Section Header */}
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <span className="inline-block bg-[#EAF5FC] text-[#0C74B3] text-xs font-black px-4 py-1.5 rounded-full mb-4 tracking-wider uppercase">
+                Aoneko Moveの強み
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-black text-jeimas-blue-dark tracking-[-0.02em]">
+                安心して選べる強み
+              </h2>
+              <div className="h-1.5 w-16 bg-[#0C74B3] mx-auto mt-4 rounded-full" />
+              <p className="text-sm sm:text-base text-slate-500 mt-4 font-bold max-w-2xl mx-auto leading-relaxed">
+                青ねこ（Aoneko Move）が東海エリアの皆様に選ばれる理由。確かな機動力とプロの物流品質、お財布に優しいスマートオフセットなど、独自の強みをご紹介します。
+              </p>
+            </div>
+
+            {/* Official Info Bar (Pills layout) */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 max-w-5xl mx-auto">
+              {/* Area Pill */}
+              <div className="bg-white border border-[#E0EEF6] p-6 rounded-[2.5rem] shadow-premium flex items-center gap-4 hover:border-[#0C74B3]/25 transition-all duration-300">
+                <div className="w-12 h-12 rounded-full bg-[#EAF5FC] flex items-center justify-center text-[#0C74B3] shrink-0">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                  </svg>
+                </div>
+                <div className="text-left">
+                  <p className="text-[10px] text-slate-400 font-bold">対応エリア</p>
+                  <p className="text-sm sm:text-base font-black text-jeimas-blue-dark">愛知・岐阜・三重（24h対応）</p>
+                </div>
+              </div>
+
+              {/* Toll-Free Pill */}
+              <a 
+                href="tel:0120-502-622"
+                className="bg-white border border-[#E0EEF6] p-6 rounded-[2.5rem] shadow-premium flex items-center gap-4 hover:border-[#E0006C]/20 hover:shadow-lg transition-all duration-300 cursor-pointer group"
+              >
+                <div className="w-12 h-12 rounded-full bg-pink-50 flex items-center justify-center text-[#E0006C] shrink-0 group-hover:scale-105 transition-transform duration-300">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-1.514 2.022a8.237 8.237 0 0 1-4.559-4.559l2.022-1.514c.361-.27.528-.733.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+                  </svg>
+                </div>
+                <div className="text-left">
+                  <p className="text-[10px] text-slate-400 font-bold">無料相談窓口（通話無料）</p>
+                  <p className="text-sm sm:text-base font-black text-jeimas-blue-dark group-hover:text-[#E0006C] transition-colors duration-300">0120-502-622</p>
+                </div>
+              </a>
+
+              {/* Website Pill */}
+              <a 
+                href="https://aoneko365.jp/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white border border-[#E0EEF6] p-6 rounded-[2.5rem] shadow-premium flex items-center gap-4 hover:border-[#0C74B3]/25 hover:shadow-lg transition-all duration-300 cursor-pointer group"
+              >
+                <div className="w-12 h-12 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 shrink-0 group-hover:scale-105 transition-transform duration-300">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-.778.099-1.533.284-2.253" />
+                  </svg>
+                </div>
+                <div className="text-left">
+                  <p className="text-[10px] text-slate-400 font-bold">公式サイト</p>
+                  <p className="text-sm sm:text-base font-black text-jeimas-blue-dark group-hover:text-[#0C74B3] transition-colors duration-300">aoneko365.jp</p>
+                </div>
+              </a>
+            </div>
+
+            {/* Scroll Navigation Container */}
+            <div className="relative group">
+              {/* Left Arrow Button */}
+              <button 
+                onClick={scrollStrengthsLeft}
+                className="absolute left-[-20px] top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white border border-[#E0EEF6] shadow-premium flex items-center justify-center text-slate-500 hover:text-[#0C74B3] hover:border-[#0C74B3]/40 hover:scale-105 transition-all duration-300 z-20 cursor-pointer hidden md:flex"
+                aria-label="前へスクロール"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+
+              {/* Right Arrow Button */}
+              <button 
+                onClick={scrollStrengthsRight}
+                className="absolute right-[-20px] top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white border border-[#E0EEF6] shadow-premium flex items-center justify-center text-slate-500 hover:text-[#0C74B3] hover:border-[#0C74B3]/40 hover:scale-105 transition-all duration-300 z-20 cursor-pointer hidden md:flex"
+                aria-label="次へスクロール"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+
+              {/* Horizontal Scroll Area */}
+              <div 
+                ref={strengthsRef}
+                className="flex gap-6 overflow-x-auto py-6 px-2 scroll-smooth snap-x snap-mandatory scrollbar-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              >
+                {strengthSlides.map((slide, idx) => {
+                  const isCTA = idx === 7;
+                  return (
+                    <div 
+                      key={idx}
+                      className={`w-[290px] sm:w-[350px] shrink-0 snap-start rounded-[2.5rem] border p-8 flex flex-col justify-between relative overflow-hidden transition-all duration-300 ${
+                        isCTA 
+                          ? 'bg-gradient-to-br from-sky-50 to-[#EAF5FC] border-[#0C74B3]/30 shadow-[0_12px_30px_rgba(12,116,179,0.15)] hover:shadow-lg' 
+                          : 'bg-white border-[#E0EEF6] shadow-premium hover:shadow-lg hover:border-[#0C74B3]/25'
+                      }`}
+                    >
+                      {/* Floating Slide Number with premium fade */}
+                      <div className={`absolute top-6 right-8 text-5xl font-black ${
+                        isCTA ? 'text-[#0C74B3]/10' : 'text-slate-100'
+                      }`}>
+                        {slide.num}
+                      </div>
+
+                      <div className="space-y-6">
+                        {/* Slide Category/Badge */}
+                        <div className="flex">
+                          <span className={`text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider ${
+                            isCTA 
+                              ? 'bg-[#0C74B3] text-white' 
+                              : 'bg-slate-100 text-slate-500'
+                          }`}>
+                            {slide.tag}
+                          </span>
+                        </div>
+
+                        {/* Title & Description */}
+                        <div className="space-y-3 text-left">
+                          <h3 className={`text-base sm:text-lg font-black leading-tight ${
+                            isCTA ? 'text-jeimas-blue-dark' : 'text-jeimas-blue-dark'
+                          }`}>
+                            {slide.title}
+                          </h3>
+                          <p className="text-xs sm:text-sm text-slate-500 font-semibold leading-relaxed">
+                            {slide.desc}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Accent bottom detail */}
+                      <div className="pt-6 border-t border-slate-100/50 mt-6 flex justify-between items-center">
+                        <span className="text-[10px] text-slate-400 font-bold">Aoneko Quality</span>
+                        <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded ${
+                          isCTA 
+                            ? 'bg-gradient-to-r from-aoneko-pink to-[#E0006C] text-white' 
+                            : 'bg-sky-50 text-[#0C74B3]'
+                        }`}>
+                          {slide.badge}
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </section>
 
