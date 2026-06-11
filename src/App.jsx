@@ -943,8 +943,8 @@ export default function App() {
                 お片付け主要品目
               </h2>
               <div className="h-1.5 w-16 bg-[#0C74B3] mx-auto mt-4 rounded-full" />
-              <p className="text-sm sm:text-base text-slate-500 mt-4 font-bold max-w-xl mx-auto leading-relaxed">
-                お部屋のお片付けや不用品買取で引き取りを行っている主な対象品目です。家電リサイクル法対象品から、処分の難しい大型家具、個人情報の入った機器まで、すべてお任せください。
+              <p className="text-sm sm:text-base text-slate-500 mt-4 font-bold max-w-2xl mx-auto leading-relaxed">
+                お部屋の整理整頓や出張買取にて、お引取り・お買取が可能な主な対象品目です。テレビや冷蔵庫などの生活家電から、動かすのが難しい大型家具、大切なデータが入ったスマホ・PCまで、すべて安心してお任せください。
               </p>
             </div>
 
