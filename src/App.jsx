@@ -983,7 +983,7 @@ export default function App() {
                   >
                     <div>
                       {/* Image Box */}
-                      <div className="relative aspect-square w-full bg-white overflow-hidden border-b border-[#F0F7FA] p-3 flex items-center justify-center">
+                      <div className="relative aspect-square w-full bg-white overflow-hidden border-b border-[#F0F7FA] p-8 flex items-center justify-center">
                         <img 
                           src={item.imageSrc} 
                           alt={`何でも屋 青ねこ 回収品 - ${item.name}`} 
