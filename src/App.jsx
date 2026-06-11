@@ -166,8 +166,8 @@ const strengthSlides = [
   },
   {
     num: "04",
-    tag: "機動力（Aoneko Move）",
-    title: "黒ナンバーの機動力。Aoneko Move。",
+    tag: "機動力（何でも屋 青ねこ）",
+    title: "黒ナンバーの機動力。何でも屋 青ねこ。",
     desc: "単身引越しから家具1点の移動まで、最適なルートで提案。プロの技術と機動力で、あなたの生活空間を最適化します。",
     badge: "軽貨物機動力"
   },
@@ -398,9 +398,9 @@ export default function App() {
     },
     {
       title: "単身・ミニ引越し",
-      detailTitle: "Aoneko Move | 黒ナンバー車両による安心・迅速な軽貨物運送・引越しサポート",
+      detailTitle: "何でも屋 青ねこ | 黒ナンバー車両による安心・迅速な軽貨物運送・引越しサポート",
       price: "13,200",
-      badge: "Aoneko Move",
+      badge: "何でも屋 青ねこ",
       imageSrc: "/assets/service_move_mini.png",
       description: "仕分け不要！お荷物はそのままでOK。面倒な事前の梱包や分別作業は一切必要ありません。黒ナンバーの軽トラックを使用したスマートで無駄のない運搬。ワンルームの移動や単身の方の新生活に最適なミニマムプランです。",
       locationTag: "愛知・岐阜・三重",
@@ -416,9 +416,9 @@ export default function App() {
     },
     {
       title: "スポット・単品配送",
-      detailTitle: "Aoneko Move | 黒ナンバー車両による安心・迅速な軽貨物運送・引越しサポート",
+      detailTitle: "何でも屋 青ねこ | 黒ナンバー車両による安心・迅速な軽貨物運送・引越しサポート",
       price: "8,000",
-      badge: "Aoneko Move",
+      badge: "何でも屋 青ねこ",
       imageSrc: "/assets/service_move_spot.png",
       description: "家具1点から対応！どんなお荷物でも迅速に運送します。大型家具・家電の移動から、急な資材の搬送まで柔軟に対応。独自の物流ネットワークを活かした即日配送（スポット便）で、東海エリア（愛知・岐阜・三重）全域を網羅する確かな機動力でお応えします。",
       locationTag: "愛知・岐阜・三重",
@@ -434,9 +434,9 @@ export default function App() {
     },
     {
       title: "空港スーツケース配送",
-      detailTitle: "Aoneko Move | 黒ナンバー車両による安心・迅速な軽貨物運送・引越しサポート",
+      detailTitle: "何でも屋 青ねこ | 黒ナンバー車両による安心・迅速な軽貨物運送・引越しサポート",
       price: "8,000",
-      badge: "Aoneko Move",
+      badge: "何でも屋 青ねこ",
       imageSrc: "/assets/service_move_airport.png",
       description: "セントレア（中部国際空港）当日直行チャーター便。スーツケース1個から受付可能（最大10〜12個まで一括安全搬送）。自宅やオフィスから空港へ、当日中に届くダイレクト手ぶら便。少人数からグループ移動まで、荷物の量に応じた無駄のない適正価格です。",
       locationTag: "愛知・岐阜・三重",
@@ -1215,21 +1215,21 @@ export default function App() {
             {/* Section Header */}
             <div className="text-center max-w-3xl mx-auto mb-16">
               <span className="inline-block bg-[#EAF5FC] text-[#0C74B3] text-xs font-black px-4 py-1.5 rounded-full mb-4 tracking-wider uppercase">
-                Aoneko Moveの強み
+                何でも屋 青ねこの強み
               </span>
               <h2 className="text-3xl sm:text-4xl font-black text-jeimas-blue-dark tracking-[-0.02em]">
                 安心して選べる強み
               </h2>
               <div className="h-1.5 w-16 bg-[#0C74B3] mx-auto mt-4 rounded-full" />
               <p className="text-sm sm:text-base text-slate-500 mt-4 font-bold max-w-2xl mx-auto leading-relaxed">
-                青ねこ（Aoneko Move）が東海エリアの皆様に選ばれる理由。確かな機動力とプロの物流品質、お財布に優しいスマートオフセットなど、独自の強みをご紹介します。
+                何でも屋 青ねこが東海エリアの皆様に選ばれる理由。確かな機動力とプロの物流品質、お財布に優しいスマートオフセットなど、独自の強みをご紹介します。
               </p>
             </div>
 
             {/* Official Info Bar (Pills layout) */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 max-w-5xl mx-auto font-sans">
               {/* Area Pill */}
-              <div className="bg-white border border-[#E0EEF6] p-6 rounded-[2.5rem] shadow-premium flex items-center gap-4 hover:border-[#0C74B3]/25 transition-all duration-300">
+              <div className="bg-white border border-[#E0EEF6] p-5 rounded-[2.5rem] shadow-premium flex items-center gap-4 hover:border-[#0C74B3]/25 transition-all duration-300 w-full min-h-[92px]">
                 <div className="w-12 h-12 rounded-full bg-[#EAF5FC] flex items-center justify-center text-[#0C74B3] shrink-0">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
@@ -1237,42 +1237,47 @@ export default function App() {
                   </svg>
                 </div>
                 <div className="text-left">
-                  <p className="text-[10px] text-slate-400 font-bold">対応エリア</p>
-                  <p className="text-sm sm:text-base font-black text-jeimas-blue-dark">愛知・岐阜・三重（24h対応）</p>
+                  <p className="text-[9px] text-slate-400 font-bold leading-none">対応エリア</p>
+                  <p className="text-xs sm:text-sm font-black text-jeimas-blue-dark leading-tight mt-1 whitespace-nowrap">
+                    愛知・岐阜・三重
+                  </p>
+                  <p className="text-[10px] text-[#0C74B3] font-bold mt-0.5 leading-none">
+                    24時間受付中
+                  </p>
                 </div>
               </div>
 
-              {/* Toll-Free Pill */}
+              {/* Toll-Free Pill (Official Phone Button style) */}
               <a 
                 href="tel:0120-502-622"
-                className="bg-white border border-[#E0EEF6] p-6 rounded-[2.5rem] shadow-premium flex items-center gap-4 hover:border-[#E0006C]/20 hover:shadow-lg transition-all duration-300 cursor-pointer group"
+                className="shine-button w-full min-h-[92px] inline-flex items-center gap-4 bg-gradient-to-r from-aoneko-pink to-[#E0006C] text-white font-extrabold p-5 rounded-[2.5rem] border border-white/10 shadow-[0_8px_20px_-6px_rgba(255,0,127,0.45)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer group"
               >
-                <div className="w-12 h-12 rounded-full bg-pink-50 flex items-center justify-center text-[#E0006C] shrink-0 group-hover:scale-105 transition-transform duration-300">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center text-white shrink-0 group-hover:scale-105 transition-transform duration-300">
+                  <svg className="w-6 h-6 fill-none stroke-current stroke-[2.5] animate-bounce" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-1.514 2.022a8.237 8.237 0 0 1-4.559-4.559l2.022-1.514c.361-.27.528-.733.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
                   </svg>
                 </div>
                 <div className="text-left">
-                  <p className="text-[10px] text-slate-400 font-bold">無料相談窓口（通話無料）</p>
-                  <p className="text-sm sm:text-base font-black text-jeimas-blue-dark group-hover:text-[#E0006C] transition-colors duration-300">0120-502-622</p>
+                  <p className="text-[9px] text-white/80 font-bold leading-none">通話料無料の窓口</p>
+                  <p className="text-sm sm:text-base font-black text-white leading-tight mt-1">0120-502-622</p>
                 </div>
               </a>
 
-              {/* Website Pill */}
+              {/* LINE Pill (Official LINE Button style) */}
               <a 
-                href="https://aoneko365.jp/"
+                href="https://line.me/ti/p/XbHxvB_Kbu"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white border border-[#E0EEF6] p-6 rounded-[2.5rem] shadow-premium flex items-center gap-4 hover:border-[#0C74B3]/25 hover:shadow-lg transition-all duration-300 cursor-pointer group"
+                className="shine-button w-full min-h-[92px] inline-flex items-center gap-4 bg-[#06C755] hover:bg-[#05b04b] text-white font-extrabold p-5 rounded-[2.5rem] border border-white/10 shadow-[0_8px_20px_-6px_rgba(6,199,85,0.45)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer group"
               >
-                <div className="w-12 h-12 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 shrink-0 group-hover:scale-105 transition-transform duration-300">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-.778.099-1.533.284-2.253" />
+                <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center text-white shrink-0 group-hover:scale-105 transition-transform duration-300">
+                  <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 5.84 2 10.58c0 2.9 1.7 5.48 4.38 7.09l-.46 2.8c-.08.48.27.67.66.41l3.86-2.31c.5.07 1 .11 1.56.11 5.52 0 10-3.84 10-8.58S17.52 2 12 2z"/>
                   </svg>
                 </div>
                 <div className="text-left">
-                  <p className="text-[10px] text-slate-400 font-bold">公式サイト</p>
-                  <p className="text-sm sm:text-base font-black text-jeimas-blue-dark group-hover:text-[#0C74B3] transition-colors duration-300">aoneko365.jp</p>
+                  <p className="text-[9px] text-white/80 font-bold leading-none">LINEでかんたん無料相談</p>
+                  <p className="text-sm sm:text-base font-black text-white leading-tight mt-1">LINE友だち追加</p>
                 </div>
               </a>
             </div>
@@ -1308,39 +1313,137 @@ export default function App() {
               >
                 {strengthSlides.map((slide, idx) => {
                   const isCTA = idx === 7;
+                  const getIcon = () => {
+                    switch (idx) {
+                      case 0:
+                        return (
+                          <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M13 3h-2M21 12h-2M3 12h2M12 21h-2" />
+                          </svg>
+                        );
+                      case 1:
+                        return (
+                          <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+                          </svg>
+                        );
+                      case 2:
+                        return (
+                          <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-9h6m-6 3h6m-3-6C7.03 3 3 7.03 3 12s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9Z" />
+                          </svg>
+                        );
+                      case 3:
+                        return (
+                          <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125a1.125 1.125 0 0 0 1.125-1.125V9.75M8.25 14.25h8.25M2.25 9.75H14.25m-2.25 4.5V9.75m0-4.5h4.5a2.25 2.25 0 0 1 2.25 2.25v2.25" />
+                          </svg>
+                        );
+                      case 4:
+                        return (
+                          <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L6 12Zm0 0h7.5" />
+                          </svg>
+                        );
+                      case 5:
+                        return (
+                          <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751A11.959 11.959 0 0 1 12 2.714Z" />
+                          </svg>
+                        );
+                      case 6:
+                        return (
+                          <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+                          </svg>
+                        );
+                      case 7:
+                        return (
+                          <svg className="w-6 h-6 animate-pulse" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M6.75 8.25l4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" />
+                          </svg>
+                        );
+                      default:
+                        return null;
+                    }
+                  };
+
+                  if (isCTA) {
+                    return (
+                      <a 
+                        key={idx}
+                        href="tel:0120-502-622"
+                        className="w-[290px] sm:w-[350px] shrink-0 snap-start rounded-[2.5rem] border p-8 flex flex-col justify-between relative overflow-hidden transition-all duration-300 block hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(12,116,179,0.3)] hover:scale-[1.01] bg-gradient-to-br from-[#0C74B3] to-[#085a8c] border-white/10 text-white cursor-pointer"
+                      >
+                        {/* Top glowing accent border */}
+                        <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-aoneko-pink via-red-500 to-[#E0006C]" />
+
+                        {/* Floating Slide Number with premium fade */}
+                        <div className="absolute top-6 right-8 text-5xl font-black text-white/10">
+                          {slide.num}
+                        </div>
+
+                        <div className="space-y-6">
+                          {/* Slide Category/Badge */}
+                          <div className="flex gap-4 items-center">
+                            <div className="w-12 h-12 rounded-full bg-gradient-to-r from-aoneko-pink to-[#E0006C] text-white flex items-center justify-center shrink-0 shadow-md">
+                              {getIcon()}
+                            </div>
+                            <span className="text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider bg-white/20 text-white">
+                              {slide.tag}
+                            </span>
+                          </div>
+
+                          {/* Title & Description */}
+                          <div className="space-y-3 text-left">
+                            <h3 className="text-base sm:text-lg font-black leading-tight text-white">
+                              {slide.title}
+                            </h3>
+                            <p className="text-xs sm:text-sm text-sky-100 font-semibold leading-relaxed">
+                              {slide.desc}
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Accent bottom detail */}
+                        <div className="pt-6 border-t border-white/10 mt-6 flex justify-between items-center">
+                          <span className="text-[10px] text-sky-200/80 font-bold">Aoneko Quality</span>
+                          <span className="text-[10px] font-bold px-2.5 py-0.5 rounded bg-gradient-to-r from-aoneko-pink to-[#E0006C] text-white">
+                            {slide.badge}
+                          </span>
+                        </div>
+                      </a>
+                    );
+                  }
+
                   return (
                     <div 
                       key={idx}
-                      className={`w-[290px] sm:w-[350px] shrink-0 snap-start rounded-[2.5rem] border p-8 flex flex-col justify-between relative overflow-hidden transition-all duration-300 ${
-                        isCTA 
-                          ? 'bg-gradient-to-br from-sky-50 to-[#EAF5FC] border-[#0C74B3]/30 shadow-[0_12px_30px_rgba(12,116,179,0.15)] hover:shadow-lg' 
-                          : 'bg-white border-[#E0EEF6] shadow-premium hover:shadow-lg hover:border-[#0C74B3]/25'
-                      }`}
+                      className="w-[290px] sm:w-[350px] shrink-0 snap-start rounded-[2.5rem] border p-8 flex flex-col justify-between relative overflow-hidden transition-all duration-300 bg-white border-[#E0EEF6] shadow-premium hover:-translate-y-1 hover:shadow-2xl hover:border-[#0C74B3]/40"
                     >
+                      {/* Top accent border */}
+                      <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-sky-400 to-[#0C74B3]" />
+
                       {/* Floating Slide Number with premium fade */}
-                      <div className={`absolute top-6 right-8 text-5xl font-black ${
-                        isCTA ? 'text-[#0C74B3]/10' : 'text-slate-100'
-                      }`}>
+                      <div className="absolute top-6 right-8 text-5xl font-black text-slate-100">
                         {slide.num}
                       </div>
 
                       <div className="space-y-6">
                         {/* Slide Category/Badge */}
-                        <div className="flex">
-                          <span className={`text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider ${
-                            isCTA 
-                              ? 'bg-[#0C74B3] text-white' 
-                              : 'bg-slate-100 text-slate-500'
-                          }`}>
+                        <div className="flex gap-4 items-center">
+                          <div className="w-12 h-12 rounded-full bg-[#EAF5FC] text-[#0C74B3] flex items-center justify-center shrink-0">
+                            {getIcon()}
+                          </div>
+                          <span className="text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider bg-slate-100 text-slate-500">
                             {slide.tag}
                           </span>
                         </div>
 
                         {/* Title & Description */}
                         <div className="space-y-3 text-left">
-                          <h3 className={`text-base sm:text-lg font-black leading-tight ${
-                            isCTA ? 'text-jeimas-blue-dark' : 'text-jeimas-blue-dark'
-                          }`}>
+                          <h3 className="text-base sm:text-lg font-black leading-tight text-jeimas-blue-dark">
                             {slide.title}
                           </h3>
                           <p className="text-xs sm:text-sm text-slate-500 font-semibold leading-relaxed">
@@ -1352,11 +1455,7 @@ export default function App() {
                       {/* Accent bottom detail */}
                       <div className="pt-6 border-t border-slate-100/50 mt-6 flex justify-between items-center">
                         <span className="text-[10px] text-slate-400 font-bold">Aoneko Quality</span>
-                        <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded ${
-                          isCTA 
-                            ? 'bg-gradient-to-r from-aoneko-pink to-[#E0006C] text-white' 
-                            : 'bg-sky-50 text-[#0C74B3]'
-                        }`}>
+                        <span className="text-[10px] font-bold px-2.5 py-0.5 rounded bg-sky-50 text-[#0C74B3]">
                           {slide.badge}
                         </span>
                       </div>
@@ -1364,6 +1463,33 @@ export default function App() {
                   );
                 })}
               </div>
+            </div>
+
+            {/* Strengths Section Footer CTAs */}
+            <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 max-w-2xl mx-auto px-4">
+              {/* LINE CTA */}
+              <a 
+                href="https://line.me/ti/p/XbHxvB_Kbu"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shine-button w-full sm:w-1/2 flex items-center justify-center gap-3 bg-[#06C755] hover:bg-[#05b04b] text-white font-extrabold py-4 px-6 rounded-[2.5rem] border border-white/10 shadow-[0_8px_20px_-6px_rgba(6,199,85,0.45)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer"
+              >
+                <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 5.84 2 10.58c0 2.9 1.7 5.48 4.38 7.09l-.46 2.8c-.08.48.27.67.66.41l3.86-2.31c.5.07 1 .11 1.56.11 5.52 0 10-3.84 10-8.58S17.52 2 12 2z"/>
+                </svg>
+                <span className="text-sm sm:text-base tracking-wide">LINE友だち追加で簡単相談</span>
+              </a>
+
+              {/* Phone CTA */}
+              <a 
+                href="tel:0120-502-622"
+                className="shine-button w-full sm:w-1/2 flex items-center justify-center gap-3 bg-gradient-to-r from-aoneko-pink to-[#E0006C] text-white font-extrabold py-4 px-6 rounded-[2.5rem] border border-white/10 shadow-[0_8px_20px_-6px_rgba(255,0,127,0.45)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer"
+              >
+                <svg className="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <span className="text-sm sm:text-base tracking-wide">0120-502-622（通話料無料）</span>
+              </a>
             </div>
           </div>
         </section>
