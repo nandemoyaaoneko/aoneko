@@ -1,4 +1,3 @@
-import React from 'react';
 
 /**
  * TrustShield Component
@@ -10,7 +9,7 @@ export default function TrustShield() {
     {
       title: "24時間365日年中無休",
       subtitle: "夜間・早朝でも即対応可能",
-      description: "急なエアコンの故障、深夜のお部屋の片付けなど、どんな時間帯でもスピーディーにお伺いします。エリア内最短20分駆けつけ！",
+      description: "急なエアコンの故障、深夜のお部屋の片付けなど、どんな時間帯でもスピーディーにお伺いします。エリア内最短30分駆けつけ！",
       icon: (
         <svg className="w-8 h-8 text-[#0C74B3]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -18,9 +17,9 @@ export default function TrustShield() {
       )
     },
     {
-      title: "靴下履き替え・衛生徹底",
-      subtitle: "清潔第一のクリーンマナー",
-      description: "お客様の清潔な家を守るため、お部屋に入る際は必ず「新品の綺麗な靴下」に履き替えてから作業を行います。養生やクリンネスも万全です。",
+      title: "【地域最安値】の絶対保証",
+      subtitle: "他社のお見積りからさらに10%OFF",
+      description: "「本当に一番安いの？」という不安を完全にゼロにします。他社様のお見積書や画像をご提示いただければ、その金額から確実に【10%お値引き】して即日対応。無駄な相見積もりの時間はもう必要ありません。",
       icon: (
         <svg className="w-8 h-8 text-[#0C74B3]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
@@ -46,7 +45,7 @@ export default function TrustShield() {
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-800 tracking-tight">
             青ねこが選ばれる3つの安心理由
           </h2>
-          <div className="h-1 w-20 bg-sky-200 mx-auto mt-4 rounded-full" />
+          <div className="h-1.5 w-16 bg-[#0C74B3] mx-auto mt-4 rounded-full" />
           <p className="text-sm sm:text-base text-slate-500 mt-4 font-medium">
             私たちは「親切・丁寧・誠実」をモットーに、地域の皆様が心から信頼できるサービスをご提供します。
           </p>
