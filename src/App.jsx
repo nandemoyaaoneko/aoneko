@@ -507,10 +507,15 @@ export default function App() {
                     <div className="w-12 h-12 rounded-full bg-sky-50 flex items-center justify-center mb-6">
                       {st.icon}
                     </div>
-                    <h3 className="text-lg font-black text-jeimas-blue-dark mb-2 pr-8">
+                    <h3 className="text-lg font-black text-jeimas-blue-dark mb-1 pr-8">
                       {st.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-slate-500 leading-relaxed font-medium">
+                    {st.lead && (
+                      <p className="text-xs font-black text-[#0C74B3] mb-3 leading-tight">
+                        {st.lead}
+                      </p>
+                    )}
+                    <p className="text-xs sm:text-sm text-slate-500 leading-relaxed font-semibold">
                       {st.desc}
                     </p>
                   </div>
