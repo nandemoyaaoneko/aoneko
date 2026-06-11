@@ -113,7 +113,7 @@ export default function ServiceCard({
               <div className="mt-4 pt-3 border-t border-sky-100/20 text-left space-y-3">
                 <p className="text-[8px] sm:text-[9px] text-sky-800/40 leading-normal font-medium">
                   ※価値のあるお品物は適正価格で買取し、整理費用からお値引きいたします。<br className="hidden md:block"/>
-                  廃棄物処理が必要な場合は、提携の一般廃棄物収集運搬業者を手配いたします。
+                  リユース対象外となるお品物の適正な運搬・引き取りにつきましては、提携の許可事業者と連携して安全に搬出対応いたします。
                 </p>
                 {/* Nuevo Banner de Descuento (Marketing) */}
                 <div className="bg-sky-100/80 border border-sky-200 text-sky-800 font-bold text-[10px] sm:text-xs px-4 py-2.5 rounded-full shadow-sm text-center">
