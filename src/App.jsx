@@ -7,199 +7,12 @@ import StickyCTA from './components/StickyCTA';
 import FloatingLineButton from './components/FloatingLineButton';
 import ScrollToTopButton from './components/ScrollToTopButton';
 
-// お片付け主要品目 (Okatatzuke Shuyo Hinmoku)
-const cleanupItems = [
-  {
-    name: "家庭用エアコン (分解・取り外し)",
-    category: "家電・空調",
-    status: "取り外し・穴埋め対応",
-    imageSrc: "/assets/reuse_aircon.png",
-    description: "取り外しからお引取り・リユース対応まで一括サポート。古いモデルや動かないエアコンも、壁の穴埋めや配線処理を含めて安全に搬出いたします。",
-    actionText: "引取・リユース対象",
-    badgeText: "即日引取可能",
-    keywords: ["エアコン引取", "エアコン取り外し", "蟹江 不用品引取", "家電リユース"]
-  },
-  {
-    name: "デスクトップPC & モニターセット",
-    category: "パソコン・IT機器",
-    status: "データ完全消去対応",
-    imageSrc: "/assets/reuse_pc.png",
-    description: "個人情報や社外秘データの漏洩を防ぐため、物理的または専用ソフトによる完全データ消去を行います。古い機器や液晶ディスプレイもまとめてお引き取りいたします。",
-    actionText: "データ消去・引取対象",
-    badgeText: "機密保護遵守",
-    keywords: ["中古PC買取", "パソコンデータ消去", "液晶モニター引取", "蟹江町 IT整理"]
-  },
-  {
-    name: "伝統的・モダン仏壇",
-    category: "家具・仏具",
-    status: "供養・魂抜き手配可能",
-    imageSrc: "/assets/reuse_butsudan.png",
-    description: "ご遺族様のご要望に合わせて丁重にお引き取り。専門の作法に基づいて魂抜き・供養のお手続きを終えたのち、丁重に搬出・お引取りいたします。",
-    actionText: "供養・搬出・引取対象",
-    badgeText: "遺品整理対応",
-    keywords: ["仏壇整理 愛知", "仏壇供養", "遺品整理 仏壇", "魂抜きお性根抜き"]
-  },
-  {
-    name: "木製マルチブックシェルフ",
-    category: "大型家具・収納",
-    status: "解体・養生搬出対応",
-    imageSrc: "/assets/reuse_bookshelf.png",
-    description: "大型本棚や棚板、スチールラックなどの家具解体・搬出。搬出経路が狭い場所でも、壁や床に傷をつけないよう丁寧に養生して運び出します。",
-    actionText: "解体・搬出サポート",
-    badgeText: "傷防止養生徹底",
-    keywords: ["大型本棚引取", "家具解体引取", "お片付け片付け", "蟹江町 家具引取"]
-  },
-  {
-    name: "高反発プレミアムダブルマットレス",
-    category: "寝具・ベッド",
-    status: "ベッド解体・引取対応",
-    imageSrc: "/assets/reuse_mattress.png",
-    description: "お引取りにお困りの大型マットレスやベッドフレームの引き取り。重くて搬出が困難なダブルサイズやシステムベッドも、スタッフが分解して迅速に運び出します。",
-    actionText: "搬出・お引取りサポート",
-    badgeText: "大型家具対応",
-    keywords: ["マットレス引取", "ベッド解体引取", "不用品引取 寝具", "大型ベッド引取"]
-  },
-  {
-    name: "2ドアコンパクト冷蔵庫",
-    category: "生活家電",
-    status: "特定家電法対応引取",
-    imageSrc: "/assets/reuse_fridge.png",
-    description: "特定家庭用機器対象の冷蔵庫引き取り。一人暮らし用の小型サイズから、ファミリー用の大型冷蔵庫まで、面倒な手続き不要で即日引き取りに伺います。",
-    actionText: "リユース対象",
-    badgeText: "即日引取可能",
-    keywords: ["冷蔵庫引取", "一人暮らし家電", "冷蔵庫引取 蟹江", "特定家庭用機器"]
-  },
-  {
-    name: "全自動縦型洗濯機 (5.0kg)",
-    category: "生活家電",
-    status: "水抜き・取り外し対応",
-    imageSrc: "/assets/reuse_washer.png",
-    description: "ドラム式や縦型の洗濯機・衣類乾燥機の取り外しと引き取り。給排水ホースの取り外しや水漏れ対策もしっかり行い、安全かつ迅速に搬出します。",
-    actionText: "取り外し・引取対象",
-    badgeText: "水漏れ対策万全",
-    keywords: ["洗濯機引取", "ドラム式洗濯機引取", "愛知 家電リユース", "洗濯機水抜き"]
-  },
-  {
-    name: "ターンテーブル電子レンジ",
-    category: "生活家電",
-    status: "小型家電まとめて引取",
-    imageSrc: "/assets/reuse_microwave.png",
-    description: "電子レンジ、炊飯器、トースターなどの小型キッチン家電。壊れているものや汚れが目立つものでも、お片付けの際にまとめてお引き取り可能です。",
-    actionText: "一括整理・分別対象",
-    badgeText: "壊れていてもOK",
-    keywords: ["電子レンジ引取", "キッチン家電引取", "小型家電リユース", "不用品引取"]
-  },
-  {
-    name: "ファブリック2人掛けコンパクトソファ",
-    category: "大型家具・ソファ",
-    status: "室内解体・搬出対応",
-    imageSrc: "/assets/reuse_sofa.png",
-    description: "大きくて持ち運びしづらい2人掛け・3人掛けの大型ソファや座椅子。室内のドアから通らない場合は、その場で適切に解体して安全に搬出いたします。",
-    actionText: "解体・搬出サポート",
-    badgeText: "室内解体対応",
-    keywords: ["ソファ引取 蟹江", "大型ソファ引取", "リビング家具引取", "大型ソファ搬出"]
-  },
-  {
-    name: "Hi-Fi高音質ステレオアンプ & スピーカー",
-    category: "音響・映像機器",
-    status: "レトロ・ジャンク歓迎",
-    imageSrc: "/assets/reuse_stereo.png",
-    description: "ステレオアンプ、大型スピーカー、レコードプレーヤーなどの音響機器やAV機器。古いレトロオーディオや動かないジャンク品も喜んでお引き取りします。",
-    actionText: "引取・リユース対象",
-    badgeText: "レトロ音響歓迎",
-    keywords: ["オーディオ買取", "アンプ買取", "スピーカー引取", "遺品整理カメラ"]
-  },
-  {
-    name: "天然木ローテーブル",
-    category: "家具・テーブル",
-    status: "大天板・金属脚対応",
-    imageSrc: "/assets/reuse_table.png",
-    description: "ダイニングテーブル、ガラステーブル、学習机などの引き取り。移動や分解に手間がかかる大きな天板や金属脚の家具も、すべて一括で片付け対応いたします。",
-    actionText: "一括搬出・解体対象",
-    badgeText: "分別お任せOK",
-    keywords: ["テーブル引取", "ローテーブル引取", "学習机引き取り", "家具片付け"]
-  },
-  {
-    name: "高速SSD搭載ノートPC",
-    category: "パソコン・IT機器",
-    status: "小型デバイス消去対応",
-    imageSrc: "/assets/reuse_laptop.png",
-    description: "使わなくなったノートパソコン、タブレット、スマートフォン。ハードディスクや内部メモリのデータ消去からリユースまで安心のワンストップ対応。",
-    actionText: "データ消去・リユース",
-    badgeText: "個人情報保護",
-    keywords: ["ノートPC引取", "スマホ引取", "データ消去証明", "小型家電引取"]
-  },
-  {
-    name: "LEDマルチアングルデスクライト",
-    category: "照明器具",
-    status: "取り外し・分別対応",
-    imageSrc: "/assets/reuse_lamp.png",
-    description: "シーリングライト、デスクランプ、蛍光灯器具などの照明器具全般。電球の分別や天井からの取り外し作業も、安全のためにプロにお任せください。",
-    actionText: "取り外し・分別対象",
-    badgeText: "高所作業対応",
-    keywords: ["照明器具引取", "蛍光灯器具引取", "天井ライト取り外し", "電気器具片付け"]
-  }
-];
-
-// 安心して選べる強み (Anshin shite eraberu tsuyomi)
-const strengthSlides = [
-  {
-    num: "01",
-    tag: "緊急性（Urgency）",
-    title: "【24時間対応】そのお急ぎ、青ねこが即座に解決。",
-    desc: "引越し（aoneko move）・整理のタイムリミットに、プロの物流網で緊急即応。深夜・早朝の依頼も、東海3県へ最短で駆けつけます。",
-    badge: "24時間対応"
-  },
-  {
-    num: "02",
-    tag: "利便性（Convenience）",
-    title: "「お荷物はそのままでOK」が青ねこ品質。",
-    desc: "煩わしい分別や梱包はすべて私たちが代行。事前の準備は一切不要です。あなたの時間を一秒たりとも無駄にさせません。",
-    badge: "梱包・分別不要"
-  },
-  {
-    num: "03",
-    tag: "財務的優位性（Smart Offset）",
-    title: "引越し（aoneko move）費用が「0円」に近づく魔法。",
-    desc: "スマホ・PC・タブレットをその場で高価買取。査定額を運送費用と相殺し、圧倒的低コストでスマートな新生活を実現します。",
-    badge: "スマートオフセット"
-  },
-  {
-    num: "04",
-    tag: "機動力（何でも屋 青ねこ）",
-    title: "黒ナンバーの機動力。何でも屋 青ねこ。",
-    desc: "単身引越し（aoneko move）から家具1点の移動まで、最適なルートで提案。プロの技術と機動力で、あなたの生活空間を最適化します。",
-    badge: "軽貨物機動力"
-  },
-  {
-    num: "05",
-    tag: "空港直行サービス（Airport Charter）",
-    title: "セントレアへ、手ぶら直行チャーター便。",
-    desc: "重いスーツケースは私たちが空港まで直送。最大12個まで一括搬送可能。手ぶらでスマートな旅の始まりを約束します。",
-    badge: "中部国際空港対応"
-  },
-  {
-    num: "06",
-    tag: "信頼と安全（Security）",
-    title: "女性に選ばれる「安心の法人基準」。",
-    desc: "厳格なコンプライアンス管理と徹底したプライバシー保護。見知らぬ業者が来る不安を解消し、清潔感と安心を提供します。",
-    badge: "法人品質基準"
-  },
-  {
-    num: "07",
-    tag: "価値の循環（Sustainability）",
-    title: "「捨てない」という、賢い選択。",
-    desc: "価値あるお品物を次の誰かへ。リユースのプロが適正に査定し、環境と心に優しい、贅沢な整理整頓をご提案します。",
-    badge: "価値の循環"
-  },
-  {
-    num: "08",
-    tag: "CTA（Call to Action）",
-    title: "見積もりは、相談するだけでいい。",
-    desc: "お見積もり・相談は完全無料。後出し追加料金なしの明朗会計をお約束。新生活の成功は、この電話一本から始まります。",
-    badge: "完全無料見積もり"
-  }
-];
+import cleanupItems from './data/cleanupItems';
+import strengthSlides from './data/strengthSlides';
+import services from './data/services';
+import steps from './data/steps';
+import { securityPoints, compliancePoints } from './data/securityCompliance';
+import faqs from './data/faqs';
 
 export default function App() {
   const WEB3FORMS_ACCESS_KEY = "1eac69c5-f18d-4203-912a-6f4ae0752065";
@@ -344,291 +157,6 @@ export default function App() {
     setActiveFaq(activeFaq === index ? null : index);
   };
 
-  // Services data list (AIO optimized with icons and locationTags)
-  const services = [
-    {
-      title: "エアコンクリーニング",
-      price: "7,000",
-      badge: "他社対抗割引 対象",
-      imageSrc: "/assets/service_aircon.jpg",
-      description: "追加料金なしで1台7,000円（税込7,700円）のエアコン分解洗浄。蟹江 エアコン掃除 即日対応もお任せください。",
-      locationTag: "愛知・三重・岐阜",
-      features: [
-        "エアコン内部の高圧洗浄・カビ除去",
-        "分解清掃で電気代の節約にも貢献",
-        "防カビ・抗菌仕上げオプションあり"
-      ],
-      icon: (
-        <img src="/assets/icon_aircon.png" alt="エアコンクリーニング アイコン" className="w-full h-full object-cover rounded-lg" />
-      )
-    },
-    {
-      title: "不用品買取・お片付けサポート",
-      price: "10,000",
-      badge: "高価買取実施中",
-      imageSrc: "/assets/service_rubbish.png",
-      description: "事前の分別や片付けが不要（丸投げできる）お部屋丸ごとお片付けサービス。不用品のリユース引取・高価買取に即日対応します。",
-      locationTag: "最短30分で即日急行",
-      features: [
-        "大型家具・家電の搬出・リユース引取",
-        "徹底したお片付けサポート・不用品買取",
-        "まだ使えるものはその場で即査定・買取",
-        "ご遺族に寄り添う遺品整理・生前整理"
-      ],
-      icon: (
-        <img src="/assets/icon_rubbish.png" alt="不用品買取・お片付けサポート アイコン" className="w-full h-full object-cover rounded-lg" />
-      )
-    },
-    {
-      title: "草刈り・庭木手入れ",
-      price: "8,000",
-      badge: "即日対応可能",
-      imageSrc: "/assets/service_weeding.png",
-      description: "愛知県周辺で深夜や早朝に対応できる片付け・便利屋としてお庭の手入れから草刈りまで即日急行。",
-      locationTag: "東海3県 (愛知・岐阜・三重)",
-      features: [
-        "お庭の雑草刈り・空き地の除草作業",
-        "伸びすぎた植木・庭木の剪定カット",
-        "作業後の枝葉引取・リユース処理も丸投げOK",
-        "定期メンテナンスのご相談も歓迎"
-      ],
-      icon: (
-        <img src="/assets/icon_weeding.png" alt="草刈り・庭木手入れ アイコン" className="w-full h-full object-cover rounded-lg" />
-      )
-    },
-    {
-      title: "単身・ミニ引越し（aoneko move）",
-      detailTitle: "何でも屋 青ねこ | 黒ナンバー車両による安心・迅速な軽貨物運送・引越し（aoneko move）サポート",
-      price: "13,200",
-      badge: "何でも屋 青ねこ",
-      imageSrc: "/assets/service_move_mini.png",
-      description: "仕分け不要！お荷物はそのままでOK。面倒な事前の梱包や分別作業は一切必要ありません。黒ナンバーの軽トラックを使用したスマートで無駄のない運搬。ワンルームの移動や単身の方の新生活に最適なミニマムプランです。",
-      locationTag: "愛知・岐阜・三重",
-      features: [
-        "仕分け不要！お荷物はそのままでOK",
-        "黒ナンバーの軽トラックを使用したスマートで無駄のない運搬",
-        "ワンルームの移動や単身の方の新生活に最適なミニマムプラン",
-        "面倒な事前の梱包や分別作業は一切必要ありません"
-      ],
-      icon: (
-        <img src="/assets/aoneko_move_logo_standing.jpg" alt="単身・ミニ引越し（aoneko move） アイコン" className="w-full h-full object-cover rounded-lg" />
-      )
-    },
-    {
-      title: "スポット・単品配送",
-      detailTitle: "何でも屋 青ねこ | 黒ナンバー車両による安心・迅速な軽貨物運送・引越し（aoneko move）サポート",
-      price: "8,000",
-      badge: "何でも屋 青ねこ",
-      imageSrc: "/assets/service_move_spot.png",
-      description: "家具1点から対応！どんなお荷物でも迅速に運送します。大型家具・家電の移動から、急な資材の搬送まで柔軟に対応。独自の物流ネットワークを活かした即日配送（スポット便）で、東海エリア（愛知・岐阜・三重）全域を網羅する確かな機動力でお応えします。",
-      locationTag: "愛知・岐阜・三重",
-      features: [
-        "家具1点から対応！どんなお荷物でも迅速運送",
-        "大型家具・家電の移動から、急な資材の搬送まで柔軟に対応",
-        "独自の物流ネットワークを活かした即日配送（スポット便）",
-        "東海エリア（愛知・岐阜・三重）全域を網羅する確かな機動力"
-      ],
-      icon: (
-        <img src="/assets/aoneko_move_logo_standing.jpg" alt="スポット・単品配送 アイコン" className="w-full h-full object-cover rounded-lg" />
-      )
-    },
-    {
-      title: "空港スーツケース配送",
-      detailTitle: "何でも屋 青ねこ | 黒ナンバー車両による安心・迅速な軽貨物運送・引越し（aoneko move）サポート",
-      price: "8,000",
-      badge: "何でも屋 青ねこ",
-      imageSrc: "/assets/service_move_airport.png",
-      description: "セントレア（中部国際空港）当日直行チャーター便。スーツケース1個から受付可能（最大10〜12個まで一括安全搬送）。自宅やオフィスから空港へ、当日中に届くダイレクト手ぶら便。少人数からグループ移動まで、荷物の量に応じた無駄のない適正価格です。",
-      locationTag: "愛知・岐阜・三重",
-      features: [
-        "セントレア（中部国際空港）当日直行チャーター便",
-        "スーツケース1個から受付可能（最大10〜12個まで一括安全搬送）",
-        "自宅やオフィスから空港へ、当日中に届くダイレクト手ぶら便",
-        "少人数からグループ移動まで、荷物の量に応じた無駄のない適正価格"
-      ],
-      icon: (
-        <img src="/assets/aoneko_move_logo_flying.jpg" alt="空港スーツケース配送 アイコン" className="w-full h-full object-cover rounded-lg" />
-      )
-    },
-    {
-      title: "クラウドカメラ工事・保守",
-      detailTitle: "複雑なカメラ設置もITのプロが丸ごと解決。クラウドカメラ工事・保守サービス",
-      price: "12,000",
-      badge: "IT・防犯対策プロ",
-      imageSrc: "/assets/service_camera.png",
-      description: "「カメラを導入したいが設定が分からない」「屋外の配線工事を頼める業者がいない」そんなお悩みは即日対応の「青ねこ」が解決します。パソコンやITデバイスの専門知識を活かし、AI・クラウドカメラの選定、初期設定、屋内・屋外問わない確実な設置工事、そして導入後の保守トラブルまでワンストップで対応。機器の運用やメンテナンスにかかる手間を完全にゼロにすることで、お客様の大切な時間とリソースを「本来のビジネス（製品開発や顧客開拓）」に集中できるよう強力にバックアップします。",
-      locationTag: "出張費・お見積り無料",
-      features: [
-        "AI・クラウド防犯カメラの選定・初期設定",
-        "屋内・屋外問わない確実な配線＆設置工事",
-        "導入後のネットワーク・接続トラブル保守",
-        "運用・メンテナンスの手間を完全にゼロへ"
-      ],
-      icon: (
-        <img src="/assets/icon_camera.png" alt="クラウドカメラ工事 アイコン" className="w-full h-full object-cover rounded-lg" />
-      )
-    },
-    {
-      title: "出張パソコン修理",
-      detailTitle: "「出張パソコン修理・ITのトラブル」はすべて丸投げでOK。プロが現場へ直行し、その場で完全解決します。",
-      price: "8,000",
-      badge: "ITトラブル即日解決",
-      imageSrc: "/assets/service_pc.jpg",
-      description: "突然のパソコントラブルやネットワークの切断にパニックになる必要はありません。重い機器を店舗へ持ち込む煩わしさはすべて捨ててください。私たち青ねこのITスペシャリストがご自宅やオフィスへ直接伺い、あらゆる問題をワンストップで解決します。パソコンの起動不良、ウイルス駆除、データ復旧はもちろん、Wi-Fiルーターの交換、ネットワークハブ（HUB）の構築、さらには防犯カメラの設置まで、ITインフラのすべてをサポート。あなたの「今すぐなんとかして！」というSOSに、確かな技術力とスピードで応えます。",
-      locationTag: "出張費・お見積り無料",
-      features: [
-        "パソコンの起動不良・ウイルス駆除・データ復旧",
-        "Wi-Fiルーターの交換・接続トラブル解決",
-        "ネットワークハブ（HUB）の構築・LAN配線"
-      ],
-      icon: (
-        <img src="/assets/icon_pc.jpg" alt="出張パソコン修理 アイコン" className="w-full h-full object-cover rounded-lg" />
-      )
-    }
-  ];
-
-  // Steps data list with premium Gold (#D4AF37) details
-  const steps = [
-    {
-      num: "01",
-      title: "お問い合わせ",
-      desc: "お電話またはWebよりご相談ください。24時間体制で受け付けております。",
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="#0C74B3" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-        </svg>
-      )
-    },
-    {
-      num: "02",
-      title: "無料お見積り",
-      desc: "現地にて丁寧に査定いたします。その場で金額をご提示し、キャンセルも無料です。",
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="#0C74B3" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-          <polyline points="14 2 14 8 20 8" />
-          <line x1="16" y1="13" x2="8" y2="13" />
-          <line x1="16" y1="17" x2="8" y2="17" />
-          <polyline points="10 9 9 9 8 9" />
-        </svg>
-      )
-    },
-    {
-      num: "03",
-      title: "作業実施",
-      desc: "プロの技術で迅速に作業を行います。",
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="#0C74B3" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-          <polyline points="9 11 12 14 22 4" />
-          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
-        </svg>
-      )
-    },
-    {
-      num: "04",
-      title: "お支払い",
-      desc: "作業内容をご確認いただき、問題がなければお支払いにて完了となります。",
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="#0C74B3" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-          <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
-          <line x1="1" y1="10" x2="23" y2="10" />
-        </svg>
-      )
-    }
-  ];
-
-  // FAQs data list
-  const faqs = [
-    {
-      q: "他社の見積もりより10%安くなる不用品買取・お片付け業者はありますか？",
-      a: "はい、「何でも屋 青ねこ」では相見積もり10%OFFキャンペーンを行っており、他社の見積もりを提示いただければ、その金額から必ず10%安く不用品買取・お片付けを即日で行います。愛知 不用品買取・お片付け最安値に挑戦中です。"
-    },
-    {
-      q: "お見積り後に断っても大丈夫ですか？",
-      a: "はい、もちろんです。お見積りは完全無料で行っております。金額や内容にご納得いただけない場合は、その場でお断りいただいても出張料や査定料などは一切発生いたしません。"
-    },
-    {
-      q: "愛知県周辺で深夜や早朝に対応できる片付け・便利屋はありますか？",
-      a: "はい、「何でも屋 青ねこ」は愛知県（名古屋市、蟹江町など）、岐阜県、三重県エリアで深夜・早朝を問わず引っ越し（aoneko move） 片付けや不用品整理の出張作業に24時間対応できる便利屋です。お客様のライフスタイルやご都合に合わせて柔軟に作業スケジュールを調整いたします。"
-    },
-    {
-      q: "事前の分別や片付けが不要（丸投げできる）お部屋の片付けサポートサービスはありますか？",
-      a: "はい、「何でも屋 青ねこ」のお部屋お片付け丸投げプランなら、事前の分別や整理、片付けは一切不要ですべてスタッフに丸投げでお任せいただけます。大きなお荷物や不用品のリユース引取・買取もあわせて対応します。"
-    },
-    {
-      q: "追加料金なしで1台7,000円のエアコン分解洗浄は可能ですか？",
-      a: "はい、「何でも屋 青ねこ」では追加料金なしで1台7,000円（税別、税込7,700円）からのエアコンクリーニング・エアコン分解洗浄を実施しております。蟹江 エアコン掃除 即日対応も可能です。"
-    },
-    {
-      q: "どんな物でも引き取りや買取が可能ですか？",
-      a: `家電製品、家具、生活雑貨、趣味の品、工具など幅広く買取・リユース引取を行っております。
-
-※真贋査定を要するハイブランド品（高級バッグ・時計・財布など）の「買取」は、トラブル防止のため原則として行っておりません。ただし、お部屋のお片付けに伴う「リユース引取」としてはお引き受け可能ですのでご相談ください。
-
-状態や法令によって引き取りが難しい場合もございますが、最善のお片付け・リユース方法をご提案いたします。`
-    }
-  ];
-
-  const securityPoints = [
-    {
-      title: "防犯カメラとネットワーク保護",
-      description: "セキュアな通信設定から不正アクセス対策まで、強固なインフラを構築。",
-      icon: (
-        <svg className="w-5 h-5 text-sky-600 shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-        </svg>
-      )
-    },
-    {
-      title: "法人・個人データ管理",
-      description: "国のガイドラインに準拠した厳格な情報保護プロセス。",
-      icon: (
-        <svg className="w-5 h-5 text-sky-600 shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125v-3.75m16.5 0v3.75m-16.5-3.75v3.75" />
-        </svg>
-      )
-    },
-    {
-      title: "ITセキュリティ監査",
-      description: "「SECURITY ACTION」一つ星宣言企業としての内部統制。",
-      icon: (
-        <svg className="w-5 h-5 text-sky-600 shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0110 21a3.745 3.745 0 01-3.068-1.593 3.746 3.746 0 01-3.296-1.043 3.746 3.746 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.746 3.746 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0114 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
-        </svg>
-      )
-    }
-  ];
-
-  const compliancePoints = [
-    {
-      title: "法令遵守の徹底",
-      description: "出張買取における適正かつ合法的なプロセスを厳守。",
-      icon: (
-        <svg className="w-5 h-5 text-sky-600 shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.5H5.25V21h13.5z" />
-        </svg>
-      )
-    },
-    {
-      title: "透明性の高い取引",
-      description: "パソコンやスマートフォンの誠実な査定と明確な買取手順。",
-      icon: (
-        <svg className="w-5 h-5 text-sky-600 shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-        </svg>
-      )
-    },
-    {
-      title: "安全なデバイス管理",
-      description: "引取後の確実なデータ消去と端末の安全な取り扱い。",
-      icon: (
-        <svg className="w-5 h-5 text-sky-600 shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
-        </svg>
-      )
-    }
-  ];
-
   return (
     <div className="min-h-screen flex flex-col bg-white text-slate-700 antialiased font-sans">
       <SEOHead faqs={faqs} />
@@ -700,6 +228,7 @@ export default function App() {
 
             {/* Hamburger Menu Button */}
             <button
+              type="button"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="md:hidden flex items-center justify-center w-11 h-11 rounded-full border border-sky-100 bg-[#F3F9FD] text-[#0C74B3] hover:bg-sky-50 transition-colors focus:outline-none cursor-pointer shrink-0"
               aria-label="メニューを開く"
@@ -788,6 +317,7 @@ export default function App() {
                   const isActive = activeServiceIdx === idx;
                   return (
                     <button
+                      type="button"
                       key={idx}
                       onClick={() => setActiveServiceIdx(idx)}
                       onMouseEnter={() => setActiveServiceIdx(idx)}
@@ -1024,6 +554,7 @@ export default function App() {
             <div className="relative group">
               {/* Left Arrow Button */}
               <button 
+                type="button"
                 onClick={scrollLeft}
                 className="absolute left-[-20px] top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white border border-[#E0EEF6] shadow-premium flex items-center justify-center text-slate-500 hover:text-[#0C74B3] hover:border-[#0C74B3]/40 hover:scale-105 transition-all duration-300 z-20 cursor-pointer hidden md:flex"
                 aria-label="前へスクロール"
@@ -1035,6 +566,7 @@ export default function App() {
 
               {/* Right Arrow Button */}
               <button 
+                type="button"
                 onClick={scrollRight}
                 className="absolute right-[-20px] top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white border border-[#E0EEF6] shadow-premium flex items-center justify-center text-slate-500 hover:text-[#0C74B3] hover:border-[#0C74B3]/40 hover:scale-105 transition-all duration-300 z-20 cursor-pointer hidden md:flex"
                 aria-label="次へスクロール"
@@ -1173,6 +705,7 @@ export default function App() {
                   className="premium-container bg-white border border-[#E4EEF4] rounded-5xl overflow-hidden transition-all duration-300 shadow-premium"
                 >
                   <button 
+                    type="button"
                     onClick={() => toggleFaq(idx)}
                     className="w-full flex justify-between items-center text-left py-6 px-8 hover:bg-[#FBFDFE] transition-colors"
                   >
@@ -1226,66 +759,13 @@ export default function App() {
               </p>
             </div>
 
-            {/* Official Info Bar (Pills layout) */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 max-w-5xl mx-auto font-sans">
-              {/* Area Pill */}
-              <div className="bg-white border border-[#E0EEF6] p-5 rounded-[2.5rem] shadow-premium flex items-center gap-4 hover:border-[#0C74B3]/25 transition-all duration-300 w-full min-h-[92px]">
-                <div className="w-12 h-12 rounded-full bg-[#EAF5FC] flex items-center justify-center text-[#0C74B3] shrink-0">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-                  </svg>
-                </div>
-                <div className="text-left">
-                  <p className="text-[9px] text-slate-400 font-bold leading-none">対応エリア</p>
-                  <p className="text-xs sm:text-sm font-black text-jeimas-blue-dark leading-tight mt-1 whitespace-nowrap">
-                    愛知・岐阜・三重
-                  </p>
-                  <p className="text-[10px] text-[#0C74B3] font-bold mt-0.5 leading-none">
-                    24時間受付中
-                  </p>
-                </div>
-              </div>
 
-              {/* Toll-Free Pill (Official Phone Button style) */}
-              <a 
-                href="tel:0120-502-622"
-                className="shine-button w-full min-h-[92px] inline-flex items-center gap-4 bg-gradient-to-r from-aoneko-pink to-[#E0006C] text-white font-extrabold p-5 rounded-[2.5rem] border border-white/10 shadow-[0_8px_20px_-6px_rgba(255,0,127,0.45)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer group"
-              >
-                <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center text-white shrink-0 group-hover:scale-105 transition-transform duration-300">
-                  <svg className="w-6 h-6 fill-none stroke-current stroke-[2.5] animate-bounce" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-1.514 2.022a8.237 8.237 0 0 1-4.559-4.559l2.022-1.514c.361-.27.528-.733.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
-                  </svg>
-                </div>
-                <div className="text-left">
-                  <p className="text-[9px] text-white/80 font-bold leading-none">通話料無料の窓口</p>
-                  <p className="text-sm sm:text-base font-black text-white leading-tight mt-1">0120-502-622</p>
-                </div>
-              </a>
-
-              {/* LINE Pill (Official LINE Button style) */}
-              <a 
-                href="https://line.me/ti/p/XbHxvB_Kbu"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="shine-button w-full min-h-[92px] inline-flex items-center gap-4 bg-[#06C755] hover:bg-[#05b04b] text-white font-extrabold p-5 rounded-[2.5rem] border border-white/10 shadow-[0_8px_20px_-6px_rgba(6,199,85,0.45)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer group"
-              >
-                <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center text-white shrink-0 group-hover:scale-105 transition-transform duration-300">
-                  <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 5.84 2 10.58c0 2.9 1.7 5.48 4.38 7.09l-.46 2.8c-.08.48.27.67.66.41l3.86-2.31c.5.07 1 .11 1.56.11 5.52 0 10-3.84 10-8.58S17.52 2 12 2z"/>
-                  </svg>
-                </div>
-                <div className="text-left">
-                  <p className="text-[9px] text-white/80 font-bold leading-none">LINEでかんたん無料相談</p>
-                  <p className="text-sm sm:text-base font-black text-white leading-tight mt-1">LINE友だち追加</p>
-                </div>
-              </a>
-            </div>
 
             {/* Scroll Navigation Container */}
             <div className="relative group">
               {/* Left Arrow Button */}
               <button 
+                type="button"
                 onClick={scrollStrengthsLeft}
                 className="absolute left-[-20px] top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white border border-[#E0EEF6] shadow-premium flex items-center justify-center text-slate-500 hover:text-[#0C74B3] hover:border-[#0C74B3]/40 hover:scale-105 transition-all duration-300 z-20 cursor-pointer hidden md:flex"
                 aria-label="前へスクロール"
@@ -1297,6 +777,7 @@ export default function App() {
 
               {/* Right Arrow Button */}
               <button 
+                type="button"
                 onClick={scrollStrengthsRight}
                 className="absolute right-[-20px] top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white border border-[#E0EEF6] shadow-premium flex items-center justify-center text-slate-500 hover:text-[#0C74B3] hover:border-[#0C74B3]/40 hover:scale-105 transition-all duration-300 z-20 cursor-pointer hidden md:flex"
                 aria-label="次へスクロール"
@@ -1465,32 +946,7 @@ export default function App() {
               </div>
             </div>
 
-            {/* Strengths Section Footer CTAs */}
-            <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 max-w-2xl mx-auto px-4">
-              {/* LINE CTA */}
-              <a 
-                href="https://line.me/ti/p/XbHxvB_Kbu"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="shine-button w-full sm:w-1/2 flex items-center justify-center gap-3 bg-[#06C755] hover:bg-[#05b04b] text-white font-extrabold py-4 px-6 rounded-[2.5rem] border border-white/10 shadow-[0_8px_20px_-6px_rgba(6,199,85,0.45)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer"
-              >
-                <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 5.84 2 10.58c0 2.9 1.7 5.48 4.38 7.09l-.46 2.8c-.08.48.27.67.66.41l3.86-2.31c.5.07 1 .11 1.56.11 5.52 0 10-3.84 10-8.58S17.52 2 12 2z"/>
-                </svg>
-                <span className="text-sm sm:text-base tracking-wide">LINE友だち追加で簡単相談</span>
-              </a>
 
-              {/* Phone CTA */}
-              <a 
-                href="tel:0120-502-622"
-                className="shine-button w-full sm:w-1/2 flex items-center justify-center gap-3 bg-gradient-to-r from-aoneko-pink to-[#E0006C] text-white font-extrabold py-4 px-6 rounded-[2.5rem] border border-white/10 shadow-[0_8px_20px_-6px_rgba(255,0,127,0.45)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer"
-              >
-                <svg className="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                <span className="text-sm sm:text-base tracking-wide">0120-502-622（通話料無料）</span>
-              </a>
-            </div>
           </div>
         </section>
 
@@ -1520,6 +976,7 @@ export default function App() {
                     お問い合わせありがとうございます。内容を確認の上、担当者より折り返しご連絡させていただきます。
                   </p>
                   <button
+                    type="button"
                     onClick={() => setFormStatus(null)}
                     className="mt-6 text-sm font-extrabold text-[#0C74B3] hover:underline cursor-pointer"
                   >
@@ -1635,6 +1092,8 @@ export default function App() {
                     onChange={(e) => setFormData({ ...formData, botcheck: e.target.checked })}
                     className="hidden" 
                     style={{ display: 'none' }} 
+                    tabIndex="-1"
+                    aria-hidden="true"
                   />
 
                   {/* Error Message */}

@@ -157,6 +157,7 @@ export default function HeroSection() {
       <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 md:left-auto md:translate-x-0 md:right-8 z-30 flex gap-2">
         {slides.map((_, index) => (
           <button
+            type="button"
             key={index}
             onClick={() => handleIndicatorClick(index)}
             aria-label={`Go to slide ${index + 1}`}
@@ -169,6 +170,7 @@ export default function HeroSection() {
 
       {/* Navigation arrows (large & round) */}
       <button 
+        type="button"
         onClick={handlePrevSlide}
         className="absolute left-2 sm:left-6 top-1/2 transform -translate-y-1/2 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center bg-slate-950/20 hover:bg-slate-950/45 text-white backdrop-blur-md transition-all duration-300 shadow-[0_4px_12px_rgba(0,0,0,0.1)] border border-white/20 z-30 focus:outline-none cursor-pointer"
         aria-label="Previous Slide"
@@ -179,6 +181,7 @@ export default function HeroSection() {
       </button>
 
       <button 
+        type="button"
         onClick={handleNextSlide}
         className="absolute right-2 sm:right-6 top-1/2 transform -translate-y-1/2 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center bg-slate-950/20 hover:bg-slate-950/45 text-white backdrop-blur-md transition-all duration-300 shadow-[0_4px_12px_rgba(0,0,0,0.1)] border border-white/20 z-30 focus:outline-none cursor-pointer"
         aria-label="Next Slide"
