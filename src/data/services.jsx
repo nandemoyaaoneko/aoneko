@@ -51,6 +51,24 @@ const services = [
     )
   },
   {
+    title: "プチ解体",
+    detailTitle: "プチ解体（屋外構造物の分解・お引取りサポート）",
+    price: "10,000",
+    badge: "安心のプロ解体",
+    imageSrc: "/assets/service_demolition.png",
+    description: "古くなったウッドデッキ、サビついて動かない物置、処分に困るベランダの波板など、大がかりな工事会社を呼ぶほどではない「小さなお困りごと」を、安心の物流品質でスピーディに解決します。",
+    locationTag: "愛知・岐阜・三重",
+    features: [
+      "屋外物置・小型スチール倉庫の分解",
+      "ウッドデッキ・簡易テラスの撤去",
+      "エクステリア・フェンス・波板屋根の取り外し",
+      "室内造作・大型DIY家具・カウンターの解体"
+    ],
+    icon: (
+      <img src="/assets/icon_demolition.png" alt="プチ解体 アイコン" className="w-full h-full object-cover rounded-lg" />
+    )
+  },
+  {
     title: "単身・ミニ引越し(Aoneko Move)",
     detailTitle: "何でも屋 青ねこ | 黒ナンバー車両による安心・迅速な軽貨物運送・引越し（aoneko move）サポート",
     price: "13,200",

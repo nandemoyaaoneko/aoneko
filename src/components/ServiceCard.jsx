@@ -110,17 +110,63 @@ export default function ServiceCard({
 
           {/* Features Checklist */}
           <div>
-            <h4 className="text-xs text-slate-400 font-black tracking-wider uppercase mb-3">サービスの特徴</h4>
-            <ul className="space-y-3">
-              {features.map((feature, idx) => (
-                <li key={idx} className="flex items-start gap-2.5 text-sm text-slate-600">
-                  <svg className="w-5 h-5 text-[#3AB33E] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="font-semibold">{feature}</span>
-                </li>
-              ))}
-            </ul>
+            {title.includes("プチ解体") ? (
+              <div className="space-y-4">
+                <h4 className="text-xs text-slate-400 font-black tracking-wider uppercase mb-3">解体・分解の対象品目</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="bg-[#F3F9FD]/60 border border-[#E0EEF6] p-5 rounded-[2.5rem] flex flex-col justify-start hover:scale-[1.01] transition-transform duration-300">
+                    <h5 className="font-black text-sm text-[#0C74B3] mb-2 flex items-center gap-2">
+                      <span className="bg-[#0C74B3] text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold">1</span>
+                      屋外物置・小型スチール倉庫
+                    </h5>
+                    <p className="text-slate-600 text-xs font-semibold leading-relaxed">
+                      イナバ、ヨドコウ、タクボ等の主要メーカーに対応。経年劣化でサビついた特殊なネジやボルトも、プロの工具で安全に分解し、スマートに搬出・資源化いたします。
+                    </p>
+                  </div>
+                  <div className="bg-[#F3F9FD]/60 border border-[#E0EEF6] p-5 rounded-[2.5rem] flex flex-col justify-start hover:scale-[1.01] transition-transform duration-300">
+                    <h5 className="font-black text-sm text-[#0C74B3] mb-2 flex items-center gap-2">
+                      <span className="bg-[#0C74B3] text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold">2</span>
+                      ウッドデッキ・簡易テラス
+                    </h5>
+                    <p className="text-slate-600 text-xs font-semibold leading-relaxed">
+                      老朽化して床が抜けてしまったウッドデッキやベランダの木製スノコ。周囲の環境や地面を傷つけることなく、手際よくパーツごとに分解して引き取ります。
+                    </p>
+                  </div>
+                  <div className="bg-[#F3F9FD]/60 border border-[#E0EEF6] p-5 rounded-[2.5rem] flex flex-col justify-start hover:scale-[1.01] transition-transform duration-300">
+                    <h5 className="font-black text-sm text-[#0C74B3] mb-2 flex items-center gap-2">
+                      <span className="bg-[#0C74B3] text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold">3</span>
+                      エクステリア・フェンス・波板屋根
+                    </h5>
+                    <p className="text-slate-600 text-xs font-semibold leading-relaxed">
+                      台風や強風で破損しかけているカーポートのポリカ波板、駐輪場の簡易屋根、不要になったアルミ製・木製のフェンスや柵の取り外しと運搬を代行します。
+                    </p>
+                  </div>
+                  <div className="bg-[#F3F9FD]/60 border border-[#E0EEF6] p-5 rounded-[2.5rem] flex flex-col justify-start hover:scale-[1.01] transition-transform duration-300">
+                    <h5 className="font-black text-sm text-[#0C74B3] mb-2 flex items-center gap-2">
+                      <span className="bg-[#0C74B3] text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold">4</span>
+                      室内造作・大型DIY家具
+                    </h5>
+                    <p className="text-slate-600 text-xs font-semibold leading-relaxed">
+                      壁や床に固定されていて、そのままでは部屋から運び出せない大型の棚、カウンター、手作りの木製間仕切りなども、その場で安全に解体・搬出いたします。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <>
+                <h4 className="text-xs text-slate-400 font-black tracking-wider uppercase mb-3">サービスの特徴</h4>
+                <ul className="space-y-3">
+                  {features.map((feature, idx) => (
+                    <li key={idx} className="flex items-start gap-2.5 text-sm text-slate-600">
+                      <svg className="w-5 h-5 text-[#3AB33E] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="font-semibold">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
             {title.includes("不用品買取") && (
               <div className="mt-4 pt-3 border-t border-sky-100/20 text-left space-y-3">
                 <p className="text-[8px] sm:text-[9px] text-sky-800/40 leading-normal font-medium">
