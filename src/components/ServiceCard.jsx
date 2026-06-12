@@ -23,6 +23,16 @@ export default function ServiceCard({
   return (
     <article className="bg-white rounded-[32px] border border-[#E0EEF6] shadow-premium p-6 sm:p-8 lg:p-10 flex flex-col justify-between h-full relative overflow-hidden transition-all duration-300">
       
+      {/* Mobile Title & Badge (Visible only on mobile/tablet) */}
+      <div className="lg:hidden mb-6 w-full relative z-10">
+        <span className="bg-[#E2F1FB] text-[#0C74B3] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">
+          {badge}
+        </span>
+        <h3 className="text-2xl sm:text-3xl font-black text-jeimas-blue-dark leading-tight flex items-center gap-3">
+          {icon && <span className="w-8 h-8 text-[#0C74B3] shrink-0">{icon}</span>}
+          <span>{title}</span>
+        </h3>
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative z-10 h-full">
         
@@ -78,7 +88,9 @@ export default function ServiceCard({
         {/* Right column inside card: Title + Description + Checklist */}
         <div className="lg:col-span-7 space-y-6 flex flex-col justify-between h-full w-full">
           <div className="space-y-4">
-            <div>
+            
+            {/* Desktop Title & Badge (Hidden on mobile/tablet) */}
+            <div className="hidden lg:block">
               <span className="bg-[#E2F1FB] text-[#0C74B3] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">
                 {badge}
               </span>

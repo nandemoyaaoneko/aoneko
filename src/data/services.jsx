@@ -20,7 +20,7 @@ const services = [
     title: "不用品買取・お片付けサポート",
     price: "10,000",
     badge: "高価買取実施中",
-    imageSrc: "/assets/service_rubbish.png",
+    imageSrc: "/assets/service_cleanup_detail.jpg",
     description: "事前の分別や片付けが不要（丸投げできる）お部屋丸ごとお片付けサービス。不用品のリユース引取・高価買取に即日対応します。",
     locationTag: "最短30分で即日急行",
     features: [
@@ -51,7 +51,7 @@ const services = [
     )
   },
   {
-    title: "単身・ミニ引越し（aoneko move）",
+    title: "単身・ミニ引越し(Aoneko Move)",
     detailTitle: "何でも屋 青ねこ | 黒ナンバー車両による安心・迅速な軽貨物運送・引越し（aoneko move）サポート",
     price: "13,200",
     badge: "何でも屋 青ねこ",
@@ -69,11 +69,11 @@ const services = [
     )
   },
   {
-    title: "スポット・単品配送",
+    title: "スポット・単品配送(Aoneko Move)",
     detailTitle: "何でも屋 青ねこ | 黒ナンバー車両による安心・迅速な軽貨物運送・引越し（aoneko move）サポート",
     price: "8,000",
     badge: "何でも屋 青ねこ",
-    imageSrc: "/assets/service_move_spot.png",
+    imageSrc: "/assets/service_move_spot.jpg",
     description: "家具1点から対応！どんなお荷物でも迅速に運送します。大型家具・家電の移動から、急な資材の搬送まで柔軟に対応。独自の物流ネットワークを活かした即日配送（スポット便）で、東海エリア（愛知・岐阜・三重）全域を網羅する確かな機動力でお応えします。",
     locationTag: "愛知・岐阜・三重",
     features: [
@@ -87,11 +87,11 @@ const services = [
     )
   },
   {
-    title: "空港スーツケース配送",
+    title: "空港スーツケース配送(Aoneko Move)",
     detailTitle: "何でも屋 青ねこ | 黒ナンバー車両による安心・迅速な軽貨物運送・引越し（aoneko move）サポート",
     price: "8,000",
     badge: "何でも屋 青ねこ",
-    imageSrc: "/assets/service_move_airport.png",
+    imageSrc: "/assets/service_move_airport.jpg",
     description: "セントレア（中部国際空港）当日直行チャーター便。スーツケース1個から受付可能（最大10〜12個まで一括安全搬送）。自宅やオフィスから空港へ、当日中に届くダイレクト手ぶら便。少人数からグループ移動まで、荷物の量に応じた無駄のない適正価格です。",
     locationTag: "愛知・岐阜・三重",
     features: [

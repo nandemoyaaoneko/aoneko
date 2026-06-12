@@ -79,6 +79,30 @@ export default function App() {
   const logoRef = useRef(null);
   const galleryRef = useRef(null);
   const strengthsRef = useRef(null);
+  const hoverTimeoutRef = useRef(null);
+
+  const handleServiceMouseEnter = (idx) => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+    }
+    hoverTimeoutRef.current = setTimeout(() => {
+      setActiveServiceIdx(idx);
+    }, 150);
+  };
+
+  const handleServiceMouseLeave = () => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      if (hoverTimeoutRef.current) {
+        clearTimeout(hoverTimeoutRef.current);
+      }
+    };
+  }, []);
 
   const scrollLeft = () => {
     if (galleryRef.current) {
@@ -188,7 +212,7 @@ export default function App() {
               サービス一覧
             </a>
             <a href="#process" className="hover:text-[#0C74B3] transition-colors duration-200">
-              ご依頼の流れ
+              お片付けサービスの流れ
             </a>
             <a href="#contact" className="hover:text-[#0C74B3] transition-colors duration-200">
               お問い合わせ
@@ -218,12 +242,12 @@ export default function App() {
             <a 
               href="tel:0120-502-622" 
               className="shine-button md:hidden flex items-center gap-1.5 bg-gradient-to-r from-aoneko-pink to-[#E0006C] text-white font-extrabold py-2 px-3 sm:px-3.5 rounded-[2.5rem] border border-white/10 shadow-[0_4px_12px_-3px_rgba(255,0,127,0.45)] transition-all duration-300 shrink-0"
-              aria-label="フリーダイヤルで電話をかける"
+              aria-label="フリーダイヤル 0120-502-622 で電話をかける"
             >
               <svg className="w-4 h-4 text-white animate-bounce shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
-              <span className="text-[10px] sm:text-xs font-black tracking-tight leading-none">フリーダイヤル</span>
+              <span className="text-[11px] sm:text-xs font-black tracking-tight leading-none">0120-502-622</span>
             </a>
 
             {/* Hamburger Menu Button */}
@@ -269,7 +293,7 @@ export default function App() {
                 onClick={() => setIsMenuOpen(false)} 
                 className="hover:text-[#0C74B3] py-2 border-b border-sky-50/50 transition-colors duration-200"
               >
-                ご依頼の流れ
+                お片付けサービスの流れ
               </a>
               <a 
                 href="#faq" 
@@ -319,9 +343,13 @@ export default function App() {
                     <button
                       type="button"
                       key={idx}
-                      onClick={() => setActiveServiceIdx(idx)}
-                      onMouseEnter={() => setActiveServiceIdx(idx)}
-                      className={`w-full text-left p-5 rounded-3xl border transition-all duration-300 flex items-center gap-4 group relative overflow-hidden cursor-pointer ${
+                      onClick={() => {
+                        handleServiceMouseLeave();
+                        setActiveServiceIdx(idx);
+                      }}
+                      onMouseEnter={() => handleServiceMouseEnter(idx)}
+                      onMouseLeave={handleServiceMouseLeave}
+                      className={`w-full text-left py-3 px-4 lg:py-3.5 lg:px-5 rounded-[1.25rem] border transition-all duration-300 flex items-center gap-4 group relative overflow-hidden cursor-pointer ${
                         isActive 
                           ? 'bg-white border-[#0C74B3] shadow-md shadow-sky-100/60' 
                           : 'bg-white/70 border-[#E0EEF6] hover:bg-white hover:border-[#0C74B3]/40 shadow-sm'
@@ -329,7 +357,7 @@ export default function App() {
                     >
 
                       {/* Icon Container */}
-                      <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 border ${
+                      <div className={`w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-300 border ${
                         isActive 
                           ? 'bg-[#0C74B3] border-[#0C74B3] text-white' 
                           : 'bg-[#EAF5FC] border-sky-200/50 text-[#0C74B3] group-hover:bg-[#0C74B3] group-hover:border-[#0C74B3] group-hover:text-white'
@@ -351,7 +379,7 @@ export default function App() {
               </div>
 
               {/* Right Detail Card Column */}
-              <div className="lg:col-span-8 h-full">
+              <div className="lg:col-span-8 h-full animate-fade-in" key={activeServiceIdx}>
                 <ServiceCard 
                   index={activeServiceIdx}
                   title={services[activeServiceIdx].detailTitle || services[activeServiceIdx].title}
@@ -486,7 +514,7 @@ export default function App() {
           <div className="max-w-7xl mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="text-3xl sm:text-4xl font-black text-jeimas-blue-dark tracking-[-0.02em]">
-                ご依頼の流れ
+                お片付けサービスの流れ
               </h2>
               <div className="h-1.5 w-16 bg-[#0C74B3] mx-auto mt-4 rounded-full" />
               <p className="text-sm sm:text-base text-slate-500 mt-4 font-bold">

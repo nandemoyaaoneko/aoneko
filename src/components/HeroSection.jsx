@@ -9,7 +9,7 @@ import { useState, useEffect, useCallback } from 'react';
 export default function HeroSection() {
   const slides = [
     {
-      image: '/assets/hero_bg.jpg',
+      image: '/assets/service_rubbish.jpg',
       badge: '愛知・岐阜・三重エリア最短30分！',
       title: (
         <>
@@ -147,7 +147,7 @@ export default function HeroSection() {
 
             <div className="text-slate-600 text-xs sm:text-sm font-bold text-left space-y-1">
               <p className="text-slate-800">＼ お見積りは完全無料！ ／</p>
-              <p className="text-slate-500 font-medium leading-relaxed">他社との比較だけでもお気軽にご相談ください。</p>
+              <p className="text-slate-[#E0006C] font-extrabold leading-relaxed">相見積もり大歓迎！他社様のお見積り提示でさらに10%OFFの割引を適用！</p>
             </div>
           </div>
         </div>
