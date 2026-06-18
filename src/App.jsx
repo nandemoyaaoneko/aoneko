@@ -16,6 +16,7 @@ import faqs from './data/faqs';
 import { supabase } from './lib/supabaseClient';
 import { SeoStructuredData } from './components/SeoStructuredData';
 import AiChatWidget from './components/AiChatWidget';
+import CoverageSection from './components/CoverageSection';
 
 export default function App() {
   const WEB3FORMS_ACCESS_KEY = "1eac69c5-f18d-4203-912a-6f4ae0752065";
@@ -1304,6 +1305,9 @@ export default function App() {
             </a>
           </div>
         </section>
+
+        {/* Coverage Area / SEO Routes Index Section */}
+        <CoverageSection />
       </main>
 
       {/* Footer */}
