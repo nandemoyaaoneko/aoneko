@@ -45,7 +45,7 @@ export default function AiChatWidget() {
     setIsLoading(true);
 
     const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://ivbtpcxzyxrhevxoyqlh.supabase.co';
-    const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
+    const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'sb_publishable_XDbeCrXHYHfNidJ3hrAM-g_aWXiEwU9';
 
     // If Supabase configs are missing, respond with a fallback maintenance message
     if (!supabaseAnonKey) {

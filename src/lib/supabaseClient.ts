@@ -15,12 +15,8 @@ declare global {
 
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.48.0";
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-
-if (!supabaseUrl || !supabaseAnonKey) {
-  console.warn("⚠️ [Aviso]: Faltan las variables de entorno de Supabase. El enrutamiento SEO dinámico estará desactivado.");
-}
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://ivbtpcxzyxrhevxoyqlh.supabase.co';
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'sb_publishable_XDbeCrXHYHfNidJ3hrAM-g_aWXiEwU9';
 
 export const supabase = (supabaseUrl && supabaseAnonKey)
   ? createClient(supabaseUrl, supabaseAnonKey, {
