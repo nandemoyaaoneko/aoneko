@@ -12,8 +12,6 @@ export default function AiChatWidget() {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
-  const apiKey = import.meta.env.VITE_GEMINI_API_KEY || '';
-  const systemPrompt = "あなたは「何でも屋 青ねこ」の公式AIアシスタントです。愛知県、三重県、岐阜県の東海三県で、お片付けサポート、不用品リユース便、単身引越し、エアコンクリーニング、プチ解体（屋外構造物の分解・お引取り）などの便利屋サービスを提供しています。常に見積もりや相談を希望するお客様に対して、丁寧な日本語（敬語）で対応してください。価格設定や対応エリア（東海エリア）について正確に案内し、最終的にはお問い合わせや予約へ誘導することを目的とします。";
 
   // Initial welcome message
   useEffect(() => {
@@ -46,8 +44,11 @@ export default function AiChatWidget() {
     setMessages(newMessages);
     setIsLoading(true);
 
-    // If API key is missing, respond with a fallback maintenance message
-    if (!apiKey) {
+    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://ivbtpcxzyxrhevxoyqlh.supabase.co';
+    const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
+
+    // If Supabase configs are missing, respond with a fallback maintenance message
+    if (!supabaseAnonKey) {
       setTimeout(() => {
         setMessages((prev) => [
           ...prev,
@@ -62,38 +63,29 @@ export default function AiChatWidget() {
     }
 
     try {
-      // Format history for Gemini API
-      const apiContents = newMessages.map((msg) => ({
-        role: msg.role,
-        parts: [{ text: msg.text }]
-      }));
-
       const response = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
+        `${supabaseUrl}/functions/v1/aoneko-chat`,
         {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
+            'Authorization': `Bearer ${supabaseAnonKey}`
           },
           body: JSON.stringify({
-            contents: apiContents,
-            systemInstruction: {
-              parts: [{ text: systemPrompt }]
-            },
-            generationConfig: {
-              maxOutputTokens: 800,
-              temperature: 0.7,
-            }
+            messages: newMessages.map((msg) => ({
+              role: msg.role === 'model' ? 'assistant' : 'user',
+              content: msg.text
+            }))
           }),
         }
       );
 
       if (!response.ok) {
-        throw new Error(`Gemini API returned status ${response.status}`);
+        throw new Error(`Edge Function returned status ${response.status}`);
       }
 
       const resData = await response.json();
-      const aiResponseText = resData.candidates?.[0]?.content?.parts?.[0]?.text || 
+      const aiResponseText = resData.reply || 
         '申し訳ございません。お返事を生成できませんでした。詳細はお電話にてお問い合わせください。';
 
       setMessages((prev) => [...prev, { role: 'model', text: aiResponseText }]);
@@ -197,7 +189,7 @@ export default function AiChatWidget() {
               className="w-11 h-11 rounded-full bg-[#0C74B3] hover:bg-[#085a8d] text-white flex items-center justify-center shadow-md transition-all hover:scale-105 active:scale-95 disabled:opacity-50 disabled:pointer-events-none cursor-pointer shrink-0"
               aria-label="送信"
             >
-              <svg className="w-5 h-5 fill-current transform rotate-90" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 fill-current transform -rotate-90" viewBox="0 0 24 24">
                 <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
               </svg>
             </button>
