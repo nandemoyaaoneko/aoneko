@@ -1,3 +1,4 @@
+import React from 'react';
 
 /**
  * ServiceCard Component
@@ -19,6 +20,7 @@ export default function ServiceCard({
   locationTag = "愛知・岐阜・三重",
   icon = null
 }) {
+  const isDemolition = title.includes("プチ解体");
 
   return (
     <article className="bg-white rounded-[32px] border border-[#E0EEF6] shadow-premium p-6 sm:p-8 lg:p-10 flex flex-col justify-between h-full relative overflow-hidden transition-all duration-300">
@@ -34,7 +36,7 @@ export default function ServiceCard({
         </h3>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative z-10 h-full">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative z-10">
         
         {/* Left column inside card: Image + Price + CTA */}
         <div className="lg:col-span-5 space-y-6 w-full flex flex-col justify-between h-full">
@@ -63,30 +65,34 @@ export default function ServiceCard({
             </div>
 
             {/* Pricing block */}
-            <div className="flex items-baseline gap-1.5 bg-[#F3F9FD] py-3 px-4 rounded-[1.25rem] border border-sky-50">
-              <span className="text-xs text-slate-500 font-bold">
-                {title.includes("プチ解体") ? "参考費用" : "安心定額"}
-              </span>
-              <span className={title.includes("プチ解体") ? "text-xl font-bold text-[#0C74B3]" : "text-2xl sm:text-3xl font-black text-[#0C74B3]"}>
-                {price}
-              </span>
-              <span className="text-xs font-bold text-slate-800">円 ~</span>
-              <span className="text-[9px] text-[#D97706] bg-amber-50 px-2 py-0.5 rounded-full font-bold ml-auto border border-amber-100">
-                {title.includes("プチ解体") ? "現地見積無料" : "見積り無料"}
-              </span>
-            </div>
+            {!isDemolition && (
+              <div className="flex items-baseline gap-1.5 bg-[#F3F9FD] py-3 px-4 rounded-[1.25rem] border border-sky-50">
+                <span className="text-xs text-slate-500 font-bold">
+                  安心定額
+                </span>
+                <span className="text-2xl sm:text-3xl font-black text-[#0C74B3]">
+                  {price}
+                </span>
+                <span className="text-xs font-bold text-slate-800">円 ~</span>
+                <span className="text-[9px] text-[#D97706] bg-amber-50 px-2 py-0.5 rounded-full font-bold ml-auto border border-amber-100">
+                  見積り無料
+                </span>
+              </div>
+            )}
           </div>
 
           {/* CTA Button */}
-          <a 
-            href="tel:0120-502-622" 
-            className="shine-button w-full flex items-center justify-center gap-2 bg-gradient-to-r from-aoneko-pink to-[#E0006C] text-white font-extrabold py-4 rounded-[2.5rem] border border-white/10 shadow-[0_8px_20px_-6px_rgba(255,0,127,0.45)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 mt-6"
-          >
-            <span>電話で無料見積もり</span>
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </a>
+          {!isDemolition && (
+            <a 
+              href="tel:0120-502-622" 
+              className="shine-button w-full flex items-center justify-center gap-2 bg-gradient-to-r from-aoneko-pink to-[#E0006C] text-white font-extrabold py-4 rounded-[2.5rem] border border-white/10 shadow-[0_8px_20px_-6px_rgba(255,0,127,0.45)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 mt-6"
+            >
+              <span>電話で無料見積もり</span>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          )}
         </div>
 
         {/* Right column inside card: Title + Description + Checklist */}
@@ -110,102 +116,39 @@ export default function ServiceCard({
             </p>
           </div>
 
-          <div className="h-[1px] bg-slate-100 w-full" />
+          {!isDemolition && <div className="h-[1px] bg-slate-100 w-full" />}
 
           {/* Features Checklist */}
-          <div>
-            {title.includes("プチ解体") ? (
-              <div className="space-y-4">
-                <h4 className="text-xs text-slate-400 font-black tracking-wider uppercase mb-1">解体・分解の対象品目</h4>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <div className="bg-white/80 backdrop-blur-sm border border-[#E0EEF6] p-6 rounded-[2.5rem] flex flex-col justify-between hover:scale-[1.02] hover:shadow-md transition-all duration-300">
-                    <div className="text-center space-y-2.5">
-                      <span className="bg-[#0C74B3] text-white text-[10px] w-6 h-6 rounded-full flex items-center justify-center font-black mx-auto">1</span>
-                      <h5 className="font-black text-sm text-jeimas-blue-dark">屋外物置・小型スチール倉庫</h5>
-                      <p className="text-slate-500 text-xs font-semibold leading-relaxed text-center">
-                        イナバ、ヨドコウ、タクボ等の主要メーカーに対応。経年劣化でサビついた特殊なネジやボルトも、プロの工具で安全に分解し、スマートに搬出・資源化いたします。
-                      </p>
-                    </div>
-                    <div className="mt-4 pt-3 border-t border-sky-50 text-center">
-                      <span className="text-[10px] text-[#0C74B3] bg-[#EAF5FC] px-3.5 py-1 rounded-full font-black inline-block border border-sky-100/50">
-                        分解費用目安：15,000円〜
-                      </span>
-                    </div>
-                  </div>
-                  <div className="bg-white/80 backdrop-blur-sm border border-[#E0EEF6] p-6 rounded-[2.5rem] flex flex-col justify-between hover:scale-[1.02] hover:shadow-md transition-all duration-300">
-                    <div className="text-center space-y-2.5">
-                      <span className="bg-[#0C74B3] text-white text-[10px] w-6 h-6 rounded-full flex items-center justify-center font-black mx-auto">2</span>
-                      <h5 className="font-black text-sm text-jeimas-blue-dark">ウッドデッキ・簡易テラス</h5>
-                      <p className="text-slate-500 text-xs font-semibold leading-relaxed text-center">
-                        老朽化して床が抜けてしまったウッドデッキやベランダの木製スノコ。周囲の環境や地面を傷つけることなく、手際よくパーツごとに分解して引き取ります。
-                      </p>
-                    </div>
-                    <div className="mt-4 pt-3 border-t border-sky-50 text-center">
-                      <span className="text-[10px] text-[#0C74B3] bg-[#EAF5FC] px-3.5 py-1 rounded-full font-black inline-block border border-sky-100/50">
-                        撤去費用目安：20,000円〜
-                      </span>
-                    </div>
-                  </div>
-                  <div className="bg-white/80 backdrop-blur-sm border border-[#E0EEF6] p-6 rounded-[2.5rem] flex flex-col justify-between hover:scale-[1.02] hover:shadow-md transition-all duration-300">
-                    <div className="text-center space-y-2.5">
-                      <span className="bg-[#0C74B3] text-white text-[10px] w-6 h-6 rounded-full flex items-center justify-center font-black mx-auto">3</span>
-                      <h5 className="font-black text-sm text-jeimas-blue-dark">エクステリア・フェンス・波板屋根</h5>
-                      <p className="text-slate-500 text-xs font-semibold leading-relaxed text-center">
-                        台風や強風で破損しかけているカーポートのポリカ波板、駐輪場の簡易屋根、不要になったアルミ製・木製のフェンスや柵の取り外しと運搬を代行します。
-                      </p>
-                    </div>
-                    <div className="mt-4 pt-3 border-t border-sky-50 text-center">
-                      <span className="text-[10px] text-[#0C74B3] bg-[#EAF5FC] px-3.5 py-1 rounded-full font-black inline-block border border-sky-100/50">
-                        取外費用目安：8,000円〜
-                      </span>
-                    </div>
-                  </div>
-                  <div className="bg-white/80 backdrop-blur-sm border border-[#E0EEF6] p-6 rounded-[2.5rem] flex flex-col justify-between hover:scale-[1.02] hover:shadow-md transition-all duration-300">
-                    <div className="text-center space-y-2.5">
-                      <span className="bg-[#0C74B3] text-white text-[10px] w-6 h-6 rounded-full flex items-center justify-center font-black mx-auto">4</span>
-                      <h5 className="font-black text-sm text-jeimas-blue-dark">室内造作・大型DIY家具</h5>
-                      <p className="text-slate-500 text-xs font-semibold leading-relaxed text-center">
-                        壁や床に固定されていて、そのままでは部屋から運び出せない大型の棚、カウンター、手作りの木製間仕切りなども、その場で安全に解体・搬出いたします。
-                      </p>
-                    </div>
-                    <div className="mt-4 pt-3 border-t border-sky-50 text-center">
-                      <span className="text-[10px] text-[#0C74B3] bg-[#EAF5FC] px-3.5 py-1 rounded-full font-black inline-block border border-sky-100/50">
-                        解体費用目安：10,000円〜
-                      </span>
-                    </div>
-                  </div>
-                </div>
+          {!isDemolition && (
+            <div>
+              <h4 className="text-xs text-slate-400 font-black tracking-wider uppercase mb-3">サービスの特徴</h4>
+              <ul className="space-y-3">
+                {features.map((feature, idx) => (
+                  <li key={idx} className="flex items-start gap-2.5 text-sm text-slate-600">
+                    <svg className="w-5 h-5 text-[#3AB33E] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="font-semibold">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          
+          {title.includes("不用品買取") && (
+            <div className="mt-4 pt-3 border-t border-sky-100/20 text-left space-y-3">
+              <p className="text-[8px] sm:text-[9px] text-sky-800/40 leading-normal font-medium">
+                ※価値のあるお品物は適正価格で買取し、整理費用からお値引きいたします。<br className="hidden md:block"/>
+                リユース対象外となるお品物の適正な運搬・引き取りにつきましては、提携 of 許可事業者と連携して安全に搬出対応いたします。
+              </p>
+              {/* Nuevo Banner de Descuento (Marketing) */}
+              <div className="bg-sky-100/80 border border-sky-200 text-sky-800 font-bold text-[10px] sm:text-xs px-4 py-2.5 rounded-full shadow-sm text-center">
+                <span className="text-sm mr-1">🤝</span> 相見積もり大歓迎！他社様のお見積り提示でさらに<span className="text-red-500 font-extrabold mx-1">10%OFF</span>の割引を適用！
               </div>
-            ) : (
-              <>
-                <h4 className="text-xs text-slate-400 font-black tracking-wider uppercase mb-3">サービスの特徴</h4>
-                <ul className="space-y-3">
-                  {features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5 text-sm text-slate-600">
-                      <svg className="w-5 h-5 text-[#3AB33E] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="font-semibold">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </>
-            )}
-            {title.includes("不用品買取") && (
-              <div className="mt-4 pt-3 border-t border-sky-100/20 text-left space-y-3">
-                <p className="text-[8px] sm:text-[9px] text-sky-800/40 leading-normal font-medium">
-                  ※価値のあるお品物は適正価格で買取し、整理費用からお値引きいたします。<br className="hidden md:block"/>
-                  リユース対象外となるお品物の適正な運搬・引き取りにつきましては、提携の許可事業者と連携して安全に搬出対応いたします。
-                </p>
-                {/* Nuevo Banner de Descuento (Marketing) */}
-                <div className="bg-sky-100/80 border border-sky-200 text-sky-800 font-bold text-[10px] sm:text-xs px-4 py-2.5 rounded-full shadow-sm text-center">
-                  <span className="text-sm mr-1">🤝</span> 相見積もり大歓迎！他社様のお見積り提示でさらに<span className="text-red-500 font-extrabold mx-1">10%OFF</span>の割引を適用！
-                </div>
-              </div>
-            )}
-          </div>
+            </div>
+          )}
 
-          {!title.includes("不用品買取") && (
+          {!title.includes("不用品買取") && !isDemolition && (
             <div className="pt-2 text-[10px] text-slate-400 font-bold leading-normal">
               <span>※相見積もり大歓迎！他社様のお見積り提示でさらに10%OFFの割引を適用いたします。</span>
             </div>
@@ -213,6 +156,82 @@ export default function ServiceCard({
         </div>
 
       </div>
+
+      {/* Full-width Demolition Items below the main grid */}
+      {isDemolition && (
+        <div className="mt-8 pt-6 border-t border-slate-100 w-full relative z-10">
+          <h4 className="text-xs text-slate-400 font-black tracking-wider uppercase mb-4">解体・分解の対象品目</h4>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="bg-white/80 backdrop-blur-sm border border-[#E0EEF6] p-4 rounded-2xl flex flex-col justify-between hover:scale-[1.01] hover:shadow-sm transition-all duration-300">
+              <div className="space-y-2">
+                <div className="flex items-start gap-1.5">
+                  <span className="bg-[#0C74B3] text-white text-[9px] w-4.5 h-4.5 rounded-full flex items-center justify-center font-black shrink-0 mt-0.5">1</span>
+                  <h5 className="font-black text-xs text-jeimas-blue-dark leading-snug">屋外物置・小型スチール倉庫</h5>
+                </div>
+                <p className="text-slate-500 text-[10px] font-semibold leading-relaxed">
+                  イナバ、ヨドコウ、タクボ等の主要メーカーに対応。経年劣化でサビついた特殊なネジやボルトも、プロの工具で安全に分解し、スマートに搬出・資源化いたします。
+                </p>
+              </div>
+              <div className="mt-3 text-right">
+                <span className="text-[9px] text-[#0C74B3] bg-[#EAF5FC] px-2.5 py-0.5 rounded font-black border border-sky-100/50 inline-block">
+                  目安：15,000円〜
+                </span>
+              </div>
+            </div>
+            <div className="bg-white/80 backdrop-blur-sm border border-[#E0EEF6] p-4 rounded-2xl flex flex-col justify-between hover:scale-[1.01] hover:shadow-sm transition-all duration-300">
+              <div className="space-y-2">
+                <div className="flex items-start gap-1.5">
+                  <span className="bg-[#0C74B3] text-white text-[9px] w-4.5 h-4.5 rounded-full flex items-center justify-center font-black shrink-0 mt-0.5">2</span>
+                  <h5 className="font-black text-xs text-jeimas-blue-dark leading-snug">ウッドデッキ・簡易テラス</h5>
+                </div>
+                <p className="text-slate-500 text-[10px] font-semibold leading-relaxed">
+                  老朽化して床が抜けてしまったウッドデッキやベランダの木製スノコ。周囲の環境や地面を傷つけることなく、手際よくパーツごとに分解して引き取ります。
+                </p>
+              </div>
+              <div className="mt-3 text-right">
+                <span className="text-[9px] text-[#0C74B3] bg-[#EAF5FC] px-2.5 py-0.5 rounded font-black border border-sky-100/50 inline-block">
+                  目安：20,000円〜
+                </span>
+              </div>
+            </div>
+            <div className="bg-white/80 backdrop-blur-sm border border-[#E0EEF6] p-4 rounded-2xl flex flex-col justify-between hover:scale-[1.01] hover:shadow-sm transition-all duration-300">
+              <div className="space-y-2">
+                <div className="flex items-start gap-1.5">
+                  <span className="bg-[#0C74B3] text-white text-[9px] w-4.5 h-4.5 rounded-full flex items-center justify-center font-black shrink-0 mt-0.5">3</span>
+                  <h5 className="font-black text-xs text-jeimas-blue-dark leading-snug">エクステリア・フェンス・波板屋根</h5>
+                </div>
+                <p className="text-slate-500 text-[10px] font-semibold leading-relaxed">
+                  台風や強風で破損しかけているカーポートのポリカ波板、駐輪場の簡易屋根、不要になったアルミ製・木製のフェンスや柵の取り外しと運搬を代行します。
+                </p>
+              </div>
+              <div className="mt-3 text-right">
+                <span className="text-[9px] text-[#0C74B3] bg-[#EAF5FC] px-2.5 py-0.5 rounded font-black border border-sky-100/50 inline-block">
+                  目安：8,000円〜
+                </span>
+              </div>
+            </div>
+            <div className="bg-white/80 backdrop-blur-sm border border-[#E0EEF6] p-4 rounded-2xl flex flex-col justify-between hover:scale-[1.01] hover:shadow-sm transition-all duration-300">
+              <div className="space-y-2">
+                <div className="flex items-start gap-1.5">
+                  <span className="bg-[#0C74B3] text-white text-[9px] w-4.5 h-4.5 rounded-full flex items-center justify-center font-black shrink-0 mt-0.5">4</span>
+                  <h5 className="font-black text-xs text-jeimas-blue-dark leading-snug">室内造作・大型DIY家具</h5>
+                </div>
+                <p className="text-slate-500 text-[10px] font-semibold leading-relaxed">
+                  壁や床に固定されていて、そのままでは部屋から運び出せない大型の棚、カウンター、手作りの木製間仕切りなども、その場で安全に解体・搬出いたします。
+                </p>
+              </div>
+              <div className="mt-3 text-right">
+                <span className="text-[9px] text-[#0C74B3] bg-[#EAF5FC] px-2.5 py-0.5 rounded font-black border border-sky-100/50 inline-block">
+                  目安：10,000円〜
+                </span>
+              </div>
+            </div>
+          </div>
+          <div className="mt-4 pt-2 text-[10px] text-slate-400 font-bold leading-normal">
+            <span>※相見積もり大歓迎！他社様のお見積り提示でさらに10%OFFの割引を適用いたします。</span>
+          </div>
+        </div>
+      )}
 
       {/* Hover Glow Line */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-transparent via-[#0C74B3] to-transparent group-hover:w-full transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
