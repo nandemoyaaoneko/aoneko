@@ -322,14 +322,52 @@ export default function App() {
         {/* Services Section ("サービス一覧") */}
         <section className="py-24 bg-[#EAF5FC]/40 relative overflow-hidden" id="services">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl sm:text-4xl font-black text-jeimas-blue-dark tracking-[-0.02em]">
-                サービス一覧
-              </h2>
-              <div className="h-1.5 w-16 bg-[#0C74B3] mx-auto mt-4 rounded-full" />
-              <p className="text-sm sm:text-base text-slate-500 mt-4 font-bold">
-                プロの技術で、あなたのご毎日をもっと快適に。
-              </p>
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-6 border-b border-[#E0EEF6] pb-6">
+              <div className="text-left">
+                <h2 className="text-3xl sm:text-4xl font-black text-jeimas-blue-dark tracking-[-0.02em]">
+                  サービス一覧
+                </h2>
+                <p className="text-sm sm:text-base text-slate-500 mt-2 font-bold">
+                  プロの技術で、あなたのご毎日をもっと快適に。
+                </p>
+              </div>
+              
+              {/* SNS Buttons - right next to Services title */}
+              <div className="flex items-center gap-2.5">
+                <a 
+                  href="https://www.instagram.com/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-7.5 h-7.5 sm:w-8.5 sm:h-8.5 rounded-full border border-sky-100 bg-white text-[#0C74B3] flex items-center justify-center transition-all duration-300 hover:bg-[#EAF5FC] hover:border-[#0C74B3]/30 hover:scale-105 shadow-sm"
+                  aria-label="Instagram"
+                >
+                  <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                  </svg>
+                </a>
+                <a 
+                  href="https://www.tiktok.com/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-7.5 h-7.5 sm:w-8.5 sm:h-8.5 rounded-full border border-sky-100 bg-white text-[#0C74B3] flex items-center justify-center transition-all duration-300 hover:bg-[#EAF5FC] hover:border-[#0C74B3]/30 hover:scale-105 shadow-sm"
+                  aria-label="TikTok"
+                >
+                  <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" viewBox="0 0 24 24">
+                    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.17-2.86-.74-3.95-1.72-.1-.09-.17-.15-.26-.24V15.5c-.06 2.52-.96 5.16-2.99 6.75-2.22 1.74-5.46 2.11-8.03 1.05-2.73-1.12-4.83-3.83-5.06-6.81-.29-3.8 2.37-7.69-6.2-8.38 1.44-.26 2.97-.04 4.3.56V.02zm-4.31 9.9c-2.3.26-4.08 2.33-3.87 4.67.17 2.02 1.83 3.73 3.84 3.91 2.19.19 4.22-1.31 4.57-3.48.07-.46.08-.94.08-1.4V8.58c-1.39.99-3.12 1.49-4.7 1.34z"/>
+                  </svg>
+                </a>
+                <a 
+                  href="https://www.youtube.com/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-7.5 h-7.5 sm:w-8.5 sm:h-8.5 rounded-full border border-sky-100 bg-white text-[#0C74B3] flex items-center justify-center transition-all duration-300 hover:bg-[#EAF5FC] hover:border-[#0C74B3]/30 hover:scale-105 shadow-sm"
+                  aria-label="YouTube"
+                >
+                  <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" viewBox="0 0 24 24">
+                    <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.107C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.388.511a3.002 3.002 0 0 0-2.11 2.107C0 8.053 0 12 0 12s0 3.948.502 5.837a3.003 3.003 0 0 0 2.11 2.107c1.883.511 9.388.511 9.388.511s7.505 0 9.388-.511a3.002 3.002 0 0 0 2.11-2.107c.502-1.89.502-5.837.502-5.837s0-3.948-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                  </svg>
+                </a>
+              </div>
             </div>
 
             {/* Desktop-only: Selector + Detail Interactive Panel */}
@@ -1255,6 +1293,43 @@ export default function App() {
                   <p className="text-[10px] font-bold text-slate-500 leading-tight">経済産業省推進「SECURITY ACTION」一つ星宣言企業</p>
                   <p className="text-[10px] font-semibold text-slate-500 leading-tight">古物商許可 愛知県公安委員会 第542662601800号</p>
                 </div>
+              </div>
+
+              {/* SNS Buttons in Footer */}
+              <div className="mt-4 flex justify-center sm:justify-start items-center gap-3">
+                <a 
+                  href="https://www.instagram.com/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-7.5 h-7.5 rounded-full border border-jeimas-blue-dark/15 bg-white/40 text-jeimas-blue-dark flex items-center justify-center transition-all duration-300 hover:bg-white hover:text-[#0C74B3] hover:scale-105 shadow-sm"
+                  aria-label="Instagram"
+                >
+                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                  </svg>
+                </a>
+                <a 
+                  href="https://www.tiktok.com/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-7.5 h-7.5 rounded-full border border-jeimas-blue-dark/15 bg-white/40 text-jeimas-blue-dark flex items-center justify-center transition-all duration-300 hover:bg-white hover:text-[#0C74B3] hover:scale-105 shadow-sm"
+                  aria-label="TikTok"
+                >
+                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.17-2.86-.74-3.95-1.72-.1-.09-.17-.15-.26-.24V15.5c-.06 2.52-.96 5.16-2.99 6.75-2.22 1.74-5.46 2.11-8.03 1.05-2.73-1.12-4.83-3.83-5.06-6.81-.29-3.8 2.37-7.69-6.2-8.38 1.44-.26 2.97-.04 4.3.56V.02zm-4.31 9.9c-2.3.26-4.08 2.33-3.87 4.67.17 2.02 1.83 3.73 3.84 3.91 2.19.19 4.22-1.31 4.57-3.48.07-.46.08-.94.08-1.4V8.58c-1.39.99-3.12 1.49-4.7 1.34z"/>
+                  </svg>
+                </a>
+                <a 
+                  href="https://www.youtube.com/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-7.5 h-7.5 rounded-full border border-jeimas-blue-dark/15 bg-white/40 text-jeimas-blue-dark flex items-center justify-center transition-all duration-300 hover:bg-white hover:text-[#0C74B3] hover:scale-105 shadow-sm"
+                  aria-label="YouTube"
+                >
+                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                    <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.107C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.388.511a3.002 3.002 0 0 0-2.11 2.107C0 8.053 0 12 0 12s0 3.948.502 5.837a3.003 3.003 0 0 0 2.11 2.107c1.883.511 9.388.511 9.388.511s7.505 0 9.388-.511a3.002 3.002 0 0 0 2.11-2.107c.502-1.89.502-5.837.502-5.837s0-3.948-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                  </svg>
+                </a>
               </div>
             </div>
           </div>
