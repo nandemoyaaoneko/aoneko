@@ -23,95 +23,80 @@ export default function ServiceCard({
   const isDemolition = title.includes("プチ解体");
 
   return (
-    <article className="bg-white rounded-[32px] border border-[#E0EEF6] shadow-premium p-6 sm:p-8 lg:p-10 flex flex-col justify-between h-full relative overflow-hidden transition-all duration-300">
+    <article className="bg-white rounded-[32px] border border-[#E0EEF6] shadow-premium p-5 sm:p-6 lg:p-8 flex flex-col justify-center h-full relative overflow-hidden transition-all duration-300">
       
       {/* Mobile Title & Badge (Visible only on mobile/tablet) */}
-      <div className="lg:hidden mb-6 w-full relative z-10">
-        <span className="bg-[#E2F1FB] text-[#0C74B3] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">
+      <div className="lg:hidden mb-4 w-full relative z-10">
+        <span className="bg-[#E2F1FB] text-[#0C74B3] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mb-1.5 inline-block">
           {badge}
         </span>
-        <h3 className="text-2xl sm:text-3xl font-black text-jeimas-blue-dark leading-tight flex items-center gap-3">
+        <h3 className="text-xl sm:text-2xl font-black text-jeimas-blue-dark leading-tight flex items-center gap-3">
           {icon && <span className="w-8 h-8 text-[#0C74B3] shrink-0">{icon}</span>}
           <span>{title}</span>
         </h3>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative z-10">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start relative z-10">
         
-        {/* Left column inside card: Image + Price + CTA */}
-        <div className="lg:col-span-5 space-y-6 w-full flex flex-col justify-between h-full">
-          <div className="space-y-6">
-            {/* Image */}
-            <div className="relative aspect-[4/3] rounded-[20px] overflow-hidden shadow-inner bg-sky-50 border border-[#F0F7FA]">
-              <div className="absolute inset-0 bg-[#0C74B3]/5 mix-blend-overlay z-10"></div>
-              <div className="absolute inset-0 bg-gradient-to-t from-white/10 via-transparent to-transparent z-10"></div>
+        {/* Left column inside card: Image + Price */}
+        <div className="lg:col-span-5 space-y-4 w-full">
+          {/* Image */}
+          <div className="relative aspect-[4/3] rounded-[20px] overflow-hidden shadow-inner bg-sky-50 border border-[#F0F7FA]">
+            <div className="absolute inset-0 bg-[#0C74B3]/5 mix-blend-overlay z-10"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-white/10 via-transparent to-transparent z-10"></div>
 
-              <img 
-                src={imageSrc} 
-                alt={`何でも屋 青ねこ - ${title}`} 
-                className="w-full h-full object-cover transition-transform duration-[4000ms] hover:scale-105 ease-out"
-              />
+            <img 
+              src={imageSrc} 
+              alt={`何でも屋 青ねこ - ${title}`} 
+              className="w-full h-full object-cover transition-transform duration-[4000ms] hover:scale-105 ease-out"
+            />
 
-              {/* Location / Tag Overlay */}
-              <div className="absolute bottom-3 right-3 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-sm border border-white/10">
-                <svg className="w-3 h-3 text-[#0C74B3]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                <span className="text-[8px] font-bold text-white/90 tracking-wider">
-                  {locationTag}
-                </span>
-              </div>
+            {/* Location / Tag Overlay */}
+            <div className="absolute bottom-3 right-3 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-sm border border-white/10">
+              <svg className="w-3 h-3 text-[#0C74B3]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span className="text-[8px] font-bold text-white/90 tracking-wider">
+                {locationTag}
+              </span>
             </div>
-
-            {/* Pricing block */}
-            {!isDemolition && (
-              <div className="flex items-baseline gap-1.5 bg-[#F3F9FD] py-3 px-4 rounded-[1.25rem] border border-sky-50">
-                <span className="text-xs text-slate-500 font-bold">
-                  安心定額
-                </span>
-                <span className="text-2xl sm:text-3xl font-black text-[#0C74B3]">
-                  {price}
-                </span>
-                <span className="text-xs font-bold text-slate-800">円 ~</span>
-                <span className="text-[9px] text-[#D97706] bg-amber-50 px-2 py-0.5 rounded-full font-bold ml-auto border border-amber-100">
-                  見積り無料
-                </span>
-              </div>
-            )}
           </div>
 
-          {/* CTA Button */}
+          {/* Pricing block */}
           {!isDemolition && (
-            <a 
-              href="tel:0120-502-622" 
-              className="shine-button w-full flex items-center justify-center gap-2 bg-gradient-to-r from-aoneko-pink to-[#E0006C] text-white font-extrabold py-4 rounded-[2.5rem] border border-white/10 shadow-[0_8px_20px_-6px_rgba(255,0,127,0.45)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 mt-6"
-            >
-              <span>電話で無料見積もり</span>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </a>
+            <div className="flex items-baseline gap-1.5 bg-[#F3F9FD] py-3 px-4 rounded-[1.25rem] border border-sky-50">
+              <span className="text-xs text-slate-500 font-bold">
+                安心定額
+              </span>
+              <span className="text-2xl sm:text-3xl font-black text-[#0C74B3]">
+                {price}
+              </span>
+              <span className="text-xs font-bold text-slate-800">円 ~</span>
+              <span className="text-[9px] text-[#D97706] bg-amber-50 px-2 py-0.5 rounded-full font-bold ml-auto border border-amber-100">
+                見積り無料
+              </span>
+            </div>
           )}
         </div>
 
         {/* Right column inside card: Title + Description + Checklist */}
-        <div className="lg:col-span-7 space-y-6 flex flex-col justify-between h-full w-full">
-          <div className="space-y-4">
+        <div className="lg:col-span-7 space-y-4 flex flex-col justify-between h-full w-full">
+          <div className="space-y-3">
             
             {/* Desktop Title & Badge (Hidden on mobile/tablet) */}
             <div className="hidden lg:block">
-              <span className="bg-[#E2F1FB] text-[#0C74B3] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">
+              <span className="bg-[#E2F1FB] text-[#0C74B3] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mb-1.5 inline-block">
                 {badge}
               </span>
-              <h3 className="text-2xl sm:text-3xl font-black text-jeimas-blue-dark leading-tight flex items-center gap-3">
+              <h3 className="text-xl sm:text-2xl font-black text-jeimas-blue-dark leading-tight flex items-center gap-3">
                 {icon && <span className="w-8 h-8 text-[#0C74B3] shrink-0">{icon}</span>}
                 <span>{title}</span>
               </h3>
             </div>
 
             {/* Description - narrower column makes it much easier to read! */}
-            <p className="text-sm text-slate-600 leading-relaxed font-semibold">
+            <p className="text-sm text-slate-600 leading-relaxed font-medium">
               {description}
             </p>
           </div>
@@ -121,14 +106,14 @@ export default function ServiceCard({
           {/* Features Checklist */}
           {!isDemolition && (
             <div>
-              <h4 className="text-xs text-slate-400 font-black tracking-wider uppercase mb-3">サービスの特徴</h4>
-              <ul className="space-y-3">
+              <h4 className="text-xs text-slate-400 font-black tracking-wider uppercase mb-2">サービスの特徴</h4>
+              <ul className="space-y-2">
                 {features.map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-2.5 text-sm text-slate-600">
                     <svg className="w-5 h-5 text-[#3AB33E] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
                     </svg>
-                    <span className="font-semibold">{feature}</span>
+                    <span className="font-medium">{feature}</span>
                   </li>
                 ))}
               </ul>

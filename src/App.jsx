@@ -780,44 +780,11 @@ export default function App() {
             </div>
 
             {/* Section Footer Callout */}
-            <div className="mt-12 text-center space-y-6">
+            <div className="mt-12 text-center">
               <p className="text-xs sm:text-sm text-slate-500 font-semibold leading-relaxed">
                 ※お引取り・お買取の可否は、お品物の状態や年式などにより細かく変動いたします。<br className="hidden sm:inline" />
                 詳細なリユース査定や買取のご相談は、お気軽にフリーダイヤルにてお問い合わせください。
               </p>
-
-              {/* Action Buttons (Phone & LINE) */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-lg mx-auto pt-2">
-                {/* LINE Button */}
-                <a 
-                  href="https://line.me/ti/p/XbHxvB_Kbu" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#06C755] hover:bg-[#05b04b] text-white font-extrabold py-3 px-8 rounded-full shadow-[0_4px_12px_rgba(6,199,85,0.3)] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 cursor-pointer"
-                >
-                  <svg className="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 5.84 2 10.58c0 2.9 1.7 5.48 4.38 7.09l-.46 2.8c-.08.48.27.67.66.41l3.86-2.31c.5.07 1 .11 1.56.11 5.52 0 10-3.84 10-8.58S17.52 2 12 2z"/>
-                  </svg>
-                  <div className="text-left leading-tight">
-                    <p className="text-[10px] opacity-90 tracking-wider">LINEでかんたん</p>
-                    <p className="text-base font-black">無料相談</p>
-                  </div>
-                </a>
-
-                {/* Toll-Free Call Button */}
-                <a 
-                  href="tel:0120-502-622" 
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-aoneko-pink to-[#E0006C] text-white font-extrabold py-3 px-8 rounded-full shadow-[0_4px_12px_rgba(255,0,127,0.3)] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 cursor-pointer"
-                >
-                  <svg className="w-4.5 h-4.5 fill-none stroke-current stroke-[2.5] shrink-0" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                  <div className="text-left leading-tight">
-                    <p className="text-[10px] opacity-90 tracking-wider">通話無料でお問い合わせ</p>
-                    <p className="text-base font-black">0120-502-622</p>
-                  </div>
-                </a>
-              </div>
             </div>
           </div>
         </section>
@@ -1132,32 +1099,6 @@ export default function App() {
                     <p className="text-xs text-slate-600 font-semibold leading-relaxed">
                       お急ぎの場合は、LINEでのお見積りまたはお電話（フリーダイヤル）でのご連絡が便利です。
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-3 pt-1">
-                      {/* LINE quote link */}
-                      <a 
-                        href="https://line.me/ti/p/XbHxvB_Kbu" 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="inline-flex items-center justify-center gap-2 bg-[#06C755] hover:bg-[#05b04b] text-white font-extrabold text-xs py-2.5 px-5 rounded-full shadow-sm hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer"
-                      >
-                        {/* LINE SVG */}
-                        <svg className="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
-                          <path d="M12 2C6.48 2 2 5.84 2 10.58c0 2.9 1.7 5.48 4.38 7.09l-.46 2.8c-.08.48.27.67.66.41l3.86-2.31c.5.07 1 .11 1.56.11 5.52 0 10-3.84 10-8.58S17.52 2 12 2z"/>
-                        </svg>
-                        <span>LINEで即時見積もり</span>
-                      </a>
-
-                      {/* Phone call link */}
-                      <a 
-                        href="tel:0120-502-622" 
-                        className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-aoneko-pink to-[#E0006C] text-white font-extrabold text-xs py-2.5 px-5 rounded-full shadow-sm hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer"
-                      >
-                        <svg className="w-3.5 h-3.5 fill-none stroke-current stroke-[2.5] shrink-0" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                        </svg>
-                        <span>電話する（0120-502-622）</span>
-                      </a>
-                    </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
