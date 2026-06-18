@@ -218,6 +218,9 @@ export default function ServiceCard({
         </div>
       )}
 
+      {/* Spacer to push aircon content slightly higher on desktop */}
+      {title === "エアコンクリーニング" && <div className="hidden lg:block lg:h-16 shrink-0" />}
+
       {/* Hover Glow Line */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-transparent via-[#0C74B3] to-transparent group-hover:w-full transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
     </article>
