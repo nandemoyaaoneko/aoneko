@@ -208,9 +208,10 @@ export default function AiChatWidget() {
       {/* Floating Button with permanent text label to its left */}
       <div className="flex items-center gap-2">
         {!isOpen && (
-          <div className="bg-white/95 backdrop-blur-sm text-[#0C74B3] border border-sky-100 text-[10px] sm:text-xs font-black px-3.5 py-2.5 rounded-full shadow-md whitespace-nowrap select-none flex items-center gap-1.5 animate-pulse">
+          <div className="bg-white/95 backdrop-blur-sm text-[#0C74B3] border border-sky-100 text-[10px] sm:text-xs font-black px-3.5 py-2.5 rounded-full shadow-md whitespace-nowrap select-none flex items-center gap-2 animate-pulse">
             <span className="w-1.5 h-1.5 bg-[#0C74B3] rounded-full animate-ping" />
-            <span>🤖 AI Chatで相談</span>
+            <img src="/assets/icon_ai_chat.png" alt="AI Chat" className="w-4 h-4 object-contain rounded-full shrink-0" />
+            <span>AI Chatで相談</span>
           </div>
         )}
         
