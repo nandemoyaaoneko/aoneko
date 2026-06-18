@@ -1280,34 +1280,36 @@ export default function App() {
           {/* Subtle blue decoration in background */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-[#0C74B3]/5 rounded-full blur-2xl pointer-events-none" />
 
-          <div className="max-w-4xl mx-auto space-y-6 relative z-10">
-            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-[-0.02em]">
-              暮らしの「困った」を今すぐ解消！
-            </h2>
-            <p className="text-sm sm:text-base text-sky-100 font-bold">
-              ご相談・お見積りは無料です。まずはお気軽にお電話ください。
-            </p>
-            
-            {/* Massive Aoneko Red CTA Button */}
-            <a 
-              href="tel:0120-502-622" 
-              className="shine-button inline-flex items-center justify-center gap-4 bg-gradient-to-r from-aoneko-pink to-[#E0006C] text-white font-extrabold py-5 px-10 rounded-[2.5rem] border border-white/10 shadow-[0_12px_28px_-6px_rgba(255,0,127,0.6),0_8px_16px_-6px_rgba(255,0,127,0.35)] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 mt-4"
-            >
-              <div className="bg-white/20 p-2.5 rounded-full">
-                <svg className="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-              </div>
-              <div className="text-left">
-                <p className="text-[10px] opacity-90 tracking-wider">24時間受付中・通話料無料</p>
-                <p className="text-xl sm:text-2xl font-black">0120-502-622</p>
-              </div>
-            </a>
+          <div className="max-w-7xl mx-auto space-y-12 relative z-10">
+            <div className="max-w-4xl mx-auto space-y-6">
+              <h2 className="text-3xl sm:text-4xl font-black text-white tracking-[-0.02em]">
+                暮らしの「困った」を今すぐ解消！
+              </h2>
+              <p className="text-sm sm:text-base text-sky-100 font-bold">
+                ご相談・お見積りは無料です。まずはお気軽にお電話ください。
+              </p>
+              
+              {/* Massive Aoneko Red CTA Button */}
+              <a 
+                href="tel:0120-502-622" 
+                className="shine-button inline-flex items-center justify-center gap-4 bg-gradient-to-r from-aoneko-pink to-[#E0006C] text-white font-extrabold py-5 px-10 rounded-[2.5rem] border border-white/10 shadow-[0_12px_28px_-6px_rgba(255,0,127,0.6),0_8px_16px_-6px_rgba(255,0,127,0.35)] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 mt-4"
+              >
+                <div className="bg-white/20 p-2.5 rounded-full">
+                  <svg className="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                </div>
+                <div className="text-left">
+                  <p className="text-[10px] opacity-90 tracking-wider">24時間受付中・通話料無料</p>
+                  <p className="text-xl sm:text-2xl font-black">0120-502-622</p>
+                </div>
+              </a>
+            </div>
+
+            {/* Coverage Area / SEO Routes Index Section */}
+            <CoverageSection />
           </div>
         </section>
-
-        {/* Coverage Area / SEO Routes Index Section */}
-        <CoverageSection />
       </main>
 
       {/* Footer */}
