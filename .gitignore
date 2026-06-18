@@ -8,7 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist
+# dist (committing build output for Hostinger static deployment)
 dist-ssr
 *.local
 .env
