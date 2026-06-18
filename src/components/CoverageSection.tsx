@@ -78,7 +78,6 @@ export default function CoverageSection() {
         }
 
         if (allRoutes.length > 0) {
-          // Sort to keep links structured by city and service type
           allRoutes.sort((a, b) => {
             const prefComp = a.prefecture.localeCompare(b.prefecture, 'ja');
             if (prefComp !== 0) return prefComp;
@@ -100,76 +99,37 @@ export default function CoverageSection() {
 
   const activeLinks = routes.length > 0 ? routes : fallbackLinks;
 
-  // Filter links by prefecture
-  const aichiLinks = activeLinks.filter((link) => link.prefecture === '愛知県');
-  const mieLinks = activeLinks.filter((link) => link.prefecture === '三重県');
-  const gifuLinks = activeLinks.filter((link) => link.prefecture === '岐阜県');
+  return (
+    <div className="w-full mt-8 pt-6 border-t border-white/10 text-center">
+      {/* Visible premium header indicating service coverage areas */}
+      <div className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white font-extrabold text-xs sm:text-sm tracking-wider shadow-sm hover:bg-white/10 transition-all duration-300">
+        <span className="relative flex h-2 w-2">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
+        </span>
+        <span>対応エリア：東海三県全域（愛知県・三重県・岐阜県）</span>
+      </div>
 
-  const renderLinkGrid = (links: RouteData[]) => {
-    return (
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2 pt-2">
-        {links.map((link) => (
-          <a
-            key={link.slug}
-            href={`/${link.slug}`}
-            className="bg-white/10 hover:bg-white/20 text-white border border-white/10 hover:border-white/25 rounded-xl py-1.5 px-3 text-[10px] sm:text-xs font-semibold transition-all duration-300 shadow-sm text-center truncate block"
-          >
-            {link.city_name}（{serviceShortNames[link.service_type] || link.service_type}）
+      {/* GEO/SEO Shadow: Visually hidden container optimized exclusively for search engine and AI crawlers */}
+      <div 
+        style={{ 
+          position: 'absolute', 
+          width: '1px', 
+          height: '1px', 
+          padding: '0', 
+          margin: '-1px', 
+          overflow: 'hidden', 
+          clip: 'rect(0, 0, 0, 0)', 
+          whiteSpace: 'nowrap', 
+          borderWidth: '0' 
+        }}
+      >
+        {activeLinks.map((link) => (
+          <a key={link.slug} href={`/${link.slug}`}>
+            何でも屋 青ねこ {link.prefecture}{link.city_name}の便利屋サービス（{serviceShortNames[link.service_type] || link.service_type}）
           </a>
         ))}
       </div>
-    );
-  };
-
-  return (
-    <div className="w-full mt-12 pt-8 border-t border-white/10 text-left">
-      <h3 className="text-base sm:text-lg font-black text-white tracking-wide mb-2">
-        📍 東海三県・詳細出張対応エリア（SEO・AIインデックス用）
-      </h3>
-      <p className="text-[10px] sm:text-xs text-sky-100/70 font-semibold mb-6">
-        ※各市区町村での専門サービス案内ページ一覧です。AI検索エンジンおよび各種ロボットがインデックスするために登録されています。
-      </p>
-
-      {loading ? (
-        <div className="flex justify-center py-4">
-          <svg className="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
-            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-          </svg>
-        </div>
-      ) : (
-        <div className="space-y-6">
-          {/* Aichi prefecture links */}
-          {aichiLinks.length > 0 && (
-            <div>
-              <h4 className="text-xs sm:text-sm font-black text-white/95 border-b border-white/10 pb-1.5 mb-3">
-                【愛知県】
-              </h4>
-              {renderLinkGrid(aichiLinks)}
-            </div>
-          )}
-
-          {/* Mie prefecture links */}
-          {mieLinks.length > 0 && (
-            <div className="pt-2">
-              <h4 className="text-xs sm:text-sm font-black text-white/95 border-b border-white/10 pb-1.5 mb-3">
-                【三重県】
-              </h4>
-              {renderLinkGrid(mieLinks)}
-            </div>
-          )}
-
-          {/* Gifu prefecture links */}
-          {gifuLinks.length > 0 && (
-            <div className="pt-2">
-              <h4 className="text-xs sm:text-sm font-black text-white/95 border-b border-white/10 pb-1.5 mb-3">
-                【岐阜県】
-              </h4>
-              {renderLinkGrid(gifuLinks)}
-            </div>
-          )}
-        </div>
-      )}
     </div>
   );
 }
