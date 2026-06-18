@@ -23,7 +23,7 @@ export default function ServiceCard({
   const isDemolition = title.includes("プチ解体");
 
   return (
-    <article className="bg-white rounded-[32px] border border-[#E0EEF6] shadow-premium p-5 sm:p-6 lg:p-8 flex flex-col justify-center h-full relative overflow-hidden transition-all duration-300">
+    <article className="bg-white rounded-[32px] border border-[#E0EEF6] shadow-premium p-5 sm:p-6 lg:p-8 flex flex-col justify-start h-full relative overflow-hidden transition-all duration-300">
       
       {/* Mobile Title & Badge (Visible only on mobile/tablet) */}
       <div className="lg:hidden mb-4 w-full relative z-10">
@@ -217,9 +217,6 @@ export default function ServiceCard({
           </div>
         </div>
       )}
-
-      {/* Spacer to push aircon content slightly higher on desktop */}
-      {title === "エアコンクリーニング" && <div className="hidden lg:block lg:h-16 shrink-0" />}
 
       {/* Hover Glow Line */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-transparent via-[#0C74B3] to-transparent group-hover:w-full transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
