@@ -65,7 +65,7 @@ const services = [
       "室内造作・大型DIY家具・カウンターの解体"
     ],
     icon: (
-      <img src="/assets/icon_demolition.png" alt="プチ解体 アイコン" className="w-full h-full object-cover rounded-lg" />
+      <img src="/assets/icon_demolition.jpg" alt="プチ解体 アイコン" className="w-full h-full object-cover rounded-lg" />
     )
   },
   {
