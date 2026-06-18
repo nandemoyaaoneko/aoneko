@@ -130,27 +130,14 @@ export default function HeroSection({ seoRoute = null }) {
               : slide.description}
           </p>
 
-          {/* Main CTA Button in Aoneko Red (#DC2626) with border-radius: 2.5rem and shine sweep */}
-          <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-start w-full pt-4">
-            <a 
-              href="tel:0120-502-622" 
-              className="shine-button w-full sm:w-auto flex items-center justify-center gap-4 bg-gradient-to-r from-aoneko-pink to-[#E0006C] text-white font-extrabold py-5 px-10 rounded-[2.5rem] border border-white/10 shadow-[0_12px_28px_-6px_rgba(255,0,127,0.5),0_8px_16px_-6px_rgba(255,0,127,0.3)] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 shrink-0"
-            >
-              <div className="bg-white/20 p-2.5 rounded-full">
-                <svg className="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-              </div>
-              <div className="text-left">
-                <p className="text-[10px] opacity-90 tracking-wider">通話料無料・24時間365日受付</p>
-                <p className="text-lg sm:text-xl md:text-2xl font-black">0120-502-622</p>
-              </div>
-            </a>
-
-            <div className="text-slate-600 text-xs sm:text-sm font-bold text-left space-y-1">
-              <p className="text-slate-800">＼ お見積りは完全無料！ ／</p>
-              <p className="text-slate-[#E0006C] font-extrabold leading-relaxed">相見積もり大歓迎！他社様のお見積り提示でさらに10%OFFの割引を適用！</p>
-            </div>
+          {/* Marketing callout text */}
+          <div className="text-slate-600 text-xs sm:text-sm font-bold text-left space-y-1.5 pt-4">
+            <p className="text-slate-800 font-extrabold text-sm sm:text-base">
+              ＼ お見積りは完全無料！24時間即日対応 ／
+            </p>
+            <p className="text-[#E0006C] font-extrabold text-sm sm:text-base leading-relaxed">
+              相見積もり大歓迎！他社様のお見積り提示でさらに<span className="bg-[#E0006C]/10 text-[#E0006C] border border-[#E0006C]/20 px-2.5 py-0.5 rounded-full inline-block font-extrabold text-xs sm:text-sm ml-1">10%OFF</span>の割引を適用！
+            </p>
           </div>
         </div>
       </div>
