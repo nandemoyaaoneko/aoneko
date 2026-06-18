@@ -55,7 +55,7 @@ const services = [
     detailTitle: "プチ解体（屋外構造物の分解・お引取りサポート）",
     price: "10,000",
     badge: "安心のプロ解体",
-    imageSrc: "/assets/service_demolition.png",
+    imageSrc: "/assets/service_demolition.jpg",
     description: "古くなったウッドデッキ、サビついて動かない物置、処分に困るベランダの波板など、大がかりな工事会社を呼ぶほどではない「小さなお困りごと」を、安心の物流品質でスピーディに解決します。",
     locationTag: "愛知・岐阜・三重",
     features: [
