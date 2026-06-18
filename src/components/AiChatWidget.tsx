@@ -112,7 +112,7 @@ export default function AiChatWidget() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+    <div className="fixed bottom-48 md:bottom-26 right-6 z-50 flex flex-col items-end">
       {/* Chat window panel */}
       {isOpen && (
         <div className="w-[330px] sm:w-[380px] h-[500px] bg-white rounded-[2.5rem] shadow-2xl border border-sky-100 flex flex-col overflow-hidden mb-4 animate-fade-in">
@@ -205,33 +205,35 @@ export default function AiChatWidget() {
         </div>
       )}
 
-      {/* Floating Circle Button */}
-      <button
-        type="button"
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-r from-[#0C74B3] to-[#085a8d] text-white shadow-lg flex items-center justify-center hover:scale-105 active:scale-95 transition-all duration-300 relative cursor-pointer group border border-white/20"
-        aria-label="AIチャットアシスタントを開く"
-      >
-        {isOpen ? (
-          <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        ) : (
-          <div className="relative w-8 h-8 sm:w-9 sm:h-9">
-            <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-            </svg>
-            <span className="absolute -top-1.5 -right-1.5 w-3 h-3 bg-aoneko-pink rounded-full border border-white animate-pulse" />
+      {/* Floating Button with permanent text label to its left */}
+      <div className="flex items-center gap-2">
+        {!isOpen && (
+          <div className="bg-white/95 backdrop-blur-sm text-[#0C74B3] border border-sky-100 text-[10px] sm:text-xs font-black px-3.5 py-2.5 rounded-full shadow-md whitespace-nowrap select-none flex items-center gap-1.5 animate-pulse">
+            <span className="w-1.5 h-1.5 bg-[#0C74B3] rounded-full animate-ping" />
+            <span>🤖 AI Chatで相談</span>
           </div>
         )}
         
-        {/* Floating tooltip hover label */}
-        {!isOpen && (
-          <span className="absolute right-18 bg-[#00234B] text-white text-[10px] sm:text-xs font-bold px-3 py-1.5 rounded-full shadow-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none border border-sky-900/50">
-            💬 AIに見積もり相談
-          </span>
-        )}
-      </button>
+        <button
+          type="button"
+          onClick={() => setIsOpen(!isOpen)}
+          className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-r from-[#0C74B3] to-[#085a8d] text-white shadow-lg flex items-center justify-center hover:scale-105 active:scale-95 transition-all duration-300 relative cursor-pointer group border border-white/20 shrink-0"
+          aria-label="AIチャットアシスタントを開く"
+        >
+          {isOpen ? (
+            <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <div className="relative w-8 h-8 sm:w-9 sm:h-9">
+              <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+              </svg>
+              <span className="absolute -top-1.5 -right-1.5 w-3 h-3 bg-aoneko-pink rounded-full border border-white animate-pulse" />
+            </div>
+          )}
+        </button>
+      </div>
     </div>
   );
 }
