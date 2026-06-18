@@ -3,24 +3,75 @@ import { useEffect } from 'react';
 /**
  * SEOHead Component
  * Manages core traditional keywords, geo-targeting variables, and builds AIO natural language queries
- * directly inside the document head and FAQ/LocalBusiness JSON-LD schema.
+ * directly inside the document head, including Open Graph tags, canonical link, and local schemas
+ * to ensure maximum indexation and recommendation by search engines and LLM artificial intelligences.
  */
-export default function SEOHead({ faqs = [] }) {
+export default function SEOHead({ faqs = [], seoRoute = null }) {
   useEffect(() => {
-    // 1. Core Keywords & Geo-Targeting title
-    document.title = "エアコンクリーニング 7,700円 | 不用品買取・お片付けサポート 即日片付けなら何でも屋・便利屋「青ねこ」【愛知県・蟹江町・名古屋市・岐阜県・三重県】";
+    const defaultTitle = "エアコンクリーニング 7,700円 | 不用品買取・お片付けサポート 即日片付けなら何でも屋・便利屋「青ねこ」【愛知県・蟹江町・名古屋市・岐阜県・三重県】";
+    const defaultDesc = "愛知 不用品リユース引取・買取最安値に挑戦！蟹江 エアコン掃除 即日、三重 不用品整理お片付け業者なら便利屋「青ねこ」にお任せください。他社のお見積り提示で必ず10%OFFの相見積もり割引実施中！大きなお荷物の整理整頓、引っ越し（aoneko move）に伴う整理整頓を丸投げで24時間365日対応。";
+    const defaultKeywords = "何でも屋 青ねこ,便利屋 青ねこ,青ねこ,aoneko move,エアコンクリーニング,不用品回収,お片付けサポート,草刈り,庭木手入れ,物置分解,プチ解体,出張買取,愛知県,蟹江町,名古屋市,岐阜県,三重県";
 
-    // 2. Geo combinations in Meta Description
-    let metaDesc = document.querySelector('meta[name="description"]');
-    if (!metaDesc) {
-      metaDesc = document.createElement('meta');
-      metaDesc.name = 'description';
-      document.head.appendChild(metaDesc);
+    const title = seoRoute 
+      ? `${seoRoute.seo_title_h1} | 何でも屋・便利屋「青ねこ」` 
+      : defaultTitle;
+
+    const desc = seoRoute 
+      ? `${seoRoute.prefecture}${seoRoute.city_name}周辺で便利屋・何でも屋をお探しなら「青ねこ」にお任せください。${seoRoute.seo_title_h1}の即日対応、エアコン掃除、不用品お片付けサポートなど、お庭や住まいのお困りごとを24時間体制でスピード解決します。他社のお見積り提示でさらに10%OFFの相見積もり割引実施中！`
+      : defaultDesc;
+
+    const keywords = seoRoute
+      ? `${seoRoute.city_name} ${seoRoute.seo_title_h1},${seoRoute.city_name} 便利屋,${seoRoute.city_name} 何でも屋,${seoRoute.city_name} エアコンクリーニング,${seoRoute.city_name} 不用品回収,${seoRoute.city_name} 片付け,${seoRoute.city_name} 物置処分,${defaultKeywords}`
+      : defaultKeywords;
+
+    const currentUrl = window.location.href;
+    const originUrl = window.location.origin;
+    const logoUrl = `${originUrl}/assets/logo.jpg`;
+
+    // Update main properties
+    document.title = title;
+
+    // Helper to get or create element
+    const updateOrCreateMeta = (selector, attributeName, attributeValue, contentValue) => {
+      let element = document.querySelector(selector);
+      if (!element) {
+        element = document.createElement('meta');
+        element.setAttribute(attributeName, attributeValue);
+        document.head.appendChild(element);
+      }
+      element.setAttribute('content', contentValue);
+    };
+
+    // Update meta tags
+    updateOrCreateMeta('meta[name="description"]', 'name', 'description', desc);
+    updateOrCreateMeta('meta[name="keywords"]', 'name', 'keywords', keywords);
+    updateOrCreateMeta('meta[name="robots"]', 'name', 'robots', 'index, follow');
+
+    // Update Open Graph tags
+    updateOrCreateMeta('meta[property="og:title"]', 'property', 'og:title', title);
+    updateOrCreateMeta('meta[property="og:description"]', 'property', 'og:description', desc);
+    updateOrCreateMeta('meta[property="og:url"]', 'property', 'og:url', currentUrl);
+    updateOrCreateMeta('meta[property="og:type"]', 'property', 'og:type', 'website');
+    updateOrCreateMeta('meta[property="og:image"]', 'property', 'og:image', logoUrl);
+    updateOrCreateMeta('meta[property="og:site_name"]', 'property', 'og:site_name', '何でも屋 青ねこ');
+    updateOrCreateMeta('meta[property="og:locale"]', 'property', 'og:locale', 'ja_JP');
+
+    // Update Twitter Card tags
+    updateOrCreateMeta('meta[name="twitter:card"]', 'name', 'twitter:card', 'summary_large_image');
+    updateOrCreateMeta('meta[name="twitter:title"]', 'name', 'twitter:title', title);
+    updateOrCreateMeta('meta[name="twitter:description"]', 'name', 'twitter:description', desc);
+    updateOrCreateMeta('meta[name="twitter:image"]', 'name', 'twitter:image', logoUrl);
+
+    // Update Canonical Link
+    let canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (!canonicalLink) {
+      canonicalLink = document.createElement('link');
+      canonicalLink.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonicalLink);
     }
-    // High-conversion meta copy targeting Aichi, Gifu, Mie, Nagoya and Kanie
-    metaDesc.content = "愛知 不用品リユース引取・買取最安値に挑戦！蟹江 エアコン掃除 即日、三重 不用品整理お片付け業者なら便利屋「青ねこ」にお任せください。他社のお見積り提示で必ず10%OFFの相見積もり割引実施中！大きなお荷物の整理整頓、引っ越し（aoneko move）に伴う整理整頓を丸投げで24時間365日対応。";
+    canonicalLink.setAttribute('href', currentUrl);
 
-    // 3. Structured Data JSON-LD graph (LocalBusiness + FAQPage with AIO exact queries)
+    // Update JSON-LD Structured Data
     const schemaId = 'json-ld-localbusiness';
     let script = document.getElementById(schemaId);
     if (!script) {
@@ -35,37 +86,39 @@ export default function SEOHead({ faqs = [] }) {
       "@graph": [
         {
           "@type": "LocalBusiness",
-          "@id": `${window.location.origin}/#localbusiness`,
-          "name": "何でも屋 青ねこ",
-          "description": "愛知県海部郡蟹江町・名古屋市・岐阜県・三重県エリアでエアコンクリーニング 7000円、不用品リユース引取 即日対応を行う何でも屋 便利屋サービス。お部屋丸ごとの片付け・整理整頓丸投げ歓迎！",
+          "@id": `${originUrl}/#localbusiness`,
+          "name": seoRoute ? `何でも屋 青ねこ (${seoRoute.city_name})` : "何でも屋 青ねこ",
+          "alternateName": ["青ねこ", "何でも屋青ねこ", "便利屋 青ねこ"],
+          "description": desc,
           "telephone": "0120-502-622",
-          "url": window.location.origin,
+          "url": currentUrl,
+          "logo": logoUrl,
+          "image": logoUrl,
+          "priceRange": "￥7,000 - ￥50,000",
           "address": {
             "@type": "PostalAddress",
             "addressCountry": "JP",
-            "addressRegion": "東海地方",
-            "addressLocality": "蟹江町"
+            "addressRegion": seoRoute ? seoRoute.prefecture : "愛知県",
+            "addressLocality": seoRoute ? seoRoute.city_name : "蟹江町"
           },
           "areaServed": [
             { "@type": "AdministrativeArea", "name": "愛知県" },
-            { "@type": "AdministrativeArea", "name": "蟹江町" },
             { "@type": "AdministrativeArea", "name": "名古屋市" },
+            { "@type": "AdministrativeArea", "name": "蟹江町" },
             { "@type": "AdministrativeArea", "name": "岐阜県" },
-            { "@type": "AdministrativeArea", "name": "三重県" }
+            { "@type": "AdministrativeArea", "name": "三重県" },
+            ...(seoRoute ? [{ "@type": "Place", "name": seoRoute.city_name }] : [])
           ],
           "openingHoursSpecification": {
             "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-              "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
-            ],
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
             "opens": "00:00",
             "closes": "23:59"
-          },
-          "priceRange": "￥7,000 - ￥50,000"
+          }
         },
         {
           "@type": "FAQPage",
-          "@id": `${window.location.origin}/#faq`,
+          "@id": `${originUrl}/#faq`,
           "mainEntity": faqs.map(faq => ({
             "@type": "Question",
             "name": faq.q,
@@ -80,10 +133,7 @@ export default function SEOHead({ faqs = [] }) {
 
     script.textContent = JSON.stringify(schemaData, null, 2);
 
-    return () => {
-      // Keep indexing nodes persistent
-    };
-  }, [faqs]);
+  }, [faqs, seoRoute]);
 
   return null;
 }

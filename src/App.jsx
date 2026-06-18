@@ -13,6 +13,8 @@ import services from './data/services';
 import steps from './data/steps';
 import { securityPoints, compliancePoints } from './data/securityCompliance';
 import faqs from './data/faqs';
+import { supabase } from './lib/supabaseClient';
+import { SeoStructuredData } from './components/SeoStructuredData';
 
 export default function App() {
   const WEB3FORMS_ACCESS_KEY = "1eac69c5-f18d-4203-912a-6f4ae0752065";
@@ -21,6 +23,56 @@ export default function App() {
   const [activeFaq, setActiveFaq] = useState(0);
   const [activeServiceIdx, setActiveServiceIdx] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [seoRoute, setSeoRoute] = useState(null);
+
+  useEffect(() => {
+    const fetchSeoRoute = async () => {
+      const pathSlug = window.location.pathname.replace(/^\//, '').trim();
+      if (!pathSlug) return;
+
+      try {
+        const { data, error } = await supabase
+          .from('local_seo_routes')
+          .select('*')
+          .eq('slug', pathSlug)
+          .eq('is_active', true)
+          .single();
+
+        if (error) {
+          console.warn('No active local SEO route found for slug:', pathSlug, error.message);
+          return;
+        }
+
+        if (data) {
+          setSeoRoute(data);
+          
+          // Map service type to active service index
+          const getServiceIndexByType = (type) => {
+            switch (type) {
+              case 'aircon': return 0;
+              case 'katatsuke':
+              case 'gomi':
+              case 'kaitori':
+              case 'taiya':
+              case 'kogu':
+                return 1;
+              case 'niwa': return 2;
+              case 'monooki': return 3;
+              case 'hikoshi': return 4;
+              default: return 0;
+            }
+          };
+
+          const targetIdx = getServiceIndexByType(data.service_type);
+          setActiveServiceIdx(targetIdx);
+        }
+      } catch (err) {
+        console.error('Error fetching dynamic local SEO route:', err);
+      }
+    };
+
+    fetchSeoRoute();
+  }, []);
 
   // Web3Forms Form states
   const [formData, setFormData] = useState({
@@ -183,7 +235,16 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-slate-700 antialiased font-sans">
-      <SEOHead faqs={faqs} />
+      <SEOHead faqs={faqs} seoRoute={seoRoute} />
+      {seoRoute && (
+        <SeoStructuredData 
+          cityName={seoRoute.city_name}
+          prefecture={seoRoute.prefecture}
+          serviceType={seoRoute.service_type}
+          title={seoRoute.seo_title_h1}
+          slug={seoRoute.slug}
+        />
+      )}
 
       {/* Header (Top) */}
       <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-sky-100/50 shadow-sm">
@@ -317,7 +378,7 @@ export default function App() {
       {/* Main semantic container */}
       <main className="flex-grow">
         {/* Hero Section */}
-        <HeroSection />
+        <HeroSection seoRoute={seoRoute} />
 
         {/* Services Section ("サービス一覧") */}
         <section className="py-24 bg-[#EAF5FC]/40 relative overflow-hidden" id="services">

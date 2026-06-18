@@ -6,7 +6,7 @@ import { useState, useEffect, useCallback } from 'react';
  * distributed into a balanced 2-column layout (Left: content, Right: search queries box) with smooth fade-in/fade-out transitions.
  * Includes large next/prev navigation buttons and line indicators.
  */
-export default function HeroSection() {
+export default function HeroSection({ seoRoute = null }) {
   const slides = [
     {
       image: '/assets/service_rubbish.jpg',
@@ -45,7 +45,7 @@ export default function HeroSection() {
           剪定・伐採まで丸投げ
         </>
       ),
-      description: '伸び放題の雑草対策や、大きくなりすぎた庭木の手入れでお困りですか？草刈り・枝切りから後片付けまで全てお任せください。',
+      description: '伸び放題 of 雑草対策や、大きくなりすぎた庭木の手入れでお困りですか？草刈り・枝切りから後片付けまで全てお任せください。',
       queries: [
         '「伸び放題の雑草や大きくなりすぎた庭木のお手入れ」でお困りなら、草刈り・除草からお引取り・整理整頓まで即日丸投げでスッキリ解決いたします。'
       ]
@@ -115,17 +115,19 @@ export default function HeroSection() {
           
           {/* Top Asymmetrical Badge with Logo blue accent */}
           <div className="inline-flex items-center gap-2 bg-[#00234B] text-white font-extrabold text-xs sm:text-sm px-6 py-2.5 rounded-r-full rounded-tl-full shadow-lg tracking-wider border-l-4 border-[#0C74B3]">
-            {slide.badge}
+            {seoRoute ? `${seoRoute.prefecture}${seoRoute.city_name}エリア 即日対応！` : slide.badge}
           </div>
 
           {/* Main Title (font-weight: 900 Black, tracking: -0.015em) */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-jeimas-blue-dark leading-tight tracking-[-0.015em] drop-shadow-[0_2px_10px_rgba(243,249,253,0.8)]">
-            {slide.title}
+            {seoRoute ? seoRoute.seo_title_h1 : slide.title}
           </h1>
 
           {/* Descriptive body text with editorial left border */}
           <p className="text-base sm:text-lg md:text-xl text-slate-700 font-semibold leading-relaxed max-w-2xl min-h-[4.5rem] border-l-[3px] border-[#0C74B3]/80 pl-5">
-            {slide.description}
+            {seoRoute 
+              ? `${seoRoute.prefecture}${seoRoute.city_name}周辺のお困りごとは「便利屋 青ねこ」にお任せください！エアコンクリーニング、不用品引取お片付けサポート、草刈り、物置分解までスピーディに即日対応します。` 
+              : slide.description}
           </p>
 
           {/* Main CTA Button in Aoneko Red (#DC2626) with border-radius: 2.5rem and shine sweep */}
