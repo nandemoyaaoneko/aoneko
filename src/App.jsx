@@ -305,13 +305,13 @@ export default function App() {
             {/* Compact Call button in Aoneko Red (Mobile only) */}
             <a 
               href="tel:0120-502-622" 
-              className="shine-button md:hidden flex items-center gap-1.5 bg-gradient-to-r from-aoneko-pink to-[#E0006C] text-white font-extrabold py-2 px-3 sm:px-3.5 rounded-[2.5rem] border border-white/10 shadow-[0_4px_12px_-3px_rgba(255,0,127,0.45)] transition-all duration-300 shrink-0"
+              className="shine-button md:hidden flex items-center gap-2 bg-gradient-to-r from-aoneko-pink to-[#E0006C] text-white font-extrabold py-2.5 px-4 sm:px-5 rounded-[2.5rem] border border-white/10 shadow-[0_4px_12px_-3px_rgba(255,0,127,0.45)] transition-all duration-300 shrink-0"
               aria-label="フリーダイヤル 0120-502-622 で電話をかける"
             >
               <svg className="w-4 h-4 text-white animate-bounce shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
-              <span className="text-[11px] sm:text-xs font-black tracking-tight leading-none">0120-502-622</span>
+              <span className="text-xs sm:text-sm font-black tracking-normal leading-none">0120-502-622</span>
             </a>
 
             {/* Hamburger Menu Button */}
