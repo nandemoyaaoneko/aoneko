@@ -29,6 +29,7 @@ export default function App() {
     const fetchSeoRoute = async () => {
       const pathSlug = window.location.pathname.replace(/^\//, '').trim();
       if (!pathSlug) return;
+      if (!supabase) return;
 
       try {
         const { data, error } = await supabase
