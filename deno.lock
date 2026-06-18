@@ -1,7 +1,11 @@
 {
   "version": "5",
+  "redirects": {
+    "https://esm.sh/@types/react@~18.3.26/index.d.ts": "https://esm.sh/@types/react@18.3.31/index.d.ts"
+  },
   "remote": {
-    "https://esm.sh/@supabase/supabase-js@2.48.0": "7aba8f6c9d88a2f505859f86fe8120b5d744c30624d2e1ffbc1107fad164d061"
+    "https://esm.sh/@supabase/supabase-js@2.48.0": "7aba8f6c9d88a2f505859f86fe8120b5d744c30624d2e1ffbc1107fad164d061",
+    "https://esm.sh/react@18.3.1": "336090fd1f03fdb9530dce4ac761717b5e1e1a630c775bac184ec4ee0809cf89"
   },
   "workspace": {
     "packageJson": {
