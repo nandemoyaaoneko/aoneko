@@ -71,6 +71,25 @@ export default function SEOHead({ faqs = [], seoRoute = null }) {
     }
     canonicalLink.setAttribute('href', currentUrl);
 
+    // Update Favicon Link
+    let faviconLink = document.querySelector('link[rel="icon"][type="image/x-icon"]');
+    if (!faviconLink) {
+      faviconLink = document.createElement('link');
+      faviconLink.setAttribute('rel', 'icon');
+      faviconLink.setAttribute('type', 'image/x-icon');
+      document.head.appendChild(faviconLink);
+    }
+    faviconLink.setAttribute('href', '/favicon.ico');
+
+    // Update Apple Touch Icon
+    let appleTouchLink = document.querySelector('link[rel="apple-touch-icon"]');
+    if (!appleTouchLink) {
+      appleTouchLink = document.createElement('link');
+      appleTouchLink.setAttribute('rel', 'apple-touch-icon');
+      document.head.appendChild(appleTouchLink);
+    }
+    appleTouchLink.setAttribute('href', '/assets/logo-avatar.png');
+
     // Update JSON-LD Structured Data
     const schemaId = 'json-ld-localbusiness';
     let script = document.getElementById(schemaId);
