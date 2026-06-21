@@ -13,7 +13,10 @@ export default function HeroSection({ seoRoute = null }) {
       badge: '愛知・岐阜・三重エリア最短30分！',
       title: (
         <>
-          暮らしの「困った」を<br />
+          <span className="bg-gradient-to-r from-aoneko-pink to-[#E0006C] bg-clip-text text-transparent inline-block">
+            暮らしの「困った」を
+          </span>
+          <br />
           スッキリ解決します
         </>
       ),
@@ -27,7 +30,10 @@ export default function HeroSection({ seoRoute = null }) {
       badge: 'エアコンクリーニング 1台 7,000円！',
       title: (
         <>
-          プロの技術で徹底洗浄<br />
+          <span className="bg-gradient-to-r from-aoneko-pink to-[#E0006C] bg-clip-text text-transparent inline-block">
+            プロの技術で徹底洗浄
+          </span>
+          <br />
           エアコン・お部屋掃除
         </>
       ),
@@ -41,7 +47,10 @@ export default function HeroSection({ seoRoute = null }) {
       badge: '即日対応！お庭のお手入れ',
       title: (
         <>
-          お庭の草刈り・除草から<br />
+          <span className="bg-gradient-to-r from-aoneko-pink to-[#E0006C] bg-clip-text text-transparent inline-block">
+            お庭の草刈り・除草から
+          </span>
+          <br />
           剪定・伐採まで丸投げ
         </>
       ),

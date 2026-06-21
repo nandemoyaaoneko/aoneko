@@ -388,7 +388,7 @@ export default function App() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-6 border-b border-[#E0EEF6] pb-6">
               <div className="text-left">
-                <h2 className="text-3xl sm:text-4xl font-black text-jeimas-blue-dark tracking-[-0.02em]">
+                <h2 className="text-3xl sm:text-4xl font-black tracking-[-0.02em] bg-gradient-to-r from-aoneko-pink to-[#E0006C] bg-clip-text text-transparent inline-block">
                   サービス一覧
                 </h2>
                 <p className="text-sm sm:text-base text-slate-500 mt-2 font-bold">
@@ -544,7 +544,7 @@ export default function App() {
             {/* Header Section */}
             <div className="text-center mb-16 border-b border-sky-100 pb-8">
               <p className="inline-block bg-sky-100/50 text-sky-800 text-sm font-bold px-4 py-1.5 rounded-full mb-4">情報セキュリティ対策</p>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-sky-950 mb-4">安心・安全への確かな取り組み</h2>
+              <h2 className="text-3xl md:text-4xl font-extrabold mb-4 bg-gradient-to-r from-aoneko-pink to-[#E0006C] bg-clip-text text-transparent inline-block">安心・安全への確かな取り組み</h2>
               <h3 className="text-xl md:text-2xl font-semibold text-sky-800 max-w-2xl mx-auto">
                 経済産業省推進「SECURITY ACTION」一つ星宣言企業
               </h3>
@@ -615,7 +615,7 @@ export default function App() {
         <section className="py-20 bg-gradient-to-b from-[#F0F9FF]/30 to-white px-4 sm:px-6 lg:px-8" id="process">
           <div className="max-w-7xl mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl sm:text-4xl font-black text-jeimas-blue-dark tracking-[-0.02em]">
+              <h2 className="text-3xl sm:text-4xl font-black tracking-[-0.02em] bg-gradient-to-r from-aoneko-pink to-[#E0006C] bg-clip-text text-transparent inline-block">
                 お片付けサービスの流れ
               </h2>
               <div className="h-1.5 w-16 bg-[#0C74B3] mx-auto mt-4 rounded-full" />
@@ -676,7 +676,7 @@ export default function App() {
               <span className="inline-block bg-[#EAF5FC] text-[#0C74B3] text-xs font-black px-4 py-1.5 rounded-full mb-4 tracking-wider uppercase">
                 お片付け主要品目
               </span>
-              <h2 className="text-3xl sm:text-4xl font-black text-jeimas-blue-dark tracking-[-0.02em]">
+              <h2 className="text-3xl sm:text-4xl font-black tracking-[-0.02em] bg-gradient-to-r from-aoneko-pink to-[#E0006C] bg-clip-text text-transparent inline-block">
                 お片付け主要品目
               </h2>
               <div className="h-1.5 w-16 bg-[#0C74B3] mx-auto mt-4 rounded-full" />
@@ -792,7 +792,7 @@ export default function App() {
         {/* FAQ Section ("よくある質問") */}
         <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto" id="faq">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-black text-jeimas-blue-dark tracking-[-0.02em]">
+            <h2 className="text-3xl sm:text-4xl font-black tracking-[-0.02em] bg-gradient-to-r from-aoneko-pink to-[#E0006C] bg-clip-text text-transparent inline-block">
               よくある質問
             </h2>
             <div className="h-1.5 w-16 bg-[#0C74B3] mx-auto mt-4 rounded-full" />
@@ -852,7 +852,7 @@ export default function App() {
               <span className="inline-block bg-[#EAF5FC] text-[#0C74B3] text-xs font-black px-4 py-1.5 rounded-full mb-4 tracking-wider uppercase">
                 何でも屋 青ねこの強み
               </span>
-              <h2 className="text-3xl sm:text-4xl font-black text-jeimas-blue-dark tracking-[-0.02em]">
+              <h2 className="text-3xl sm:text-4xl font-black tracking-[-0.02em] bg-gradient-to-r from-aoneko-pink to-[#E0006C] bg-clip-text text-transparent inline-block">
                 安心して選べる強み
               </h2>
               <div className="h-1.5 w-16 bg-[#0C74B3] mx-auto mt-4 rounded-full" />
@@ -1056,7 +1056,7 @@ export default function App() {
         <section className="py-24 bg-gradient-to-b from-white to-[#EAF5FC]/20 px-4 sm:px-6 lg:px-8" id="contact">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-black text-jeimas-blue-dark tracking-[-0.02em]">
+              <h2 className="text-3xl sm:text-4xl font-black tracking-[-0.02em] bg-gradient-to-r from-aoneko-pink to-[#E0006C] bg-clip-text text-transparent inline-block">
                 お問い合わせフォーム
               </h2>
               <div className="h-1.5 w-16 bg-[#0C74B3] mx-auto mt-4 rounded-full" />
@@ -1223,7 +1223,7 @@ export default function App() {
 
           <div className="max-w-7xl mx-auto space-y-12 relative z-10">
             <div className="max-w-4xl mx-auto space-y-6">
-              <h2 className="text-3xl sm:text-4xl font-black text-white tracking-[-0.02em]">
+              <h2 className="text-3xl sm:text-4xl font-black tracking-[-0.02em] bg-gradient-to-r from-aoneko-pink to-[#E0006C] bg-clip-text text-transparent inline-block">
                 暮らしの「困った」を今すぐ解消！
               </h2>
               <p className="text-sm sm:text-base text-sky-100 font-bold">

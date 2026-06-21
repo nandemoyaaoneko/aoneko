@@ -32,7 +32,9 @@ export default function ServiceCard({
         </span>
         <h3 className="text-xl sm:text-2xl font-black text-jeimas-blue-dark leading-tight flex items-center gap-3">
           {icon && <span className="w-8 h-8 text-[#0C74B3] shrink-0">{icon}</span>}
-          <span>{title}</span>
+          <span className="bg-gradient-to-r from-aoneko-pink to-[#E0006C] bg-clip-text text-transparent inline-block">
+            {title}
+          </span>
         </h3>
       </div>
 
@@ -91,7 +93,9 @@ export default function ServiceCard({
               </span>
               <h3 className="text-xl sm:text-2xl font-black text-jeimas-blue-dark leading-tight flex items-center gap-3">
                 {icon && <span className="w-8 h-8 text-[#0C74B3] shrink-0">{icon}</span>}
-                <span>{title}</span>
+                <span className="bg-gradient-to-r from-aoneko-pink to-[#E0006C] bg-clip-text text-transparent inline-block">
+                  {title}
+                </span>
               </h3>
             </div>
 
