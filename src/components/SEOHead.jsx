@@ -12,13 +12,36 @@ export default function SEOHead({ faqs = [], seoRoute = null }) {
     const defaultDesc = "愛知 不用品リユース引取・買取最安値に挑戦！蟹江 エアコン掃除 即日、三重 不用品整理お片付け業者なら便利屋「青ねこ」にお任せください。他社のお見積り提示で必ず10%OFFの相見積もり割引実施中！大きなお荷物の整理整頓、引っ越し（aoneko move）に伴う整理整頓を丸投げで24時間365日対応。";
     const defaultKeywords = "何でも屋 青ねこ,便利屋 青ねこ,青ねこ,aoneko move,エアコンクリーニング,不用品回収,お片付けサポート,草刈り,庭木手入れ,物置分解,プチ解体,出張買取,愛知県,蟹江町,名古屋市,岐阜県,三重県";
 
-    const title = seoRoute 
-      ? `${seoRoute.seo_title_h1} | 何でも屋・便利屋「青ねこ」` 
-      : defaultTitle;
+    const serviceTranslations = {
+      'pasokon-shuri': 'パソコン修理・データ復旧・画面修理',
+      'kusakari': '草刈り・庭木手入れ・エアコンクリーニング',
+      'sokujitsu': '即日対応・24時間受付・夜間対応',
+      'keitora-hikoshi': '軽トラ引越し・不用品回収・ゴミ屋敷片付け'
+    };
 
-    const desc = seoRoute 
-      ? `${seoRoute.prefecture}${seoRoute.city_name}周辺で便利屋・何でも屋をお探しなら「青ねこ」にお任せください。${seoRoute.seo_title_h1}の即日対応、エアコン掃除、不用品お片付けサポートなど、お庭や住まいのお困りごとを24時間体制でスピード解決します。他社のお見積り提示でさらに10%OFFの相見積もり割引実施中！`
-      : defaultDesc;
+    let title = defaultTitle;
+    let desc = defaultDesc;
+
+    if (seoRoute) {
+      let isComposite = false;
+      let serviceTranslated = '';
+      
+      for (const [key, val] of Object.entries(serviceTranslations)) {
+        if (seoRoute.slug.endsWith(key) || seoRoute.service_type === key) {
+          isComposite = true;
+          serviceTranslated = val;
+          break;
+        }
+      }
+
+      if (isComposite) {
+        title = `【公式】便利屋 青ねこ ${seoRoute.prefecture}${seoRoute.city_name} | ${serviceTranslated} 24時間即日対応`;
+        desc = `${seoRoute.prefecture}${seoRoute.city_name}周辺で便利屋・何でも屋をお探しなら「便利屋 青ねこ」にお任せください。${serviceTranslated}の即日対応、エアコン掃除、不用品お片付けサポートなど、お庭や住まいのお困りごとを24時間体制でスピード解決します。他社のお見積り提示でさらに10%OFFの相見積もり割引実施中！`;
+      } else {
+        title = `${seoRoute.seo_title_h1} | 何でも屋・便利屋「青ねこ」`;
+        desc = `${seoRoute.prefecture}${seoRoute.city_name}周辺で便利屋・何でも屋をお探しなら「青ねこ」にお任せください。${seoRoute.seo_title_h1}の即日対応、エアコン掃除、不用品お片付けサポートなど、お庭や住まいのお困りごとを24時間体制でスピード解決します。他社のお見積り提示でさらに10%OFFの相見積もり割引実施中！`;
+      }
+    }
 
     const keywords = seoRoute
       ? `${seoRoute.city_name} ${seoRoute.seo_title_h1},${seoRoute.city_name} 便利屋,${seoRoute.city_name} 何でも屋,${seoRoute.city_name} エアコンクリーニング,${seoRoute.city_name} 不用品回収,${seoRoute.city_name} 片付け,${seoRoute.city_name} 物置処分,${defaultKeywords}`

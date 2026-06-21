@@ -47,6 +47,27 @@ export default function App() {
         }
 
         if (data) {
+          const serviceTranslations = {
+            'pasokon-shuri': 'パソコン修理・データ復旧・画面修理',
+            'kusakari': '草刈り・庭木手入れ・エアコンクリーニング',
+            'sokujitsu': '即日対応・24時間受付・夜間対応',
+            'keitora-hikoshi': '軽トラ引越し・不用品回収・ゴミ屋敷片付け'
+          };
+          
+          let isComposite = false;
+          let serviceTranslated = '';
+          for (const [key, val] of Object.entries(serviceTranslations)) {
+            if (data.slug.endsWith(key) || data.service_type === key) {
+              isComposite = true;
+              serviceTranslated = val;
+              break;
+            }
+          }
+          
+          if (isComposite) {
+            data.seo_title_h1 = `【公式】便利屋 青ねこ ${data.prefecture}${data.city_name} | ${serviceTranslated} 24時間即日対応`;
+          }
+
           setSeoRoute(data);
           
           // Map service type to active service index
@@ -62,6 +83,10 @@ export default function App() {
               case 'niwa': return 2;
               case 'monooki': return 3;
               case 'hikoshi': return 4;
+              case 'pasokon-shuri': return 0;
+              case 'kusakari': return 2;
+              case 'sokujitsu': return 0;
+              case 'keitora-hikoshi': return 4;
               default: return 0;
             }
           };
