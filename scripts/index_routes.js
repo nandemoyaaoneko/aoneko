@@ -74,8 +74,13 @@ async function runIndexing() {
 
   // 4. Filter for routes that have not been indexed yet
   const alreadyIndexedSet = new Set(indexingLogs.indexed_slugs);
-  const unindexedRoutes = allRoutes.filter(r => !alreadyIndexedSet.has(r.slug));
-  console.log(`Found ${unindexedRoutes.length} unindexed URLs.`);
+  const startSlug = indexingLogs.start_slug || null;
+  const unindexedRoutes = allRoutes.filter(r => {
+    if (alreadyIndexedSet.has(r.slug)) return false;
+    if (startSlug && r.slug < startSlug) return false;
+    return true;
+  });
+  console.log(`Found ${unindexedRoutes.length} unindexed URLs (skipping slugs before: ${startSlug || 'none'}).`);
 
   if (unindexedRoutes.length === 0) {
     console.log('All URLs are already indexed! Exiting.');
